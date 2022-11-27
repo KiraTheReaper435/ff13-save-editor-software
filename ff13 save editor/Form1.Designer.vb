@@ -82,11 +82,6 @@ Partial Class Form1
         Me.VanStr = New System.Windows.Forms.TextBox()
         Me.VanCP = New System.Windows.Forms.TextBox()
         Me.VanHP = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.HopeATBButton = New System.Windows.Forms.Button()
         Me.HopeMagButton = New System.Windows.Forms.Button()
@@ -135,6 +130,11 @@ Partial Class Form1
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -249,7 +249,7 @@ Partial Class Form1
         'TpSuccessMessage
         '
         Me.TpSuccessMessage.AutoSize = True
-        Me.TpSuccessMessage.Location = New System.Drawing.Point(312, 109)
+        Me.TpSuccessMessage.Location = New System.Drawing.Point(467, 199)
         Me.TpSuccessMessage.Name = "TpSuccessMessage"
         Me.TpSuccessMessage.Size = New System.Drawing.Size(104, 15)
         Me.TpSuccessMessage.TabIndex = 7
@@ -259,7 +259,7 @@ Partial Class Form1
         'CrystariumSuccessMessage
         '
         Me.CrystariumSuccessMessage.AutoSize = True
-        Me.CrystariumSuccessMessage.Location = New System.Drawing.Point(14, 103)
+        Me.CrystariumSuccessMessage.Location = New System.Drawing.Point(156, 199)
         Me.CrystariumSuccessMessage.Name = "CrystariumSuccessMessage"
         Me.CrystariumSuccessMessage.Size = New System.Drawing.Size(198, 15)
         Me.CrystariumSuccessMessage.TabIndex = 6
@@ -268,7 +268,7 @@ Partial Class Form1
         '
         'TPValueBox
         '
-        Me.TPValueBox.Location = New System.Drawing.Point(298, 38)
+        Me.TPValueBox.Location = New System.Drawing.Point(467, 134)
         Me.TPValueBox.MaxLength = 4
         Me.TPValueBox.Name = "TPValueBox"
         Me.TPValueBox.Size = New System.Drawing.Size(100, 23)
@@ -276,7 +276,7 @@ Partial Class Form1
         '
         'TPButton
         '
-        Me.TPButton.Location = New System.Drawing.Point(310, 67)
+        Me.TPButton.Location = New System.Drawing.Point(479, 163)
         Me.TPButton.Name = "TPButton"
         Me.TPButton.Size = New System.Drawing.Size(75, 23)
         Me.TPButton.TabIndex = 4
@@ -286,7 +286,7 @@ Partial Class Form1
         'TPMessage
         '
         Me.TPMessage.AutoSize = True
-        Me.TPMessage.Location = New System.Drawing.Point(295, 20)
+        Me.TPMessage.Location = New System.Drawing.Point(464, 116)
         Me.TPMessage.Name = "TPMessage"
         Me.TPMessage.Size = New System.Drawing.Size(103, 15)
         Me.TPMessage.TabIndex = 3
@@ -294,7 +294,7 @@ Partial Class Form1
         '
         'CrystariumLevelButton
         '
-        Me.CrystariumLevelButton.Location = New System.Drawing.Point(14, 67)
+        Me.CrystariumLevelButton.Location = New System.Drawing.Point(183, 163)
         Me.CrystariumLevelButton.Name = "CrystariumLevelButton"
         Me.CrystariumLevelButton.Size = New System.Drawing.Size(145, 23)
         Me.CrystariumLevelButton.TabIndex = 2
@@ -305,7 +305,7 @@ Partial Class Form1
         '
         Me.CrystariumComboBox.FormattingEnabled = True
         Me.CrystariumComboBox.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
-        Me.CrystariumComboBox.Location = New System.Drawing.Point(14, 38)
+        Me.CrystariumComboBox.Location = New System.Drawing.Point(183, 134)
         Me.CrystariumComboBox.Name = "CrystariumComboBox"
         Me.CrystariumComboBox.Size = New System.Drawing.Size(145, 23)
         Me.CrystariumComboBox.TabIndex = 1
@@ -313,7 +313,7 @@ Partial Class Form1
         'CrystariumLevelMessage
         '
         Me.CrystariumLevelMessage.AutoSize = True
-        Me.CrystariumLevelMessage.Location = New System.Drawing.Point(14, 20)
+        Me.CrystariumLevelMessage.Location = New System.Drawing.Point(183, 116)
         Me.CrystariumLevelMessage.Name = "CrystariumLevelMessage"
         Me.CrystariumLevelMessage.Size = New System.Drawing.Size(95, 15)
         Me.CrystariumLevelMessage.TabIndex = 0
@@ -346,33 +346,33 @@ Partial Class Form1
         '
         'LightStr
         '
-        Me.LightStr.Location = New System.Drawing.Point(291, 30)
-        Me.LightStr.MaxLength = 4
+        Me.LightStr.Location = New System.Drawing.Point(338, 29)
+        Me.LightStr.MaxLength = 6
         Me.LightStr.Name = "LightStr"
         Me.LightStr.Size = New System.Drawing.Size(75, 23)
         Me.LightStr.TabIndex = 25
         '
         'LightATBButton
         '
-        Me.LightATBButton.Location = New System.Drawing.Point(561, 67)
+        Me.LightATBButton.Location = New System.Drawing.Point(626, 70)
         Me.LightATBButton.Name = "LightATBButton"
-        Me.LightATBButton.Size = New System.Drawing.Size(84, 23)
+        Me.LightATBButton.Size = New System.Drawing.Size(75, 23)
         Me.LightATBButton.TabIndex = 24
         Me.LightATBButton.Text = "Update ATB"
         Me.LightATBButton.UseVisualStyleBackColor = True
         '
         'LightMagButton
         '
-        Me.LightMagButton.Location = New System.Drawing.Point(423, 67)
+        Me.LightMagButton.Location = New System.Drawing.Point(488, 70)
         Me.LightMagButton.Name = "LightMagButton"
-        Me.LightMagButton.Size = New System.Drawing.Size(82, 23)
+        Me.LightMagButton.Size = New System.Drawing.Size(75, 23)
         Me.LightMagButton.TabIndex = 23
         Me.LightMagButton.Text = "Update Mag"
         Me.LightMagButton.UseVisualStyleBackColor = True
         '
         'LightStrButton
         '
-        Me.LightStrButton.Location = New System.Drawing.Point(291, 67)
+        Me.LightStrButton.Location = New System.Drawing.Point(338, 70)
         Me.LightStrButton.Name = "LightStrButton"
         Me.LightStrButton.Size = New System.Drawing.Size(75, 23)
         Me.LightStrButton.TabIndex = 22
@@ -381,7 +381,7 @@ Partial Class Form1
         '
         'LightCPButton
         '
-        Me.LightCPButton.Location = New System.Drawing.Point(147, 67)
+        Me.LightCPButton.Location = New System.Drawing.Point(197, 70)
         Me.LightCPButton.Name = "LightCPButton"
         Me.LightCPButton.Size = New System.Drawing.Size(75, 23)
         Me.LightCPButton.TabIndex = 21
@@ -390,7 +390,7 @@ Partial Class Form1
         '
         'LightHPButton
         '
-        Me.LightHPButton.Location = New System.Drawing.Point(3, 67)
+        Me.LightHPButton.Location = New System.Drawing.Point(67, 70)
         Me.LightHPButton.Name = "LightHPButton"
         Me.LightHPButton.Size = New System.Drawing.Size(75, 23)
         Me.LightHPButton.TabIndex = 20
@@ -399,40 +399,40 @@ Partial Class Form1
         '
         'LightATB
         '
-        Me.LightATB.Location = New System.Drawing.Point(561, 30)
+        Me.LightATB.Location = New System.Drawing.Point(626, 29)
         Me.LightATB.MaxLength = 1
         Me.LightATB.Name = "LightATB"
-        Me.LightATB.Size = New System.Drawing.Size(84, 23)
+        Me.LightATB.Size = New System.Drawing.Size(75, 23)
         Me.LightATB.TabIndex = 19
         '
         'LightMag
         '
-        Me.LightMag.Location = New System.Drawing.Point(423, 30)
-        Me.LightMag.MaxLength = 4
+        Me.LightMag.Location = New System.Drawing.Point(488, 29)
+        Me.LightMag.MaxLength = 6
         Me.LightMag.Name = "LightMag"
-        Me.LightMag.Size = New System.Drawing.Size(81, 23)
+        Me.LightMag.Size = New System.Drawing.Size(75, 23)
         Me.LightMag.TabIndex = 18
         '
         'LightCP
         '
-        Me.LightCP.Location = New System.Drawing.Point(148, 30)
+        Me.LightCP.Location = New System.Drawing.Point(197, 29)
         Me.LightCP.MaxLength = 6
         Me.LightCP.Name = "LightCP"
-        Me.LightCP.Size = New System.Drawing.Size(74, 23)
+        Me.LightCP.Size = New System.Drawing.Size(75, 23)
         Me.LightCP.TabIndex = 16
         '
         'LightHP
         '
-        Me.LightHP.Location = New System.Drawing.Point(2, 30)
-        Me.LightHP.MaxLength = 5
+        Me.LightHP.Location = New System.Drawing.Point(67, 29)
+        Me.LightHP.MaxLength = 6
         Me.LightHP.Name = "LightHP"
-        Me.LightHP.Size = New System.Drawing.Size(74, 23)
+        Me.LightHP.Size = New System.Drawing.Size(75, 23)
         Me.LightHP.TabIndex = 15
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(582, 3)
+        Me.Label6.Location = New System.Drawing.Point(651, 11)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(27, 15)
         Me.Label6.TabIndex = 14
@@ -441,7 +441,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(450, 3)
+        Me.Label7.Location = New System.Drawing.Point(507, 11)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(31, 15)
         Me.Label7.TabIndex = 13
@@ -450,7 +450,7 @@ Partial Class Form1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(318, 3)
+        Me.Label8.Location = New System.Drawing.Point(366, 11)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(21, 15)
         Me.Label8.TabIndex = 12
@@ -459,7 +459,7 @@ Partial Class Form1
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(171, 3)
+        Me.Label9.Location = New System.Drawing.Point(223, 11)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(22, 15)
         Me.Label9.TabIndex = 11
@@ -468,7 +468,7 @@ Partial Class Form1
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(25, 3)
+        Me.Label10.Location = New System.Drawing.Point(92, 11)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(23, 15)
         Me.Label10.TabIndex = 10
@@ -501,25 +501,25 @@ Partial Class Form1
         '
         'SazhATBButton
         '
-        Me.SazhATBButton.Location = New System.Drawing.Point(559, 70)
+        Me.SazhATBButton.Location = New System.Drawing.Point(626, 70)
         Me.SazhATBButton.Name = "SazhATBButton"
-        Me.SazhATBButton.Size = New System.Drawing.Size(87, 23)
+        Me.SazhATBButton.Size = New System.Drawing.Size(75, 23)
         Me.SazhATBButton.TabIndex = 28
         Me.SazhATBButton.Text = "Update ATB"
         Me.SazhATBButton.UseVisualStyleBackColor = True
         '
         'SazhMagButton
         '
-        Me.SazhMagButton.Location = New System.Drawing.Point(428, 70)
+        Me.SazhMagButton.Location = New System.Drawing.Point(488, 70)
         Me.SazhMagButton.Name = "SazhMagButton"
-        Me.SazhMagButton.Size = New System.Drawing.Size(85, 23)
+        Me.SazhMagButton.Size = New System.Drawing.Size(75, 23)
         Me.SazhMagButton.TabIndex = 27
         Me.SazhMagButton.Text = "Update Mag"
         Me.SazhMagButton.UseVisualStyleBackColor = True
         '
         'SazhStrButton
         '
-        Me.SazhStrButton.Location = New System.Drawing.Point(289, 70)
+        Me.SazhStrButton.Location = New System.Drawing.Point(338, 70)
         Me.SazhStrButton.Name = "SazhStrButton"
         Me.SazhStrButton.Size = New System.Drawing.Size(75, 23)
         Me.SazhStrButton.TabIndex = 26
@@ -528,7 +528,7 @@ Partial Class Form1
         '
         'SazhCPButton
         '
-        Me.SazhCPButton.Location = New System.Drawing.Point(145, 70)
+        Me.SazhCPButton.Location = New System.Drawing.Point(197, 70)
         Me.SazhCPButton.Name = "SazhCPButton"
         Me.SazhCPButton.Size = New System.Drawing.Size(75, 23)
         Me.SazhCPButton.TabIndex = 25
@@ -537,7 +537,7 @@ Partial Class Form1
         '
         'SazhHPButton
         '
-        Me.SazhHPButton.Location = New System.Drawing.Point(-1, 70)
+        Me.SazhHPButton.Location = New System.Drawing.Point(67, 70)
         Me.SazhHPButton.Name = "SazhHPButton"
         Me.SazhHPButton.Size = New System.Drawing.Size(75, 23)
         Me.SazhHPButton.TabIndex = 24
@@ -546,48 +546,48 @@ Partial Class Form1
         '
         'SazhATB
         '
-        Me.SazhATB.Location = New System.Drawing.Point(559, 30)
+        Me.SazhATB.Location = New System.Drawing.Point(626, 29)
         Me.SazhATB.MaxLength = 1
         Me.SazhATB.Name = "SazhATB"
-        Me.SazhATB.Size = New System.Drawing.Size(87, 23)
+        Me.SazhATB.Size = New System.Drawing.Size(75, 23)
         Me.SazhATB.TabIndex = 19
         '
         'SazhMag
         '
-        Me.SazhMag.Location = New System.Drawing.Point(428, 30)
-        Me.SazhMag.MaxLength = 4
+        Me.SazhMag.Location = New System.Drawing.Point(488, 29)
+        Me.SazhMag.MaxLength = 6
         Me.SazhMag.Name = "SazhMag"
-        Me.SazhMag.Size = New System.Drawing.Size(85, 23)
+        Me.SazhMag.Size = New System.Drawing.Size(75, 23)
         Me.SazhMag.TabIndex = 18
         '
         'SazhStr
         '
-        Me.SazhStr.Location = New System.Drawing.Point(290, 30)
-        Me.SazhStr.MaxLength = 4
+        Me.SazhStr.Location = New System.Drawing.Point(338, 29)
+        Me.SazhStr.MaxLength = 6
         Me.SazhStr.Name = "SazhStr"
-        Me.SazhStr.Size = New System.Drawing.Size(74, 23)
+        Me.SazhStr.Size = New System.Drawing.Size(75, 23)
         Me.SazhStr.TabIndex = 17
         '
         'SazhCP
         '
-        Me.SazhCP.Location = New System.Drawing.Point(146, 30)
+        Me.SazhCP.Location = New System.Drawing.Point(197, 29)
         Me.SazhCP.MaxLength = 6
         Me.SazhCP.Name = "SazhCP"
-        Me.SazhCP.Size = New System.Drawing.Size(74, 23)
+        Me.SazhCP.Size = New System.Drawing.Size(75, 23)
         Me.SazhCP.TabIndex = 16
         '
         'SazhHP
         '
-        Me.SazhHP.Location = New System.Drawing.Point(0, 30)
-        Me.SazhHP.MaxLength = 5
+        Me.SazhHP.Location = New System.Drawing.Point(67, 29)
+        Me.SazhHP.MaxLength = 6
         Me.SazhHP.Name = "SazhHP"
-        Me.SazhHP.Size = New System.Drawing.Size(74, 23)
+        Me.SazhHP.Size = New System.Drawing.Size(75, 23)
         Me.SazhHP.TabIndex = 15
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(580, 3)
+        Me.Label11.Location = New System.Drawing.Point(651, 11)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(27, 15)
         Me.Label11.TabIndex = 14
@@ -596,7 +596,7 @@ Partial Class Form1
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(448, 3)
+        Me.Label12.Location = New System.Drawing.Point(507, 11)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(31, 15)
         Me.Label12.TabIndex = 13
@@ -605,7 +605,7 @@ Partial Class Form1
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(316, 3)
+        Me.Label13.Location = New System.Drawing.Point(366, 11)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(21, 15)
         Me.Label13.TabIndex = 12
@@ -614,7 +614,7 @@ Partial Class Form1
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(169, 3)
+        Me.Label14.Location = New System.Drawing.Point(223, 11)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(22, 15)
         Me.Label14.TabIndex = 11
@@ -623,7 +623,7 @@ Partial Class Form1
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(23, 3)
+        Me.Label15.Location = New System.Drawing.Point(92, 11)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(23, 15)
         Me.Label15.TabIndex = 10
@@ -656,25 +656,25 @@ Partial Class Form1
         '
         'VanATBButton
         '
-        Me.VanATBButton.Location = New System.Drawing.Point(561, 68)
+        Me.VanATBButton.Location = New System.Drawing.Point(626, 70)
         Me.VanATBButton.Name = "VanATBButton"
-        Me.VanATBButton.Size = New System.Drawing.Size(86, 23)
+        Me.VanATBButton.Size = New System.Drawing.Size(75, 23)
         Me.VanATBButton.TabIndex = 28
         Me.VanATBButton.Text = "Update ATB"
         Me.VanATBButton.UseVisualStyleBackColor = True
         '
         'VanMagButton
         '
-        Me.VanMagButton.Location = New System.Drawing.Point(430, 68)
+        Me.VanMagButton.Location = New System.Drawing.Point(488, 70)
         Me.VanMagButton.Name = "VanMagButton"
-        Me.VanMagButton.Size = New System.Drawing.Size(87, 23)
+        Me.VanMagButton.Size = New System.Drawing.Size(75, 23)
         Me.VanMagButton.TabIndex = 27
         Me.VanMagButton.Text = "Update Mag"
         Me.VanMagButton.UseVisualStyleBackColor = True
         '
         'VanStrButton
         '
-        Me.VanStrButton.Location = New System.Drawing.Point(292, 68)
+        Me.VanStrButton.Location = New System.Drawing.Point(338, 70)
         Me.VanStrButton.Name = "VanStrButton"
         Me.VanStrButton.Size = New System.Drawing.Size(75, 23)
         Me.VanStrButton.TabIndex = 26
@@ -683,7 +683,7 @@ Partial Class Form1
         '
         'VanCPButton
         '
-        Me.VanCPButton.Location = New System.Drawing.Point(148, 68)
+        Me.VanCPButton.Location = New System.Drawing.Point(197, 70)
         Me.VanCPButton.Name = "VanCPButton"
         Me.VanCPButton.Size = New System.Drawing.Size(75, 23)
         Me.VanCPButton.TabIndex = 25
@@ -692,7 +692,7 @@ Partial Class Form1
         '
         'VanHPButton
         '
-        Me.VanHPButton.Location = New System.Drawing.Point(0, 68)
+        Me.VanHPButton.Location = New System.Drawing.Point(67, 70)
         Me.VanHPButton.Name = "VanHPButton"
         Me.VanHPButton.Size = New System.Drawing.Size(75, 23)
         Me.VanHPButton.TabIndex = 24
@@ -701,88 +701,43 @@ Partial Class Form1
         '
         'VanATB
         '
-        Me.VanATB.Location = New System.Drawing.Point(561, 30)
+        Me.VanATB.Location = New System.Drawing.Point(626, 29)
         Me.VanATB.MaxLength = 1
         Me.VanATB.Name = "VanATB"
-        Me.VanATB.Size = New System.Drawing.Size(86, 23)
+        Me.VanATB.Size = New System.Drawing.Size(75, 23)
         Me.VanATB.TabIndex = 19
         '
         'VanMag
         '
-        Me.VanMag.Location = New System.Drawing.Point(430, 30)
-        Me.VanMag.MaxLength = 4
+        Me.VanMag.Location = New System.Drawing.Point(488, 29)
+        Me.VanMag.MaxLength = 6
         Me.VanMag.Name = "VanMag"
-        Me.VanMag.Size = New System.Drawing.Size(87, 23)
+        Me.VanMag.Size = New System.Drawing.Size(75, 23)
         Me.VanMag.TabIndex = 18
         '
         'VanStr
         '
-        Me.VanStr.Location = New System.Drawing.Point(292, 30)
-        Me.VanStr.MaxLength = 4
+        Me.VanStr.Location = New System.Drawing.Point(338, 29)
+        Me.VanStr.MaxLength = 6
         Me.VanStr.Name = "VanStr"
-        Me.VanStr.Size = New System.Drawing.Size(74, 23)
+        Me.VanStr.Size = New System.Drawing.Size(75, 23)
         Me.VanStr.TabIndex = 17
         '
         'VanCP
         '
-        Me.VanCP.Location = New System.Drawing.Point(148, 30)
+        Me.VanCP.Location = New System.Drawing.Point(197, 29)
         Me.VanCP.MaxLength = 6
         Me.VanCP.Name = "VanCP"
-        Me.VanCP.Size = New System.Drawing.Size(74, 23)
+        Me.VanCP.Size = New System.Drawing.Size(75, 23)
         Me.VanCP.TabIndex = 16
         '
         'VanHP
         '
-        Me.VanHP.Location = New System.Drawing.Point(2, 30)
-        Me.VanHP.MaxLength = 5
+        Me.VanHP.Location = New System.Drawing.Point(67, 29)
+        Me.VanHP.MaxLength = 6
         Me.VanHP.Name = "VanHP"
-        Me.VanHP.Size = New System.Drawing.Size(74, 23)
+        Me.VanHP.Size = New System.Drawing.Size(75, 23)
         Me.VanHP.TabIndex = 15
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(582, 3)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(27, 15)
-        Me.Label16.TabIndex = 14
-        Me.Label16.Text = "ATB"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(450, 3)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(31, 15)
-        Me.Label17.TabIndex = 13
-        Me.Label17.Text = "Mag"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(318, 3)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(21, 15)
-        Me.Label18.TabIndex = 12
-        Me.Label18.Text = "Str"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(171, 3)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(22, 15)
-        Me.Label19.TabIndex = 11
-        Me.Label19.Text = "CP"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(25, 3)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(23, 15)
-        Me.Label20.TabIndex = 10
-        Me.Label20.Text = "HP"
         '
         'TabPage6
         '
@@ -811,25 +766,25 @@ Partial Class Form1
         '
         'HopeATBButton
         '
-        Me.HopeATBButton.Location = New System.Drawing.Point(561, 73)
+        Me.HopeATBButton.Location = New System.Drawing.Point(626, 70)
         Me.HopeATBButton.Name = "HopeATBButton"
-        Me.HopeATBButton.Size = New System.Drawing.Size(86, 23)
+        Me.HopeATBButton.Size = New System.Drawing.Size(75, 23)
         Me.HopeATBButton.TabIndex = 28
         Me.HopeATBButton.Text = "Update ATB"
         Me.HopeATBButton.UseVisualStyleBackColor = True
         '
         'HopeMagButton
         '
-        Me.HopeMagButton.Location = New System.Drawing.Point(430, 73)
+        Me.HopeMagButton.Location = New System.Drawing.Point(488, 70)
         Me.HopeMagButton.Name = "HopeMagButton"
-        Me.HopeMagButton.Size = New System.Drawing.Size(87, 23)
+        Me.HopeMagButton.Size = New System.Drawing.Size(75, 23)
         Me.HopeMagButton.TabIndex = 27
         Me.HopeMagButton.Text = "Update Mag"
         Me.HopeMagButton.UseVisualStyleBackColor = True
         '
         'HopeStrButton
         '
-        Me.HopeStrButton.Location = New System.Drawing.Point(291, 73)
+        Me.HopeStrButton.Location = New System.Drawing.Point(338, 70)
         Me.HopeStrButton.Name = "HopeStrButton"
         Me.HopeStrButton.Size = New System.Drawing.Size(75, 23)
         Me.HopeStrButton.TabIndex = 26
@@ -838,7 +793,7 @@ Partial Class Form1
         '
         'HopeCPButton
         '
-        Me.HopeCPButton.Location = New System.Drawing.Point(148, 73)
+        Me.HopeCPButton.Location = New System.Drawing.Point(197, 70)
         Me.HopeCPButton.Name = "HopeCPButton"
         Me.HopeCPButton.Size = New System.Drawing.Size(75, 23)
         Me.HopeCPButton.TabIndex = 25
@@ -847,7 +802,7 @@ Partial Class Form1
         '
         'HopeHPButton
         '
-        Me.HopeHPButton.Location = New System.Drawing.Point(1, 73)
+        Me.HopeHPButton.Location = New System.Drawing.Point(67, 70)
         Me.HopeHPButton.Name = "HopeHPButton"
         Me.HopeHPButton.Size = New System.Drawing.Size(75, 23)
         Me.HopeHPButton.TabIndex = 24
@@ -856,48 +811,49 @@ Partial Class Form1
         '
         'HopeATB
         '
-        Me.HopeATB.Location = New System.Drawing.Point(561, 30)
+        Me.HopeATB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.HopeATB.Location = New System.Drawing.Point(626, 29)
         Me.HopeATB.MaxLength = 1
         Me.HopeATB.Name = "HopeATB"
-        Me.HopeATB.Size = New System.Drawing.Size(86, 23)
+        Me.HopeATB.Size = New System.Drawing.Size(75, 23)
         Me.HopeATB.TabIndex = 19
         '
         'HopeMag
         '
-        Me.HopeMag.Location = New System.Drawing.Point(430, 30)
-        Me.HopeMag.MaxLength = 4
+        Me.HopeMag.Location = New System.Drawing.Point(488, 29)
+        Me.HopeMag.MaxLength = 6
         Me.HopeMag.Name = "HopeMag"
-        Me.HopeMag.Size = New System.Drawing.Size(87, 23)
+        Me.HopeMag.Size = New System.Drawing.Size(75, 23)
         Me.HopeMag.TabIndex = 18
         '
         'HopeStr
         '
-        Me.HopeStr.Location = New System.Drawing.Point(292, 30)
-        Me.HopeStr.MaxLength = 4
+        Me.HopeStr.Location = New System.Drawing.Point(338, 29)
+        Me.HopeStr.MaxLength = 6
         Me.HopeStr.Name = "HopeStr"
-        Me.HopeStr.Size = New System.Drawing.Size(74, 23)
+        Me.HopeStr.Size = New System.Drawing.Size(75, 23)
         Me.HopeStr.TabIndex = 17
         '
         'HopeCP
         '
-        Me.HopeCP.Location = New System.Drawing.Point(148, 30)
+        Me.HopeCP.Location = New System.Drawing.Point(197, 29)
         Me.HopeCP.MaxLength = 6
         Me.HopeCP.Name = "HopeCP"
-        Me.HopeCP.Size = New System.Drawing.Size(74, 23)
+        Me.HopeCP.Size = New System.Drawing.Size(75, 23)
         Me.HopeCP.TabIndex = 16
         '
         'HopeHP
         '
-        Me.HopeHP.Location = New System.Drawing.Point(2, 30)
-        Me.HopeHP.MaxLength = 5
+        Me.HopeHP.Location = New System.Drawing.Point(67, 29)
+        Me.HopeHP.MaxLength = 6
         Me.HopeHP.Name = "HopeHP"
-        Me.HopeHP.Size = New System.Drawing.Size(74, 23)
+        Me.HopeHP.Size = New System.Drawing.Size(75, 23)
         Me.HopeHP.TabIndex = 15
         '
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(582, 3)
+        Me.Label21.Location = New System.Drawing.Point(651, 11)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(27, 15)
         Me.Label21.TabIndex = 14
@@ -906,7 +862,7 @@ Partial Class Form1
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(450, 3)
+        Me.Label22.Location = New System.Drawing.Point(507, 11)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(31, 15)
         Me.Label22.TabIndex = 13
@@ -915,7 +871,7 @@ Partial Class Form1
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(318, 3)
+        Me.Label23.Location = New System.Drawing.Point(366, 11)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(21, 15)
         Me.Label23.TabIndex = 12
@@ -924,7 +880,7 @@ Partial Class Form1
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(171, 3)
+        Me.Label24.Location = New System.Drawing.Point(223, 11)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(22, 15)
         Me.Label24.TabIndex = 11
@@ -933,7 +889,7 @@ Partial Class Form1
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(25, 3)
+        Me.Label25.Location = New System.Drawing.Point(92, 11)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(23, 15)
         Me.Label25.TabIndex = 10
@@ -966,25 +922,25 @@ Partial Class Form1
         '
         'FangATBButton
         '
-        Me.FangATBButton.Location = New System.Drawing.Point(562, 71)
+        Me.FangATBButton.Location = New System.Drawing.Point(626, 70)
         Me.FangATBButton.Name = "FangATBButton"
-        Me.FangATBButton.Size = New System.Drawing.Size(87, 23)
+        Me.FangATBButton.Size = New System.Drawing.Size(75, 23)
         Me.FangATBButton.TabIndex = 29
         Me.FangATBButton.Text = "Update ATB"
         Me.FangATBButton.UseVisualStyleBackColor = True
         '
         'FangMagButton
         '
-        Me.FangMagButton.Location = New System.Drawing.Point(431, 71)
+        Me.FangMagButton.Location = New System.Drawing.Point(488, 70)
         Me.FangMagButton.Name = "FangMagButton"
-        Me.FangMagButton.Size = New System.Drawing.Size(85, 23)
+        Me.FangMagButton.Size = New System.Drawing.Size(75, 23)
         Me.FangMagButton.TabIndex = 28
         Me.FangMagButton.Text = "Update Mag"
         Me.FangMagButton.UseVisualStyleBackColor = True
         '
         'FangStrButton
         '
-        Me.FangStrButton.Location = New System.Drawing.Point(293, 71)
+        Me.FangStrButton.Location = New System.Drawing.Point(338, 70)
         Me.FangStrButton.Name = "FangStrButton"
         Me.FangStrButton.Size = New System.Drawing.Size(75, 23)
         Me.FangStrButton.TabIndex = 27
@@ -993,7 +949,7 @@ Partial Class Form1
         '
         'FangCPButton
         '
-        Me.FangCPButton.Location = New System.Drawing.Point(148, 71)
+        Me.FangCPButton.Location = New System.Drawing.Point(197, 70)
         Me.FangCPButton.Name = "FangCPButton"
         Me.FangCPButton.Size = New System.Drawing.Size(75, 23)
         Me.FangCPButton.TabIndex = 26
@@ -1002,7 +958,7 @@ Partial Class Form1
         '
         'FangHPButton
         '
-        Me.FangHPButton.Location = New System.Drawing.Point(3, 71)
+        Me.FangHPButton.Location = New System.Drawing.Point(67, 70)
         Me.FangHPButton.Name = "FangHPButton"
         Me.FangHPButton.Size = New System.Drawing.Size(75, 23)
         Me.FangHPButton.TabIndex = 25
@@ -1011,48 +967,48 @@ Partial Class Form1
         '
         'FangATB
         '
-        Me.FangATB.Location = New System.Drawing.Point(562, 29)
+        Me.FangATB.Location = New System.Drawing.Point(626, 29)
         Me.FangATB.MaxLength = 1
         Me.FangATB.Name = "FangATB"
-        Me.FangATB.Size = New System.Drawing.Size(87, 23)
+        Me.FangATB.Size = New System.Drawing.Size(75, 23)
         Me.FangATB.TabIndex = 9
         '
         'FangMag
         '
-        Me.FangMag.Location = New System.Drawing.Point(431, 29)
-        Me.FangMag.MaxLength = 4
+        Me.FangMag.Location = New System.Drawing.Point(488, 29)
+        Me.FangMag.MaxLength = 6
         Me.FangMag.Name = "FangMag"
-        Me.FangMag.Size = New System.Drawing.Size(85, 23)
+        Me.FangMag.Size = New System.Drawing.Size(75, 23)
         Me.FangMag.TabIndex = 8
         '
         'FangStr
         '
-        Me.FangStr.Location = New System.Drawing.Point(293, 29)
-        Me.FangStr.MaxLength = 4
+        Me.FangStr.Location = New System.Drawing.Point(338, 29)
+        Me.FangStr.MaxLength = 6
         Me.FangStr.Name = "FangStr"
-        Me.FangStr.Size = New System.Drawing.Size(74, 23)
+        Me.FangStr.Size = New System.Drawing.Size(75, 23)
         Me.FangStr.TabIndex = 7
         '
         'FangCP
         '
-        Me.FangCP.Location = New System.Drawing.Point(149, 29)
+        Me.FangCP.Location = New System.Drawing.Point(197, 29)
         Me.FangCP.MaxLength = 6
         Me.FangCP.Name = "FangCP"
-        Me.FangCP.Size = New System.Drawing.Size(74, 23)
+        Me.FangCP.Size = New System.Drawing.Size(75, 23)
         Me.FangCP.TabIndex = 6
         '
         'FangHP
         '
-        Me.FangHP.Location = New System.Drawing.Point(3, 29)
-        Me.FangHP.MaxLength = 5
+        Me.FangHP.Location = New System.Drawing.Point(67, 29)
+        Me.FangHP.MaxLength = 6
         Me.FangHP.Name = "FangHP"
-        Me.FangHP.Size = New System.Drawing.Size(74, 23)
+        Me.FangHP.Size = New System.Drawing.Size(75, 23)
         Me.FangHP.TabIndex = 5
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(583, 2)
+        Me.Label5.Location = New System.Drawing.Point(651, 11)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(27, 15)
         Me.Label5.TabIndex = 4
@@ -1061,7 +1017,7 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(451, 2)
+        Me.Label4.Location = New System.Drawing.Point(507, 11)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(31, 15)
         Me.Label4.TabIndex = 3
@@ -1070,7 +1026,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(319, 2)
+        Me.Label3.Location = New System.Drawing.Point(366, 11)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(21, 15)
         Me.Label3.TabIndex = 2
@@ -1079,7 +1035,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(172, 2)
+        Me.Label2.Location = New System.Drawing.Point(223, 11)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(22, 15)
         Me.Label2.TabIndex = 1
@@ -1088,7 +1044,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(26, 2)
+        Me.Label1.Location = New System.Drawing.Point(92, 11)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(23, 15)
         Me.Label1.TabIndex = 0
@@ -1121,25 +1077,25 @@ Partial Class Form1
         '
         'SnowATBButton
         '
-        Me.SnowATBButton.Location = New System.Drawing.Point(560, 73)
+        Me.SnowATBButton.Location = New System.Drawing.Point(626, 70)
         Me.SnowATBButton.Name = "SnowATBButton"
-        Me.SnowATBButton.Size = New System.Drawing.Size(87, 23)
+        Me.SnowATBButton.Size = New System.Drawing.Size(75, 23)
         Me.SnowATBButton.TabIndex = 29
         Me.SnowATBButton.Text = "Update ATB"
         Me.SnowATBButton.UseVisualStyleBackColor = True
         '
         'SnowMagButton
         '
-        Me.SnowMagButton.Location = New System.Drawing.Point(429, 73)
+        Me.SnowMagButton.Location = New System.Drawing.Point(488, 70)
         Me.SnowMagButton.Name = "SnowMagButton"
-        Me.SnowMagButton.Size = New System.Drawing.Size(87, 23)
+        Me.SnowMagButton.Size = New System.Drawing.Size(75, 23)
         Me.SnowMagButton.TabIndex = 28
         Me.SnowMagButton.Text = "Update Mag"
         Me.SnowMagButton.UseVisualStyleBackColor = True
         '
         'SnowStrButton
         '
-        Me.SnowStrButton.Location = New System.Drawing.Point(291, 73)
+        Me.SnowStrButton.Location = New System.Drawing.Point(338, 70)
         Me.SnowStrButton.Name = "SnowStrButton"
         Me.SnowStrButton.Size = New System.Drawing.Size(75, 23)
         Me.SnowStrButton.TabIndex = 27
@@ -1148,7 +1104,7 @@ Partial Class Form1
         '
         'SnowCPButton
         '
-        Me.SnowCPButton.Location = New System.Drawing.Point(148, 73)
+        Me.SnowCPButton.Location = New System.Drawing.Point(197, 70)
         Me.SnowCPButton.Name = "SnowCPButton"
         Me.SnowCPButton.Size = New System.Drawing.Size(75, 23)
         Me.SnowCPButton.TabIndex = 26
@@ -1157,7 +1113,7 @@ Partial Class Form1
         '
         'SnowHPButton
         '
-        Me.SnowHPButton.Location = New System.Drawing.Point(0, 73)
+        Me.SnowHPButton.Location = New System.Drawing.Point(67, 70)
         Me.SnowHPButton.Name = "SnowHPButton"
         Me.SnowHPButton.Size = New System.Drawing.Size(75, 23)
         Me.SnowHPButton.TabIndex = 25
@@ -1166,48 +1122,48 @@ Partial Class Form1
         '
         'SnowATB
         '
-        Me.SnowATB.Location = New System.Drawing.Point(561, 30)
+        Me.SnowATB.Location = New System.Drawing.Point(626, 29)
         Me.SnowATB.MaxLength = 1
         Me.SnowATB.Name = "SnowATB"
-        Me.SnowATB.Size = New System.Drawing.Size(86, 23)
+        Me.SnowATB.Size = New System.Drawing.Size(75, 23)
         Me.SnowATB.TabIndex = 19
         '
         'SnowMag
         '
-        Me.SnowMag.Location = New System.Drawing.Point(430, 30)
-        Me.SnowMag.MaxLength = 4
+        Me.SnowMag.Location = New System.Drawing.Point(488, 29)
+        Me.SnowMag.MaxLength = 6
         Me.SnowMag.Name = "SnowMag"
-        Me.SnowMag.Size = New System.Drawing.Size(86, 23)
+        Me.SnowMag.Size = New System.Drawing.Size(75, 23)
         Me.SnowMag.TabIndex = 18
         '
         'SnowStr
         '
-        Me.SnowStr.Location = New System.Drawing.Point(292, 30)
-        Me.SnowStr.MaxLength = 4
+        Me.SnowStr.Location = New System.Drawing.Point(338, 29)
+        Me.SnowStr.MaxLength = 6
         Me.SnowStr.Name = "SnowStr"
-        Me.SnowStr.Size = New System.Drawing.Size(74, 23)
+        Me.SnowStr.Size = New System.Drawing.Size(75, 23)
         Me.SnowStr.TabIndex = 17
         '
         'SnowCP
         '
-        Me.SnowCP.Location = New System.Drawing.Point(148, 30)
+        Me.SnowCP.Location = New System.Drawing.Point(197, 29)
         Me.SnowCP.MaxLength = 6
         Me.SnowCP.Name = "SnowCP"
-        Me.SnowCP.Size = New System.Drawing.Size(74, 23)
+        Me.SnowCP.Size = New System.Drawing.Size(75, 23)
         Me.SnowCP.TabIndex = 16
         '
         'SnowHP
         '
-        Me.SnowHP.Location = New System.Drawing.Point(2, 30)
-        Me.SnowHP.MaxLength = 5
+        Me.SnowHP.Location = New System.Drawing.Point(67, 29)
+        Me.SnowHP.MaxLength = 6
         Me.SnowHP.Name = "SnowHP"
-        Me.SnowHP.Size = New System.Drawing.Size(74, 23)
+        Me.SnowHP.Size = New System.Drawing.Size(75, 23)
         Me.SnowHP.TabIndex = 15
         '
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(582, 3)
+        Me.Label26.Location = New System.Drawing.Point(651, 11)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(27, 15)
         Me.Label26.TabIndex = 14
@@ -1216,7 +1172,7 @@ Partial Class Form1
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(450, 3)
+        Me.Label27.Location = New System.Drawing.Point(507, 11)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(31, 15)
         Me.Label27.TabIndex = 13
@@ -1225,7 +1181,7 @@ Partial Class Form1
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(318, 3)
+        Me.Label28.Location = New System.Drawing.Point(366, 11)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(21, 15)
         Me.Label28.TabIndex = 12
@@ -1234,7 +1190,7 @@ Partial Class Form1
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(171, 3)
+        Me.Label29.Location = New System.Drawing.Point(223, 11)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(22, 15)
         Me.Label29.TabIndex = 11
@@ -1243,11 +1199,56 @@ Partial Class Form1
         'Label30
         '
         Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(25, 3)
+        Me.Label30.Location = New System.Drawing.Point(92, 11)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(23, 15)
         Me.Label30.TabIndex = 10
         Me.Label30.Text = "HP"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(651, 11)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(27, 15)
+        Me.Label16.TabIndex = 14
+        Me.Label16.Text = "ATB"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(507, 11)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(31, 15)
+        Me.Label17.TabIndex = 13
+        Me.Label17.Text = "Mag"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(366, 11)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(21, 15)
+        Me.Label18.TabIndex = 12
+        Me.Label18.Text = "Str"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(223, 11)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(22, 15)
+        Me.Label19.TabIndex = 11
+        Me.Label19.Text = "CP"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(92, 11)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(23, 15)
+        Me.Label20.TabIndex = 10
+        Me.Label20.Text = "HP"
         '
         'Form1
         '
@@ -1335,11 +1336,6 @@ Partial Class Form1
     Friend WithEvents VanStr As TextBox
     Friend WithEvents VanCP As TextBox
     Friend WithEvents VanHP As TextBox
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label20 As Label
     Friend WithEvents HopeATB As TextBox
     Friend WithEvents HopeMag As TextBox
     Friend WithEvents HopeStr As TextBox
@@ -1391,4 +1387,9 @@ Partial Class Form1
     Friend WithEvents SnowCPButton As Button
     Friend WithEvents SnowHPButton As Button
     Friend WithEvents LightStr As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label20 As Label
 End Class
