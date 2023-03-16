@@ -2,6 +2,27 @@
 Imports System.Text
 Public Class Form1
 
+
+    ''' 
+    ''' 
+    ''' Functions Here: 
+    ''' 
+    ''' 
+    Function HexToString(ByVal hex As String) As String
+        Dim text As New System.Text.StringBuilder(hex.Length \ 2)
+        For i As Integer = 0 To hex.Length - 2 Step 2
+            text.Append(Chr(Convert.ToByte(hex.Substring(i, 2), 16)))
+        Next
+        Return text.ToString
+    End Function
+
+
+
+
+
+
+
+
     Private Sub OpenSave_Click(sender As Object, e As EventArgs) Handles OpenSave.Click
         OpenFileDialog1.Filter = "DAT_DECRYPTED FILES | *.dat_decrypted"
 
@@ -25,6 +46,17 @@ Public Class Form1
         End If
 
     End Sub
+
+
+
+    '''
+    '''
+    '''
+    ''' Menu Stats - Crystarium Level, Gil, TP, Omni Kit
+    '''
+    '''
+    '''
+
 
 
     ''' 
@@ -51,7 +83,7 @@ Public Class Form1
         GilTextBox.Text = Hex(GilTextBox.Text) 'Converts textbox input to hex
 
         While GilTextBox.Text.Length < 8 ' Enures any values that would be unchanged become 0 to get exact gil value E.G 50000 returns C3 50 and it requires 00 00 to be added to fill all offsets
-            GilTextBox.Text = GilTextBox.Text + "0"
+            GilTextBox.Text = "0" + GilTextBox.Text
         End While
 
         Dim bytes As Byte()
@@ -165,9 +197,40 @@ Public Class Form1
         fs.Write(bytes, 0, bytes.Length) ' Writes to file
         fs.Close() : fs.Dispose()
 
-        TpSuccessMessage.visible = True
+        TpSuccessMessage.Visible = True
     End Sub
 
+
+    '''
+    '''
+    ''' Omni Kit Segment
+    '''
+    '''
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+
+        If CheckBox1.Checked Then
+
+            Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+            Dim hex As String = "FF" ' Declares a string as hex (in this case the value FF)
+            Dim MyAddress As Long = &H410DF ' Sets Offset Address
+            Using fs As New FileStream(filename, FileMode.Open)  ' Opens file, converts hex string to bytes, then writes at offset address.
+                For Each byteHex As String In hex.Split()
+                    fs.Seek(MyAddress, SeekOrigin.Begin)
+                    fs.WriteByte(Convert.ToByte(byteHex, 16))
+                Next
+            End Using
+
+        End If
+    End Sub
+
+
+
+    '''
+    '''
+    ''' Party Characters - Stats
+    '''
+    '''
 
     ''' 
     ''' 
@@ -197,7 +260,7 @@ Public Class Form1
         FangHP.Text = Hex(FangHP.Text) 'Converts textbox input to hex
 
         While FangHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            FangHP.Text = FangHP.Text + "0"
+            FangHP.Text = "0" + FangHP.Text
         End While
 
 
@@ -221,7 +284,7 @@ Public Class Form1
     End Sub
 
     Private Sub FangCPButton_Click(sender As Object, e As EventArgs) Handles FangCPButton.Click
-        Dim MyAddress As Long = &H248CA ' Sets Offset Address 
+        Dim MyAddress As Long = &H248C9 ' Sets Offset Address 
 
         Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
 
@@ -235,7 +298,9 @@ Public Class Form1
 
         FangCP.Text = Hex(FangCP.Text) 'Converts textbox input to hex
 
-
+        While FangCP.Text.Length < 8
+            FangCP.Text = "0" + FangCP.Text
+        End While
 
         Dim bytes As Byte()
 
@@ -271,7 +336,7 @@ Public Class Form1
         FangStr.Text = Hex(FangStr.Text) 'Converts textbox input to hex
 
         While FangStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact Str value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            FangStr.Text = FangStr.Text + "0"
+            FangStr.Text = "0" + FangStr.Text
         End While
 
         Dim bytes As Byte()
@@ -308,7 +373,7 @@ Public Class Form1
         FangMag.Text = Hex(FangMag.Text) 'Converts textbox input to hex
 
         While FangMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact Mag value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            FangMag.Text = FangMag.Text + "0"
+            FangMag.Text = "0" + FangMag.Text
         End While
 
         Dim bytes As Byte()
@@ -394,7 +459,7 @@ Public Class Form1
         LightHP.Text = Hex(LightHP.Text) 'Converts textbox input to hex
 
         While LightHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            LightHP.Text = LightHP.Text + "0"
+            LightHP.Text = "0" + LightHP.Text
         End While
 
         Dim bytes As Byte()
@@ -417,7 +482,7 @@ Public Class Form1
     End Sub
 
     Private Sub LightCPButton_Click(sender As Object, e As EventArgs) Handles LightCPButton.Click
-        Dim MyAddress As Long = &H27ECA ' Sets Offset Address 
+        Dim MyAddress As Long = &H27EC9 ' Sets Offset Address 
 
         Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
 
@@ -430,6 +495,11 @@ Public Class Form1
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
         LightCP.Text = Hex(LightCP.Text) 'Converts textbox input to hex
+
+
+        While LightCP.Text.Length < 8
+            LightCP.Text = "0" + LightCP.Text
+        End While
 
 
         Dim bytes As Byte()
@@ -466,7 +536,7 @@ Public Class Form1
         LightStr.Text = Hex(LightStr.Text) 'Converts textbox input to hex
 
         While LightStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            LightStr.Text = LightStr.Text + "0"
+            LightStr.Text = "0" + LightStr.Text
         End While
 
         Dim bytes As Byte()
@@ -503,7 +573,7 @@ Public Class Form1
         LightMag.Text = Hex(LightMag.Text) 'Converts textbox input to hex
 
         While LightMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            LightMag.Text = LightMag.Text + "0"
+            LightMag.Text = "0" + LightMag.Text
         End While
 
         Dim bytes As Byte()
@@ -590,7 +660,7 @@ Public Class Form1
 
 
         While SazhHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SazhHP.Text = SazhHP.Text + "0"
+            SazhHP.Text = "0" + SazhHP.Text
         End While
 
         Dim bytes As Byte()
@@ -612,7 +682,7 @@ Public Class Form1
     End Sub
 
     Private Sub SazhCPButton_Click(sender As Object, e As EventArgs) Handles SazhCPButton.Click
-        Dim MyAddress As Long = &H28C4A ' Sets Offset Address 
+        Dim MyAddress As Long = &H28C49 ' Sets Offset Address 
 
         Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
 
@@ -625,6 +695,12 @@ Public Class Form1
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
         SazhCP.Text = Hex(SazhCP.Text) 'Converts textbox input to hex
+
+
+        While SazhCP.Text.Length < 8
+            SazhCP.Text = "0" + SazhCP.Text
+        End While
+
 
         Dim bytes As Byte()
 
@@ -660,7 +736,7 @@ Public Class Form1
         SazhStr.Text = Hex(SazhStr.Text) 'Converts textbox input to hex
 
         While SazhStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SazhStr.Text = SazhStr.Text + "0"
+            SazhStr.Text = "0" + SazhStr.Text
         End While
 
         Dim bytes As Byte()
@@ -697,7 +773,7 @@ Public Class Form1
         SazhMag.Text = Hex(SazhMag.Text) 'Converts textbox input to hex
 
         While SazhMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SazhMag.Text = SazhMag.Text + "0"
+            SazhMag.Text = "0" + SazhMag.Text
         End While
 
         Dim bytes As Byte()
@@ -783,7 +859,7 @@ Public Class Form1
         VanHP.Text = Hex(VanHP.Text) 'Converts textbox input to hex
 
         While VanHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            VanHP.Text = VanHP.Text + "0"
+            VanHP.Text = "0" + VanHP.Text
         End While
 
         Dim bytes As Byte()
@@ -805,7 +881,7 @@ Public Class Form1
     End Sub
 
     Private Sub VanCPButton_Click(sender As Object, e As EventArgs) Handles VanCPButton.Click
-        Dim MyAddress As Long = &H2B4CA ' Sets Offset Address 
+        Dim MyAddress As Long = &H2B4C9 ' Sets Offset Address 
 
         Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
 
@@ -818,6 +894,10 @@ Public Class Form1
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
         VanCP.Text = Hex(VanCP.Text) 'Converts textbox input to hex
+
+        While VanCP.Text.Length < 8
+            VanCP.Text = "0" + VanCP.Text
+        End While
 
         Dim bytes As Byte()
 
@@ -853,7 +933,7 @@ Public Class Form1
         VanStr.Text = Hex(VanStr.Text) 'Converts textbox input to hex
 
         While VanStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            VanStr.Text = VanStr.Text + "0"
+            VanStr.Text = "0" + VanStr.Text
         End While
 
         Dim bytes As Byte()
@@ -890,7 +970,7 @@ Public Class Form1
         VanMag.Text = Hex(VanMag.Text) 'Converts textbox input to hex
 
         While VanMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            VanMag.Text = VanMag.Text + "0"
+            VanMag.Text = "0" + VanMag.Text
         End While
 
         Dim bytes As Byte()
@@ -976,7 +1056,7 @@ Public Class Form1
         HopeHP.Text = Hex(HopeHP.Text) 'Converts textbox input to hex
 
         While HopeHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            HopeHP.Text = HopeHP.Text + "0"
+            HopeHP.Text = "0" + HopeHP.Text
         End While
 
         Dim bytes As Byte()
@@ -998,7 +1078,7 @@ Public Class Form1
     End Sub
 
     Private Sub HopeCPButton_Click(sender As Object, e As EventArgs) Handles HopeCPButton.Click
-        Dim MyAddress As Long = &H263CA ' Sets Offset Address 
+        Dim MyAddress As Long = &H263C9 ' Sets Offset Address 
 
         Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
 
@@ -1011,6 +1091,10 @@ Public Class Form1
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
         HopeCP.Text = Hex(HopeCP.Text) 'Converts textbox input to hex
+
+        While HopeCP.Text.Length < 8
+            HopeCP.Text = "0" + HopeCP.Text
+        End While
 
         Dim bytes As Byte()
 
@@ -1046,7 +1130,7 @@ Public Class Form1
         HopeStr.Text = Hex(HopeStr.Text) 'Converts textbox input to hex
 
         While HopeStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            HopeStr.Text = HopeStr.Text + "0"
+            HopeStr.Text = "0" + HopeStr.Text
         End While
 
         Dim bytes As Byte()
@@ -1083,7 +1167,7 @@ Public Class Form1
         HopeMag.Text = Hex(HopeMag.Text) 'Converts textbox input to hex
 
         While HopeMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            HopeMag.Text = HopeMag.Text + "0"
+            HopeMag.Text = "0" + HopeMag.Text
         End While
 
         Dim bytes As Byte()
@@ -1169,7 +1253,7 @@ Public Class Form1
         SnowHP.Text = Hex(SnowHP.Text) 'Converts textbox input to hex
 
         While SnowHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SnowHP.Text = SnowHP.Text + "0"
+            SnowHP.Text = "0" + SnowHP.Text
         End While
 
         Dim bytes As Byte()
@@ -1191,7 +1275,7 @@ Public Class Form1
     End Sub
 
     Private Sub SnowCPButton_Click(sender As Object, e As EventArgs) Handles SnowCPButton.Click
-        Dim MyAddress As Long = &H2A74A ' Sets Offset Address 
+        Dim MyAddress As Long = &H2A749 ' Sets Offset Address 
 
         Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
 
@@ -1204,6 +1288,10 @@ Public Class Form1
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
         SnowCP.Text = Hex(SnowCP.Text) 'Converts textbox input to hex
+
+        While SnowCP.Text.Length < 8
+            SnowCP.Text = "0" + SnowCP.Text
+        End While
 
         Dim bytes As Byte()
 
@@ -1239,7 +1327,7 @@ Public Class Form1
         SnowStr.Text = Hex(SnowStr.Text) 'Converts textbox input to hex
 
         While SnowStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SnowStr.Text = SnowStr.Text + "0"
+            SnowStr.Text = "0" + SnowStr.Text
         End While
 
         Dim bytes As Byte()
@@ -1276,7 +1364,7 @@ Public Class Form1
         SnowMag.Text = Hex(SnowMag.Text) 'Converts textbox input to hex
 
         While SnowMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SnowMag.Text = SnowMag.Text + "0"
+            SnowMag.Text = "0" + SnowMag.Text
         End While
 
         Dim bytes As Byte()
@@ -1332,4 +1420,293 @@ Public Class Form1
         fs.Write(bytes, 0, bytes.Length) ' Writes to file
         fs.Close() : fs.Dispose()
     End Sub
+
+    ''' 
+    ''' 
+    ''' 
+    ''' Inventory Editor
+    ''' 
+    ''' Contains  
+    ''' 
+    ''' 
+    ''' 
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        Dim Dictionary As New Dictionary(Of String, String)
+
+        Dictionary.Add("material_m000", "Begrimed Claw")
+        Dictionary.Add("material_m001", "Bestail Claw")
+        Dictionary.Add("material_m002", "Gargantuan Claw")
+        Dictionary.Add("material_m003", "Hellish Tallon")
+        Dictionary.Add("material_m004", "Shattered Bone")
+        Dictionary.Add("material_m005", "Sturdy Bone")
+        Dictionary.Add("material_m006", "Otherworldly Bone")
+        Dictionary.Add("material_m007", "Ancient Bone")
+        Dictionary.Add("material_m008", "Unknown")
+        Dictionary.Add("material_m009", "Moistened Scale")
+        Dictionary.Add("material_m010", "Seapetal Scale")
+        Dictionary.Add("material_m011", "Abyssal Scale")
+        Dictionary.Add("material_m012", "Seaking's Beard")
+        Dictionary.Add("material_m013", "Segmented Carapace")
+        Dictionary.Add("material_m014", "Iron Shell")
+        Dictionary.Add("material_m015", "Armored Shell")
+        Dictionary.Add("material_m016", "Regenerating Carapace")
+        Dictionary.Add("material_m017", "Chipped Fang")
+        Dictionary.Add("material_m018", "Wicked Fang")
+        Dictionary.Add("material_m019", "Monstrous Fang")
+        Dictionary.Add("material_m020", "Sinister Fang")
+        Dictionary.Add("material_m021", "Severed Wing")
+        Dictionary.Add("material_m022", "Scaled Wing")
+        Dictionary.Add("material_m023", "Abonimable Wing")
+        Dictionary.Add("material_m024", "Menacing Wings")
+        Dictionary.Add("material_m025", "Moited Tail")
+        Dictionary.Add("material_m026", "Barbed Tail")
+        Dictionary.Add("material_m027", "Diabolical Tail")
+        Dictionary.Add("material_m028", "Entrancing Tail")
+        Dictionary.Add("material_m029", "Torn Leather")
+        Dictionary.Add("material_m030", "Thickend Hide")
+        Dictionary.Add("material_m031", "Smooth Hide")
+        Dictionary.Add("material_m032", "Supple Leather")
+        Dictionary.Add("material_m033", "Gummy Oil")
+        Dictionary.Add("material_m034", "Fragrant Oil")
+        Dictionary.Add("material_m035", "Medicanal Oil")
+        Dictionary.Add("material_m036", "Esteric Oil")
+        Dictionary.Add("material_m037", "Scraggly Wool")
+        Dictionary.Add("material_m038", "Rough Wool")
+        Dictionary.Add("material_m039", "Thick Wool")
+        Dictionary.Add("material_m040", "Fluffy Wool")
+        Dictionary.Add("material_m041", "Bomb Ashes")
+        Dictionary.Add("material_m042", "Bomb Fragment")
+        Dictionary.Add("material_m043", "Bomb Sheel")
+        Dictionary.Add("material_m044", "Bomb Core")
+        Dictionary.Add("material_m045", "Murky Ooze")
+        Dictionary.Add("material_m046", "Vibrant Ooze")
+        Dictionary.Add("material_m047", "Transperent Ooze")
+        Dictionary.Add("material_m048", "Wonder Gel")
+        Dictionary.Add("material_m049", "Fractured Horn")
+        Dictionary.Add("material_m050", "Spined Horn")
+        Dictionary.Add("material_m052", "Infernal Horn")
+        Dictionary.Add("material_m053", "Strange Fluid")
+        Dictionary.Add("material_m054", "Enigamatic Fluid")
+        Dictionary.Add("material_m055", "Mysterous Fluid")
+        Dictionary.Add("material_m056", "Ineffable Fluid")
+        Dictionary.Add("material_m057", "Cie'Th Tear")
+        Dictionary.Add("material_m058", "Tear Of Frustratoin")
+        Dictionary.Add("material_m059", "Tear Of Remorce")
+        Dictionary.Add("material_m060", "Tear Or Woe")
+        Dictionary.Add("material_m061", "Chocoblo Plume")
+        Dictionary.Add("material_m062", "Chocobo Tail Feather")
+        Dictionary.Add("material_m063", "Green Needle")
+        Dictionary.Add("material_m064", "Dawnlight Dew")
+        Dictionary.Add("material_m065", "Dusklight Dew")
+        Dictionary.Add("material_m066", "Gloom Stalk")
+        Dictionary.Add("material_m067", "Sunpetal")
+        Dictionary.Add("material_m068", "Red Mycelium")
+        Dictionary.Add("material_m069", "Blue Mycelium")
+        Dictionary.Add("material_m070", "White Mycelium")
+        Dictionary.Add("material_m071", "Black Mycelium")
+        Dictionary.Add("material_m072", "Succulent Fruit")
+        Dictionary.Add("material_m073", "Malodouros fruit")
+        Dictionary.Add("material_m074", "Moonblossom Seed")
+        Dictionary.Add("material_m075", "Sunblossom Seed")
+        Dictionary.Add("material_m076", "Perfume")
+        Dictionary.Add("material_j000", "Insulated Cabling")
+        Dictionary.Add("material_j001", "Fiber,Optic Cable")
+        Dictionary.Add("material_j002", "Liquid Crystal Lens")
+        Dictionary.Add("material_j003", "Ring Joint")
+        Dictionary.Add("material_j004", "Epicyclic Gear")
+        Dictionary.Add("material_j005", "Crankshaft")
+        Dictionary.Add("material_j006", "Electrolytic Capacitor")
+        Dictionary.Add("material_j007", "Flywheel")
+        Dictionary.Add("material_j008", "Sprocket")
+        Dictionary.Add("material_j009", "Actuator")
+        Dictionary.Add("material_j010", "Spark Plug")
+        Dictionary.Add("material_j011", "Iridium Plug")
+        Dictionary.Add("material_j012", "Needle Valve")
+        Dictionary.Add("material_j013", "Butterfly Valve")
+        Dictionary.Add("material_j014", "Analog Circet")
+        Dictionary.Add("material_j015", "Digital Circut")
+        Dictionary.Add("material_j016", "Gyroscope")
+        Dictionary.Add("material_j017", "Electrode")
+        Dictionary.Add("material_j018", "Ceramic Armor")
+        Dictionary.Add("material_j019", "Chobham Armor")
+        Dictionary.Add("material_j020", "Radial Bearing")
+        Dictionary.Add("material_j021", "Thrust Bearing")
+        Dictionary.Add("material_j022", "Solenoid")
+        Dictionary.Add("material_j023", "Mobius Coil")
+        Dictionary.Add("material_j024", "Tungesten Tube")
+        Dictionary.Add("material_j025", "Titanium Tube")
+        Dictionary.Add("material_j026", "Passive Detector")
+        Dictionary.Add("material_j027", "Active Detector")
+        Dictionary.Add("material_j028", "Transformer")
+        Dictionary.Add("material_j029", "Amplifer")
+        Dictionary.Add("material_j030", "Carburetor")
+        Dictionary.Add("material_j031", "Supercharger")
+        Dictionary.Add("material_j032", "Piezoelectric Element")
+        Dictionary.Add("material_j033", "Cystal Oscillator")
+        Dictionary.Add("material_j034", "Paraffin Oil")
+        Dictionary.Add("material_j035", "Silicone Oil")
+        Dictionary.Add("material_j036", "Synthetic Muscle")
+        Dictionary.Add("material_j037", "Turboprop")
+        Dictionary.Add("material_j038", "Turbo Jet")
+        Dictionary.Add("material_j039", "Tesla Turbine")
+        Dictionary.Add("material_j040", "Polymer Emulsion")
+        Dictionary.Add("material_j041", "Ferroelectric Film")
+        Dictionary.Add("material_j042", "Super Conductor")
+        Dictionary.Add("material_j043", "Perfect Conductor")
+        Dictionary.Add("material_j044", "Particle Accelerator")
+        Dictionary.Add("material_j045", "Ulracompact Reactor")
+        Dictionary.Add("material_j046", "Credit Chip")
+        Dictionary.Add("material_j047", "Incentive Chip")
+        Dictionary.Add("material_j048", "Cactar Doll")
+        Dictionary.Add("material_j049", "Moogle Puppet")
+        Dictionary.Add("material_j050", "Tonberry Figure")
+        Dictionary.Add("material_j051", "Plush Chocobo")
+        Dictionary.Add("material_o000", "Millerite")
+        Dictionary.Add("material_o001", "Rhodochrosite")
+        Dictionary.Add("material_o002", "Cobaltie")
+        Dictionary.Add("material_o003", "Persovskite")
+        Dictionary.Add("material_o004", "Uraninite")
+        Dictionary.Add("material_o005", "Minar Stone")
+        Dictionary.Add("material_o006", "Scarletite")
+        Dictionary.Add("material_o007", "Adamantite")
+        Dictionary.Add("material_o008", "Dark Matter")
+        Dictionary.Add("material_o009", "Trapezohedron")
+        Dictionary.Add("material_o010", "Gold Dust")
+        Dictionary.Add("material_o011", "Gold Nugget")
+        Dictionary.Add("material_o012", "Platinum Ingot")
+
+
+        Dim MyAddress As Long = &H3A83C ' Sets Offset Address 
+
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        Dim ItemAmountOffset As Long = 239693
+
+        fs.Seek(ItemAmountOffset, SeekOrigin.Begin)
+
+
+
+
+
+
+
+
+
+        Dim x = 0
+        Dim y = 0
+
+        While x < 240
+            fs.Seek(ItemAmountOffset, SeekOrigin.Begin)
+
+            Dim arraySize = 2
+
+            Dim Buffer() As Byte = New Byte(arraySize) {}
+
+            ItemAmountOffset = ItemAmountOffset + 20
+
+            fs.Read(Buffer, 0, Buffer.Length)
+
+            Dim ItemAmount = Convert.ToHexString(Buffer)
+            Dim ItemAmountString As Integer = Convert.ToInt32(ItemAmount, 16)
+
+            If ItemAmountString > 0 Then
+                TextBox1.AppendText(ItemAmountString & Environment.NewLine)
+            End If
+
+            If ItemAmountString > 0 Then
+                ListBox2.Items.Add(ItemAmountString & Environment.NewLine)
+            End If
+
+            x = x + 1
+
+        End While
+
+
+
+
+        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin)
+
+        '''
+        '''
+        ''' Inventory Name Display - Pulls out the name of any items in the inventory.
+        '''
+        '''
+
+        While y < 240
+
+            Dim nameArraySize = 12
+            Dim nameArray() As Byte = New Byte(nameArraySize) {}
+
+            fs.Read(nameArray, 0, nameArray.Length)
+
+
+            Dim testText = Convert.ToHexString(nameArray)
+            Dim testTextConvert = HexToString(testText)
+
+            ' TextBox2.AppendText(testTextConvert & Environment.NewLine)
+
+            Dim CurrentPos = fs.Position()
+            Dim NewOffset = CurrentPos + 7
+
+            br.BaseStream.Seek(NewOffset, SeekOrigin.Begin)
+
+            ' TextBox3.AppendText(testText & Environment.NewLine)
+
+            If testText <> "00000000000000000000000000" Then
+                testTextConvert = HexToString(testText)
+                'ListBox1.Items.Add(testTextConvert & Environment.NewLine)
+
+                ListBox1.Items.Add(Dictionary.Item(testTextConvert))
+
+
+
+            End If
+
+
+
+
+
+
+            y = y + 1
+
+        End While
+
+
+
+
+        fs.Close() : fs.Dispose()
+
+    End Sub
+
+    Private Sub ListBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBox2.SelectedIndexChanged
+        If ListBox1.TopIndex <> ListBox2.TopIndex Then
+            ListBox1.TopIndex = ListBox2.TopIndex
+        End If
+
+        If ListBox1.SelectedIndex <> ListBox2.SelectedIndex Then
+            ListBox1.SelectedIndex = ListBox2.SelectedIndex
+        End If
+    End Sub
+
+    Private Sub ListBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBox1.SelectedIndexChanged
+        If ListBox2.TopIndex <> ListBox1.TopIndex Then
+            ListBox2.TopIndex = ListBox1.TopIndex
+        End If
+
+        If ListBox2.SelectedIndex <> ListBox1.SelectedIndex Then
+            ListBox2.SelectedIndex = ListBox1.SelectedIndex
+        End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ListBox1.Items.Add(ComboBox1.Text)
+        ListBox2.Items.Add(NumericUpDown1.Value)
+    End Sub
+
 End Class

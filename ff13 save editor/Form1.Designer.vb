@@ -31,6 +31,7 @@ Partial Class Form1
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.TpSuccessMessage = New System.Windows.Forms.Label()
         Me.CrystariumSuccessMessage = New System.Windows.Forms.Label()
         Me.TPValueBox = New System.Windows.Forms.TextBox()
@@ -82,6 +83,11 @@ Partial Class Form1
         Me.VanStr = New System.Windows.Forms.TextBox()
         Me.VanCP = New System.Windows.Forms.TextBox()
         Me.VanHP = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.HopeATBButton = New System.Windows.Forms.Button()
         Me.HopeMagButton = New System.Windows.Forms.Button()
@@ -130,11 +136,27 @@ Partial Class Form1
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.TabPage11 = New System.Windows.Forms.TabPage()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ListBox2 = New System.Windows.Forms.ListBox()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -144,6 +166,9 @@ Partial Class Form1
         Me.TabPage6.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         Me.TabPage8.SuspendLayout()
+        Me.TabPage10.SuspendLayout()
+        Me.TabPage11.SuspendLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -207,6 +232,9 @@ Partial Class Form1
         Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Controls.Add(Me.TabPage7)
         Me.TabControl1.Controls.Add(Me.TabPage8)
+        Me.TabControl1.Controls.Add(Me.TabPage9)
+        Me.TabControl1.Controls.Add(Me.TabPage10)
+        Me.TabControl1.Controls.Add(Me.TabPage11)
         Me.TabControl1.Location = New System.Drawing.Point(12, 58)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -230,6 +258,7 @@ Partial Class Form1
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.CheckBox1)
         Me.TabPage2.Controls.Add(Me.TpSuccessMessage)
         Me.TabPage2.Controls.Add(Me.CrystariumSuccessMessage)
         Me.TabPage2.Controls.Add(Me.TPValueBox)
@@ -246,10 +275,22 @@ Partial Class Form1
         Me.TabPage2.Text = "Party Menu"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.CheckAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.CheckBox1.Location = New System.Drawing.Point(320, 219)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(103, 33)
+        Me.CheckBox1.TabIndex = 8
+        Me.CheckBox1.Text = "Unlock Omni Kit?"
+        Me.CheckBox1.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'TpSuccessMessage
         '
         Me.TpSuccessMessage.AutoSize = True
-        Me.TpSuccessMessage.Location = New System.Drawing.Point(467, 199)
+        Me.TpSuccessMessage.Location = New System.Drawing.Point(467, 123)
         Me.TpSuccessMessage.Name = "TpSuccessMessage"
         Me.TpSuccessMessage.Size = New System.Drawing.Size(104, 15)
         Me.TpSuccessMessage.TabIndex = 7
@@ -259,7 +300,7 @@ Partial Class Form1
         'CrystariumSuccessMessage
         '
         Me.CrystariumSuccessMessage.AutoSize = True
-        Me.CrystariumSuccessMessage.Location = New System.Drawing.Point(156, 199)
+        Me.CrystariumSuccessMessage.Location = New System.Drawing.Point(156, 123)
         Me.CrystariumSuccessMessage.Name = "CrystariumSuccessMessage"
         Me.CrystariumSuccessMessage.Size = New System.Drawing.Size(198, 15)
         Me.CrystariumSuccessMessage.TabIndex = 6
@@ -268,7 +309,7 @@ Partial Class Form1
         '
         'TPValueBox
         '
-        Me.TPValueBox.Location = New System.Drawing.Point(467, 134)
+        Me.TPValueBox.Location = New System.Drawing.Point(467, 58)
         Me.TPValueBox.MaxLength = 4
         Me.TPValueBox.Name = "TPValueBox"
         Me.TPValueBox.Size = New System.Drawing.Size(100, 23)
@@ -276,7 +317,7 @@ Partial Class Form1
         '
         'TPButton
         '
-        Me.TPButton.Location = New System.Drawing.Point(479, 163)
+        Me.TPButton.Location = New System.Drawing.Point(479, 87)
         Me.TPButton.Name = "TPButton"
         Me.TPButton.Size = New System.Drawing.Size(75, 23)
         Me.TPButton.TabIndex = 4
@@ -286,7 +327,7 @@ Partial Class Form1
         'TPMessage
         '
         Me.TPMessage.AutoSize = True
-        Me.TPMessage.Location = New System.Drawing.Point(464, 116)
+        Me.TPMessage.Location = New System.Drawing.Point(464, 40)
         Me.TPMessage.Name = "TPMessage"
         Me.TPMessage.Size = New System.Drawing.Size(103, 15)
         Me.TPMessage.TabIndex = 3
@@ -294,7 +335,7 @@ Partial Class Form1
         '
         'CrystariumLevelButton
         '
-        Me.CrystariumLevelButton.Location = New System.Drawing.Point(183, 163)
+        Me.CrystariumLevelButton.Location = New System.Drawing.Point(183, 87)
         Me.CrystariumLevelButton.Name = "CrystariumLevelButton"
         Me.CrystariumLevelButton.Size = New System.Drawing.Size(145, 23)
         Me.CrystariumLevelButton.TabIndex = 2
@@ -305,7 +346,7 @@ Partial Class Form1
         '
         Me.CrystariumComboBox.FormattingEnabled = True
         Me.CrystariumComboBox.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
-        Me.CrystariumComboBox.Location = New System.Drawing.Point(183, 134)
+        Me.CrystariumComboBox.Location = New System.Drawing.Point(183, 58)
         Me.CrystariumComboBox.Name = "CrystariumComboBox"
         Me.CrystariumComboBox.Size = New System.Drawing.Size(145, 23)
         Me.CrystariumComboBox.TabIndex = 1
@@ -313,7 +354,7 @@ Partial Class Form1
         'CrystariumLevelMessage
         '
         Me.CrystariumLevelMessage.AutoSize = True
-        Me.CrystariumLevelMessage.Location = New System.Drawing.Point(183, 116)
+        Me.CrystariumLevelMessage.Location = New System.Drawing.Point(183, 40)
         Me.CrystariumLevelMessage.Name = "CrystariumLevelMessage"
         Me.CrystariumLevelMessage.Size = New System.Drawing.Size(95, 15)
         Me.CrystariumLevelMessage.TabIndex = 0
@@ -738,6 +779,51 @@ Partial Class Form1
         Me.VanHP.Name = "VanHP"
         Me.VanHP.Size = New System.Drawing.Size(75, 23)
         Me.VanHP.TabIndex = 15
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(651, 11)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(27, 15)
+        Me.Label16.TabIndex = 14
+        Me.Label16.Text = "ATB"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(507, 11)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(31, 15)
+        Me.Label17.TabIndex = 13
+        Me.Label17.Text = "Mag"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(366, 11)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(21, 15)
+        Me.Label18.TabIndex = 12
+        Me.Label18.Text = "Str"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(223, 11)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(22, 15)
+        Me.Label19.TabIndex = 11
+        Me.Label19.Text = "CP"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(92, 11)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(23, 15)
+        Me.Label20.TabIndex = 10
+        Me.Label20.Text = "HP"
         '
         'TabPage6
         '
@@ -1205,50 +1291,212 @@ Partial Class Form1
         Me.Label30.TabIndex = 10
         Me.Label30.Text = "HP"
         '
-        'Label16
+        'TabPage9
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(651, 11)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(27, 15)
-        Me.Label16.TabIndex = 14
-        Me.Label16.Text = "ATB"
+        Me.TabPage9.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage9.Name = "TabPage9"
+        Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage9.Size = New System.Drawing.Size(768, 336)
+        Me.TabPage9.TabIndex = 8
+        Me.TabPage9.Text = "Save Teleporter"
+        Me.TabPage9.UseVisualStyleBackColor = True
         '
-        'Label17
+        'TabPage10
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(507, 11)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(31, 15)
-        Me.Label17.TabIndex = 13
-        Me.Label17.Text = "Mag"
+        Me.TabPage10.Controls.Add(Me.Label33)
+        Me.TabPage10.Controls.Add(Me.Button2)
+        Me.TabPage10.Controls.Add(Me.TextBox4)
+        Me.TabPage10.Controls.Add(Me.Label32)
+        Me.TabPage10.Controls.Add(Me.TextBox3)
+        Me.TabPage10.Controls.Add(Me.Label34)
+        Me.TabPage10.Controls.Add(Me.Label31)
+        Me.TabPage10.Controls.Add(Me.TextBox1)
+        Me.TabPage10.Controls.Add(Me.TextBox2)
+        Me.TabPage10.Controls.Add(Me.Button1)
+        Me.TabPage10.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage10.Name = "TabPage10"
+        Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage10.Size = New System.Drawing.Size(768, 336)
+        Me.TabPage10.TabIndex = 9
+        Me.TabPage10.Text = "Inventory Editor Outputs"
+        Me.TabPage10.UseVisualStyleBackColor = True
         '
-        'Label18
+        'Label33
         '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(366, 11)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(21, 15)
-        Me.Label18.TabIndex = 12
-        Me.Label18.Text = "Str"
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(264, 161)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(130, 15)
+        Me.Label33.TabIndex = 17
+        Me.Label33.Text = "Adding Array Entry Test"
         '
-        'Label19
+        'Button2
         '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(223, 11)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(22, 15)
-        Me.Label19.TabIndex = 11
-        Me.Label19.Text = "CP"
+        Me.Button2.Location = New System.Drawing.Point(385, 185)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 16
+        Me.Button2.Text = "Add Entry"
+        Me.Button2.UseVisualStyleBackColor = True
         '
-        'Label20
+        'TextBox4
         '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(92, 11)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(23, 15)
-        Me.Label20.TabIndex = 10
-        Me.Label20.Text = "HP"
+        Me.TextBox4.Location = New System.Drawing.Point(264, 185)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(100, 23)
+        Me.TextBox4.TabIndex = 15
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(264, 43)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(75, 15)
+        Me.Label32.TabIndex = 14
+        Me.Label32.Text = "Array Testing"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(264, 61)
+        Me.TextBox3.Multiline = True
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(231, 87)
+        Me.TextBox3.TabIndex = 13
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(6, 25)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(126, 15)
+        Me.Label34.TabIndex = 12
+        Me.Label34.Text = "Material Name Output"
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(531, 25)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(119, 15)
+        Me.Label31.TabIndex = 8
+        Me.Label31.Text = "Item Amount Output"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(531, 43)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(231, 287)
+        Me.TextBox1.TabIndex = 6
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(0, 43)
+        Me.TextBox2.Multiline = True
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(232, 290)
+        Me.TextBox2.TabIndex = 3
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(352, 6)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(81, 22)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Test"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'TabPage11
+        '
+        Me.TabPage11.Controls.Add(Me.Button4)
+        Me.TabPage11.Controls.Add(Me.Button3)
+        Me.TabPage11.Controls.Add(Me.NumericUpDown1)
+        Me.TabPage11.Controls.Add(Me.ComboBox1)
+        Me.TabPage11.Controls.Add(Me.ListBox2)
+        Me.TabPage11.Controls.Add(Me.Label36)
+        Me.TabPage11.Controls.Add(Me.Label35)
+        Me.TabPage11.Controls.Add(Me.ListBox1)
+        Me.TabPage11.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage11.Name = "TabPage11"
+        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage11.Size = New System.Drawing.Size(768, 336)
+        Me.TabPage11.TabIndex = 10
+        Me.TabPage11.Text = "Inventory Editing"
+        Me.TabPage11.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(645, 44)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(92, 23)
+        Me.Button3.TabIndex = 25
+        Me.Button3.Text = "Add Item"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Location = New System.Drawing.Point(506, 44)
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {16777215, 0, 0, 0})
+        Me.NumericUpDown1.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(120, 23)
+        Me.NumericUpDown1.TabIndex = 24
+        Me.NumericUpDown1.ThousandsSeparator = True
+        Me.NumericUpDown1.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Begrimed Claw", "Bestail Claw", "Gargantuan Claw", "Hellish Tallon", "Shattered Bone", "Sturdy Bone", "Otherworldly Bone", "Ancient Bone", "Moistened Scale", "Seapetal Scale", "Abyssal Scale", "Seaking'S Beard", "Segmented Carapace", "Iron Shell", "Armored Shell", "Regenerating Carapace", "Chipped Fang", "Wicked Fang", "Monstrous Fang", "Sinister Fang", "Severed Wing", "Scaled Wing", "Abonimable Wing", "Menacing Wings", "Moited Tail", "Barbed Tail", "Diabolical Tail", "Entrancing Tail", "Torn Leather", "Thickend Hide", "Smooth Hide", "Supple Leather", "Gummy Oil", "Fragrant Oil", "Medicanal Oil", "Esteric Oil", "Scraggly Wool", "Rough Wool", "Thick Wool", "Fluffy Wool", "Bomb Ashes", "Bomb Fragment", "Bomb Sheel", "Bomb Core", "Murky Ooze", "Vibrant Ooze", "Transperent Ooze", "Wonder Gel", "Fractured Horn", "Spined Horn", "Fiendish Horn", "Infernal Horn", "Strange Fluid", "Enigamatic Fluid", "Mysterous Fluid", "Ineffable Fluid", "Cie'Th Tear", "Tear Of Frustratoin", "Tear Of Remorce", "Tear Or Woe", "Chocoblo Plume", "Chocobo Tail Feather", "Green Needle", "Dawnlight Dew", "Dusklight Dew", "Gloom Stalk", "Sunpetal", "Red Mycelium", "Blue Mycelium", "White Mycelium", "Black Mycelium", "Succulent Fruit", "Malodouros fruit", "Moonblossom Seed", "Sunblossom Seed", "Perfume", "Insulated Cabling", "Fiber,Optic Cable", "Liquid Crystal Lens", "Ring Joint", "Epicyclic Gear", "Crankshaft", "Electrolytic Capacitor", "Flywheel", "Sprocket", "Actuator", "Spark Plug", "Iridium Plug", "Needle Valve", "Butterfly Valve", "Analog Circet", "Digital Circut", "Gyroscope", "Electrode", "Ceramic Armor", "Chobham Armor", "Radial Bearing", "Thrust Bearing", "Solenoid", "Mobius Coil", "Tungesten Tube", "Titanium Tube", "Passive Detector", "Active Detector", "Transformer", "Amplifer", "Carburetor", "Supercharger", "Piezoelectric Element", "Cystal Oscillator", "Paraffin Oil", "Silicone Oil", "Synthetic Muscle", "Turboprop", "Turbo Jet", "Tesla Turbine", "Polymer Emulsion", "Ferroelectric Film", "Super Conductor", "Perfect Conductor", "Particle Accelerator", "Ulracompact Reactor", "Credit Chip", "Incentive Chip", "Cactar Doll", "Moogle Puppet", "Tonberry Figure", "Plush Chocobo", "Millerite", "Rhodochrosite", "Cobaltie", "Persovskite", "Uraninite", "Minar Stone", "Scarletite", "Adamantite", "Dark Matter", "Trapezohedron", "Gold Dust", "Gold Nugget", "Platinum Ingot"})
+        Me.ComboBox1.Location = New System.Drawing.Point(363, 44)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 23)
+        Me.ComboBox1.TabIndex = 23
+        '
+        'ListBox2
+        '
+        Me.ListBox2.FormattingEnabled = True
+        Me.ListBox2.ItemHeight = 15
+        Me.ListBox2.Location = New System.Drawing.Point(184, 44)
+        Me.ListBox2.Name = "ListBox2"
+        Me.ListBox2.Size = New System.Drawing.Size(89, 274)
+        Me.ListBox2.TabIndex = 22
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(184, 22)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(78, 15)
+        Me.Label36.TabIndex = 21
+        Me.Label36.Text = "Item Amount"
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(7, 22)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(79, 15)
+        Me.Label35.TabIndex = 20
+        Me.Label35.Text = "Current Items"
+        '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.ItemHeight = 15
+        Me.ListBox1.Location = New System.Drawing.Point(6, 44)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(172, 274)
+        Me.ListBox1.TabIndex = 19
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(644, 141)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(93, 42)
+        Me.Button4.TabIndex = 26
+        Me.Button4.Text = "Save"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -1276,6 +1524,11 @@ Partial Class Form1
         Me.TabPage7.PerformLayout()
         Me.TabPage8.ResumeLayout(False)
         Me.TabPage8.PerformLayout()
+        Me.TabPage10.ResumeLayout(False)
+        Me.TabPage10.PerformLayout()
+        Me.TabPage11.ResumeLayout(False)
+        Me.TabPage11.PerformLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1392,4 +1645,31 @@ Partial Class Form1
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents Label20 As Label
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents TabPage9 As TabPage
+    Friend WithEvents TabPage10 As TabPage
+    Friend WithEvents Button1 As Button
+    Friend WithEvents TestBox As TextBox
+    Friend WithEvents TestBox2 As TextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TestBox3 As TextBox
+    Friend WithEvents TestBox4 As TextBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label34 As Label
+    Friend WithEvents Label31 As Label
+    Friend WithEvents Label33 As Label
+    Friend WithEvents Button2 As Button
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Label32 As Label
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents TabPage11 As TabPage
+    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents ListBox2 As ListBox
+    Friend WithEvents Label36 As Label
+    Friend WithEvents Label35 As Label
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents ListBox3 As ListBox
+    Friend WithEvents Button3 As Button
+    Friend WithEvents NumericUpDown1 As NumericUpDown
+    Friend WithEvents Button4 As Button
 End Class
