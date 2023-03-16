@@ -40,6 +40,9 @@ Public Class Form1
             Me.Text = (Me.Text + " - " + NameOfSave)
 
             TabControl1.Visible = True
+            TabPage9.Visible = False
+            TabPage10.Visible = False
+            TabPage11.Visible = False
 
         Else
             MsgBox("Select a Save")
@@ -1431,7 +1434,38 @@ Public Class Form1
     ''' 
     ''' 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+
+
+
+    End Sub
+
+    Private Sub ListBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBox2.SelectedIndexChanged
+        If ListBox1.TopIndex <> ListBox2.TopIndex Then
+            ListBox1.TopIndex = ListBox2.TopIndex
+        End If
+
+        If ListBox1.SelectedIndex <> ListBox2.SelectedIndex Then
+            ListBox1.SelectedIndex = ListBox2.SelectedIndex
+        End If
+    End Sub
+
+    Private Sub ListBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBox1.SelectedIndexChanged
+        If ListBox2.TopIndex <> ListBox1.TopIndex Then
+            ListBox2.TopIndex = ListBox1.TopIndex
+        End If
+
+        If ListBox2.SelectedIndex <> ListBox1.SelectedIndex Then
+            ListBox2.SelectedIndex = ListBox1.SelectedIndex
+        End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        ListBox1.Items.Add(ComboBox1.Text)
+        ListBox2.Items.Add(NumericUpDown1.Value)
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
 
         Dim Dictionary As New Dictionary(Of String, String)
 
@@ -1681,32 +1715,5 @@ Public Class Form1
 
 
         fs.Close() : fs.Dispose()
-
     End Sub
-
-    Private Sub ListBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBox2.SelectedIndexChanged
-        If ListBox1.TopIndex <> ListBox2.TopIndex Then
-            ListBox1.TopIndex = ListBox2.TopIndex
-        End If
-
-        If ListBox1.SelectedIndex <> ListBox2.SelectedIndex Then
-            ListBox1.SelectedIndex = ListBox2.SelectedIndex
-        End If
-    End Sub
-
-    Private Sub ListBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBox1.SelectedIndexChanged
-        If ListBox2.TopIndex <> ListBox1.TopIndex Then
-            ListBox2.TopIndex = ListBox1.TopIndex
-        End If
-
-        If ListBox2.SelectedIndex <> ListBox1.SelectedIndex Then
-            ListBox2.SelectedIndex = ListBox1.SelectedIndex
-        End If
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        ListBox1.Items.Add(ComboBox1.Text)
-        ListBox2.Items.Add(NumericUpDown1.Value)
-    End Sub
-
 End Class
