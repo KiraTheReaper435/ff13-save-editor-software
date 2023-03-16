@@ -9,7 +9,16 @@ Public Class Form1
     ''' 
     ''' Functions Here: 
     ''' 
+    '''  <summary>
     ''' 
+    Function StringToHex(ByVal text As String) As String
+        Dim hex As String
+        For i As Integer = 0 To text.Length - 1
+            hex &= Asc(text.Substring(i, 1)).ToString("x").ToUpper
+        Next
+        Return hex
+    End Function
+
     Function HexToString(ByVal hex As String) As String
         Dim text As New System.Text.StringBuilder(hex.Length \ 2)
         For i As Integer = 0 To hex.Length - 2 Step 2
@@ -1664,7 +1673,6 @@ Public Class Form1
                 ListBox1.Items.Add(Dictionary.Item(testTextConvert))
 
 
-
             End If
 
 
@@ -1708,5 +1716,203 @@ Public Class Form1
         ListBox2.Items.Add(NumericUpDown1.Value)
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim Dictionary As New Dictionary(Of String, String)
 
+        Dictionary.Add("Begrimed Claw", "material_m000")
+        Dictionary.Add("Bestail Claw", "material_m001")
+        Dictionary.Add("Gargantuan Claw", "material_m002")
+        Dictionary.Add("Hellish Tallon", "material_m003")
+        Dictionary.Add("Shattered Bone", "material_m004")
+        Dictionary.Add("Sturdy Bone", "material_m005")
+        Dictionary.Add("Otherworldly Bone", "material_m006")
+        Dictionary.Add("Ancient Bone", "material_m007")
+        Dictionary.Add("Unknown", "material_m008")
+        Dictionary.Add("Moistened Scale", "material_m009")
+        Dictionary.Add("Seapetal Scale", "material_m010")
+        Dictionary.Add("Abyssal Scale", "material_m011")
+        Dictionary.Add("Seaking's Beard", "material_m012")
+        Dictionary.Add("Segmented Carapace", "material_m013")
+        Dictionary.Add("Iron Shell", "material_m014")
+        Dictionary.Add("Armored Shell", "material_m015")
+        Dictionary.Add("Regenerating Carapace", "material_m016")
+        Dictionary.Add("Chipped Fang", "material_m017")
+        Dictionary.Add("Wicked Fang", "material_m018")
+        Dictionary.Add("Monstrous Fang", "material_m019")
+        Dictionary.Add("Sinister Fang", "material_m020")
+        Dictionary.Add("Severed Wing", "material_m021")
+        Dictionary.Add("Scaled Wing", "material_m022")
+        Dictionary.Add("Abonimable Wing", "material_m023")
+        Dictionary.Add("Menacing Wings", "material_m024")
+        Dictionary.Add("Moited Tail", "material_m025")
+        Dictionary.Add("Barbed Tail", "material_m026")
+        Dictionary.Add("Diabolical Tail", "material_m027")
+        Dictionary.Add("Entrancing Tail", "material_m028")
+        Dictionary.Add("Torn Leather", "material_m029")
+        Dictionary.Add("Thickend Hide", "material_m030")
+        Dictionary.Add("Smooth Hide", "material_m031")
+        Dictionary.Add("Supple Leather", "material_m032")
+        Dictionary.Add("Gummy Oil", "material_m033")
+        Dictionary.Add("Fragrant Oil", "material_m034")
+        Dictionary.Add("Medicanal Oil", "material_m035")
+        Dictionary.Add("Esteric Oil", "material_m036")
+        Dictionary.Add("Scraggly Wool", "material_m037")
+        Dictionary.Add("Rough Wool", "material_m038")
+        Dictionary.Add("Thick Wool", "material_m039")
+        Dictionary.Add("Fluffy Wool", "material_m040")
+        Dictionary.Add("Bomb Ashes", "material_m041")
+        Dictionary.Add("Bomb Fragment", "material_m042")
+        Dictionary.Add("Bomb Sheel", "material_m043")
+        Dictionary.Add("Bomb Core", "material_m044")
+        Dictionary.Add("Murky Ooze", "material_m045")
+        Dictionary.Add("Vibrant Ooze", "material_m046")
+        Dictionary.Add("Transperent Ooze", "material_m047")
+        Dictionary.Add("Wonder Gel", "material_m048")
+        Dictionary.Add("Fractured Horn", "material_m049")
+        Dictionary.Add("Spined Horn", "material_m050")
+        Dictionary.Add("Infernal Horn", "material_m052")
+        Dictionary.Add("Strange Fluid", "material_m053")
+        Dictionary.Add("Enigamatic Fluid", "material_m054")
+        Dictionary.Add("Mysterous Fluid", "material_m055")
+        Dictionary.Add("Ineffable Fluid", "material_m056")
+        Dictionary.Add("Cie'Th Tear", "material_m057")
+        Dictionary.Add("Tear Of Frustratoin", "material_m058")
+        Dictionary.Add("Tear Of Remorce", "material_m059")
+        Dictionary.Add("Tear Or Woe", "material_m060")
+        Dictionary.Add("Chocoblo Plume", "material_m061")
+        Dictionary.Add("Chocobo Tail Feather", "material_m062")
+        Dictionary.Add("Green Needle", "material_m063")
+        Dictionary.Add("Dawnlight Dew", "material_m064")
+        Dictionary.Add("Dusklight Dew", "material_m065")
+        Dictionary.Add("Gloom Stalk", "material_m066")
+        Dictionary.Add("Sunpetal", "material_m067")
+        Dictionary.Add("Red Mycelium", "material_m068")
+        Dictionary.Add("Blue Mycelium", "material_m069")
+        Dictionary.Add("White Mycelium", "material_m070")
+        Dictionary.Add("Black Mycelium", "material_m071")
+        Dictionary.Add("Succulent Fruit", "material_m072")
+        Dictionary.Add("Malodouros fruit", "material_m073")
+        Dictionary.Add("Moonblossom Seed", "material_m074")
+        Dictionary.Add("Sunblossom Seed", "material_m075")
+        Dictionary.Add("Perfume", "material_m076")
+        Dictionary.Add("Insulated Cabling", "material_j000")
+        Dictionary.Add("Fiber,Optic Cable", "material_j001")
+        Dictionary.Add("Liquid Crystal Lens", "material_j002")
+        Dictionary.Add("Ring Joint", "material_j003")
+        Dictionary.Add("Epicyclic Gear", "material_j004")
+        Dictionary.Add("Crankshaft", "material_j005")
+        Dictionary.Add("Electrolytic Capacitor", "material_j006")
+        Dictionary.Add("Flywheel", "material_j007")
+        Dictionary.Add("Sprocket", "material_j008")
+        Dictionary.Add("Actuator", "material_j009")
+        Dictionary.Add("Spark Plug", "material_j010")
+        Dictionary.Add("Iridium Plug", "material_j011")
+        Dictionary.Add("Needle Valve", "material_j012")
+        Dictionary.Add("Butterfly Valve", "material_j013")
+        Dictionary.Add("Analog Circet", "material_j014")
+        Dictionary.Add("Digital Circut", "material_j015")
+        Dictionary.Add("Gyroscope", "material_j016")
+        Dictionary.Add("Electrode", "material_j017")
+        Dictionary.Add("Ceramic Armor", "material_j018")
+        Dictionary.Add("Chobham Armor", "material_j019")
+        Dictionary.Add("Radial Bearing", "material_j020")
+        Dictionary.Add("Thrust Bearing", "material_j021")
+        Dictionary.Add("Solenoid", "material_j022")
+        Dictionary.Add("Mobius Coil", "material_j023")
+        Dictionary.Add("Tungesten Tube", "material_j024")
+        Dictionary.Add("Titanium Tube", "material_j025")
+        Dictionary.Add("Passive Detector", "material_j026")
+        Dictionary.Add("Active Detector", "material_j027")
+        Dictionary.Add("Transformer", "material_j028")
+        Dictionary.Add("Amplifer", "material_j029")
+        Dictionary.Add("Carburetor", "material_j030")
+        Dictionary.Add("Supercharger", "material_j031")
+        Dictionary.Add("Piezoelectric Element", "material_j032")
+        Dictionary.Add("Cystal Oscillator", "material_j033")
+        Dictionary.Add("Paraffin Oil", "material_j034")
+        Dictionary.Add("Silicone Oil", "material_j035")
+        Dictionary.Add("Synthetic Muscle", "material_j036")
+        Dictionary.Add("Turboprop", "material_j037")
+        Dictionary.Add("Turbo Jet", "material_j038")
+        Dictionary.Add("Tesla Turbine", "material_j039")
+        Dictionary.Add("Polymer Emulsion", "material_j040")
+        Dictionary.Add("Ferroelectric Film", "material_j041")
+        Dictionary.Add("Super Conductor", "material_j042")
+        Dictionary.Add("Perfect Conductor", "material_j043")
+        Dictionary.Add("Particle Accelerator", "material_j044")
+        Dictionary.Add("Ulracompact Reactor", "material_j045")
+        Dictionary.Add("Credit Chip", "material_j046")
+        Dictionary.Add("Incentive Chip", "material_j047")
+        Dictionary.Add("Cactar Doll", "material_j048")
+        Dictionary.Add("Moogle Puppet", "material_j049")
+        Dictionary.Add("Tonberry Figure", "material_j050")
+        Dictionary.Add("Plush Chocobo", "material_j051")
+        Dictionary.Add("Millerite", "material_o000")
+        Dictionary.Add("Rhodochrosite", "material_o001")
+        Dictionary.Add("Cobaltie", "material_o002")
+        Dictionary.Add("Persovskite", "material_o003")
+        Dictionary.Add("Uraninite", "material_o004")
+        Dictionary.Add("Minar Stone", "material_o005")
+        Dictionary.Add("Scarletite", "material_o006")
+        Dictionary.Add("Adamantite", "material_o007")
+        Dictionary.Add("Dark Matter", "material_o008")
+        Dictionary.Add("Trapezohedron", "material_o009")
+        Dictionary.Add("Gold Dust", "material_o010")
+        Dictionary.Add("Gold Nugget", "material_o011")
+        Dictionary.Add("Platinum Ingot", "material_o012")
+
+
+        Dim MyAddress As Long = &H3A83C ' Sets Offset Address 
+
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        Dim ItemAmountOffset As Long = 239693
+
+        fs.Seek(ItemAmountOffset, SeekOrigin.Begin)
+
+        Dim y = 0
+
+        While y < ListBox2.Items.Count
+
+            Dim d As String = ListBox2.Items.Item(y).ToString
+            Dim dHexString = StringToHex(d)
+
+            ListBox4.Items.Add(dHexString)
+            y = y + 1
+        End While
+
+
+        Dim x = 0
+
+        While x < ListBox1.Items.Count
+
+            Dim s As String = ListBox1.Items.Item(x).ToString
+            Dim sDict = Dictionary.Item(s)
+            Dim sHexString = StringToHex(sDict)
+
+            ListBox3.Items.Add(sHexString)
+
+
+
+
+            x = x + 1
+
+        End While
+
+
+
+
+
+
+
+
+
+
+
+
+    End Sub
 End Class
