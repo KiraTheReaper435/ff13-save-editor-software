@@ -137,17 +137,10 @@ Partial Class Form1
         Label29 = New Label()
         Label30 = New Label()
         TabPage9 = New TabPage()
-        TabPage10 = New TabPage()
-        Label33 = New Label()
-        Button2 = New Button()
-        TextBox4 = New TextBox()
         Label32 = New Label()
-        TextBox3 = New TextBox()
-        Label34 = New Label()
-        Label31 = New Label()
-        TextBox1 = New TextBox()
-        TextBox2 = New TextBox()
         TabPage11 = New TabPage()
+        Label31 = New Label()
+        Button1 = New Button()
         Button4 = New Button()
         Button3 = New Button()
         NumericUpDown1 = New NumericUpDown()
@@ -156,7 +149,6 @@ Partial Class Form1
         Label36 = New Label()
         Label35 = New Label()
         ListBox1 = New ListBox()
-        Button1 = New Button()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         TabPage2.SuspendLayout()
@@ -166,7 +158,7 @@ Partial Class Form1
         TabPage6.SuspendLayout()
         TabPage7.SuspendLayout()
         TabPage8.SuspendLayout()
-        TabPage10.SuspendLayout()
+        TabPage9.SuspendLayout()
         TabPage11.SuspendLayout()
         CType(NumericUpDown1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -231,7 +223,6 @@ Partial Class Form1
         TabControl1.Controls.Add(TabPage7)
         TabControl1.Controls.Add(TabPage8)
         TabControl1.Controls.Add(TabPage9)
-        TabControl1.Controls.Add(TabPage10)
         TabControl1.Controls.Add(TabPage11)
         TabControl1.Location = New Point(12, 58)
         TabControl1.Name = "TabControl1"
@@ -319,7 +310,7 @@ Partial Class Form1
         TPButton.Name = "TPButton"
         TPButton.Size = New Size(75, 23)
         TPButton.TabIndex = 4
-        TPButton.Text = "Max TP!"
+        TPButton.Text = "Edit TP"
         TPButton.UseVisualStyleBackColor = True
         ' 
         ' TPMessage
@@ -1259,6 +1250,7 @@ Partial Class Form1
         Label30.Text = "HP"' 
         ' TabPage9
         ' 
+        TabPage9.Controls.Add(Label32)
         TabPage9.Location = New Point(4, 24)
         TabPage9.Name = "TabPage9"
         TabPage9.Padding = New Padding(3)
@@ -1267,99 +1259,18 @@ Partial Class Form1
         TabPage9.Text = "Save Teleporter"
         TabPage9.UseVisualStyleBackColor = True
         ' 
-        ' TabPage10
-        ' 
-        TabPage10.Controls.Add(Label33)
-        TabPage10.Controls.Add(Button2)
-        TabPage10.Controls.Add(TextBox4)
-        TabPage10.Controls.Add(Label32)
-        TabPage10.Controls.Add(TextBox3)
-        TabPage10.Controls.Add(Label34)
-        TabPage10.Controls.Add(Label31)
-        TabPage10.Controls.Add(TextBox1)
-        TabPage10.Controls.Add(TextBox2)
-        TabPage10.Location = New Point(4, 24)
-        TabPage10.Name = "TabPage10"
-        TabPage10.Padding = New Padding(3)
-        TabPage10.Size = New Size(768, 336)
-        TabPage10.TabIndex = 9
-        TabPage10.Text = "Inventory Editor Outputs"
-        TabPage10.UseVisualStyleBackColor = True
-        ' 
-        ' Label33
-        ' 
-        Label33.AutoSize = True
-        Label33.Location = New Point(264, 161)
-        Label33.Name = "Label33"
-        Label33.Size = New Size(130, 15)
-        Label33.TabIndex = 17
-        Label33.Text = "Adding Array Entry Test"' 
-        ' Button2
-        ' 
-        Button2.Location = New Point(385, 185)
-        Button2.Name = "Button2"
-        Button2.Size = New Size(75, 23)
-        Button2.TabIndex = 16
-        Button2.Text = "Add Entry"
-        Button2.UseVisualStyleBackColor = True
-        ' 
-        ' TextBox4
-        ' 
-        TextBox4.Location = New Point(264, 185)
-        TextBox4.Name = "TextBox4"
-        TextBox4.Size = New Size(100, 23)
-        TextBox4.TabIndex = 15
-        ' 
         ' Label32
         ' 
         Label32.AutoSize = True
-        Label32.Location = New Point(264, 43)
+        Label32.Font = New Font("Segoe UI", 50F, FontStyle.Regular, GraphicsUnit.Point)
+        Label32.Location = New Point(166, 115)
         Label32.Name = "Label32"
-        Label32.Size = New Size(75, 15)
-        Label32.TabIndex = 14
-        Label32.Text = "Array Testing"' 
-        ' TextBox3
-        ' 
-        TextBox3.Location = New Point(264, 61)
-        TextBox3.Multiline = True
-        TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(231, 87)
-        TextBox3.TabIndex = 13
-        ' 
-        ' Label34
-        ' 
-        Label34.AutoSize = True
-        Label34.Location = New Point(6, 25)
-        Label34.Name = "Label34"
-        Label34.Size = New Size(126, 15)
-        Label34.TabIndex = 12
-        Label34.Text = "Material Name Output"' 
-        ' Label31
-        ' 
-        Label31.AutoSize = True
-        Label31.Location = New Point(531, 25)
-        Label31.Name = "Label31"
-        Label31.Size = New Size(119, 15)
-        Label31.TabIndex = 8
-        Label31.Text = "Item Amount Output"' 
-        ' TextBox1
-        ' 
-        TextBox1.Location = New Point(531, 43)
-        TextBox1.Multiline = True
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(231, 287)
-        TextBox1.TabIndex = 6
-        ' 
-        ' TextBox2
-        ' 
-        TextBox2.Location = New Point(0, 43)
-        TextBox2.Multiline = True
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(232, 290)
-        TextBox2.TabIndex = 3
-        ' 
+        Label32.Size = New Size(454, 89)
+        Label32.TabIndex = 0
+        Label32.Text = "Coming Soon."' 
         ' TabPage11
         ' 
+        TabPage11.Controls.Add(Label31)
         TabPage11.Controls.Add(Button1)
         TabPage11.Controls.Add(Button4)
         TabPage11.Controls.Add(Button3)
@@ -1377,9 +1288,27 @@ Partial Class Form1
         TabPage11.Text = "Inventory Editing"
         TabPage11.UseVisualStyleBackColor = True
         ' 
+        ' Label31
+        ' 
+        Label31.AutoSize = True
+        Label31.Font = New Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point)
+        Label31.Location = New Point(311, 215)
+        Label31.Name = "Label31"
+        Label31.Size = New Size(378, 25)
+        Label31.TabIndex = 28
+        Label31.Text = "Only Retrieves Items + Quantity at this time."' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(279, 137)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(133, 46)
+        Button1.TabIndex = 27
+        Button1.Text = "Retrieve Items"
+        Button1.UseVisualStyleBackColor = True
+        ' 
         ' Button4
         ' 
-        Button4.Location = New Point(644, 141)
+        Button4.Location = New Point(645, 141)
         Button4.Name = "Button4"
         Button4.Size = New Size(93, 42)
         Button4.TabIndex = 26
@@ -1449,15 +1378,6 @@ Partial Class Form1
         ListBox1.Size = New Size(172, 274)
         ListBox1.TabIndex = 19
         ' 
-        ' Button1
-        ' 
-        Button1.Location = New Point(363, 132)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(81, 22)
-        Button1.TabIndex = 27
-        Button1.Text = "Test"
-        Button1.UseVisualStyleBackColor = True
-        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -1484,8 +1404,8 @@ Partial Class Form1
         TabPage7.PerformLayout()
         TabPage8.ResumeLayout(False)
         TabPage8.PerformLayout()
-        TabPage10.ResumeLayout(False)
-        TabPage10.PerformLayout()
+        TabPage9.ResumeLayout(False)
+        TabPage9.PerformLayout()
         TabPage11.ResumeLayout(False)
         TabPage11.PerformLayout()
         CType(NumericUpDown1, ComponentModel.ISupportInitialize).EndInit()
@@ -1606,20 +1526,10 @@ Partial Class Form1
     Friend WithEvents Label20 As Label
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents TabPage9 As TabPage
-    Friend WithEvents TabPage10 As TabPage
     Friend WithEvents TestBox As TextBox
     Friend WithEvents TestBox2 As TextBox
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TestBox3 As TextBox
     Friend WithEvents TestBox4 As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label34 As Label
-    Friend WithEvents Label31 As Label
-    Friend WithEvents Label33 As Label
-    Friend WithEvents Button2 As Button
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents Label32 As Label
-    Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TabPage11 As TabPage
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents ListBox2 As ListBox
@@ -1631,4 +1541,6 @@ Partial Class Form1
     Friend WithEvents NumericUpDown1 As NumericUpDown
     Friend WithEvents Button4 As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label32 As Label
+    Friend WithEvents Label31 As Label
 End Class
