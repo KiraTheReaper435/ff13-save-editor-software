@@ -1,4 +1,7 @@
-﻿Imports System.IO
+﻿Imports System.Diagnostics.Eventing.Reader
+Imports System.IO
+Imports System.Reflection.Metadata.Ecma335
+Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
@@ -33,7 +36,6 @@ Public Class Form1
 
 
 
-
     Private Sub OpenSave_Click(sender As Object, e As EventArgs) Handles OpenSave.Click
         OpenFileDialog1.Filter = "DAT_DECRYPTED FILES | *.dat_decrypted"
 
@@ -56,6 +58,354 @@ Public Class Form1
         Else
             MsgBox("Select a Save")
         End If
+
+
+        '' Area for preloading Party Editor config + Setting the defaults for it so when user clicks the tab its preloaded automatically and shows current party configuration.
+        TabPage10.Show()
+
+        Dim Dictionary1 As New Dictionary(Of String, Int64)
+
+        Dictionary1.Add("None", 0)
+        Dictionary1.Add("Lightning", 13)
+        Dictionary1.Add("Sazh", 14)
+        Dictionary1.Add("Fang", 9)
+        Dictionary1.Add("Vanille", 17)
+        Dictionary1.Add("Hope", 11)
+        Dictionary1.Add("Snow", 16)
+
+        Dim FlippedDictionary As New Dictionary(Of Int64, String)
+
+        FlippedDictionary.Add(0, "None")
+        FlippedDictionary.Add(13, "Lightning")
+        FlippedDictionary.Add(14, "Sazh")
+        FlippedDictionary.Add(9, "Fang")
+        FlippedDictionary.Add(17, "Vanille")
+        FlippedDictionary.Add(11, "Hope")
+        FlippedDictionary.Add(16, "Snow")
+
+
+
+        PartyMember1.DataSource = New BindingSource(Dictionary1, Nothing)
+        PartyMember1.ValueMember = "Value"
+        PartyMember1.DisplayMember = "Key"
+
+
+        PartyMember2.DataSource = New BindingSource(Dictionary1, Nothing)
+        PartyMember2.ValueMember = "Value"
+        PartyMember2.DisplayMember = "Key"
+
+
+        PartyMember3.DataSource = New BindingSource(Dictionary1, Nothing)
+        PartyMember3.ValueMember = "Value"
+        PartyMember3.DisplayMember = "Key"
+
+
+        PartyMember4.DataSource = New BindingSource(Dictionary1, Nothing)
+        PartyMember4.ValueMember = "Value"
+        PartyMember4.DisplayMember = "Key"
+
+
+        PartyMember5.DataSource = New BindingSource(Dictionary1, Nothing)
+        PartyMember5.ValueMember = "Value"
+        PartyMember5.DisplayMember = "Key"
+
+
+        PartyMember6.DataSource = New BindingSource(Dictionary1, Nothing)
+        PartyMember6.ValueMember = "Value"
+        PartyMember6.DisplayMember = "Key"
+
+
+        '' How to get value from selected option: Dim value = PartyMemberX.SelectedValue
+        '' PartyMember2.Text = value shows correct value meaning above works correctly.
+
+        Dim PartyMemberOriginal1 As Long = &H1C029
+        Dim PartyMemberOriginal2 As Long = &H1C02D
+        Dim PartyMemberOriginal3 As Long = &H1C031
+        Dim PartyMemberOriginal4 As Long = &H1C035
+        Dim PartyMemberOriginal5 As Long = &H1C039
+        Dim PartyMemberOriginal6 As Long = &H1C03D
+
+        '''
+        '''
+        ''' automatically pulls inventory information.
+        '''
+        '''
+
+
+
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        Dim sz As Integer = fs.Length ' you don't neccessarily need this, I use this in my app. toset the size an Array.
+
+        br.BaseStream.Seek(PartyMemberOriginal1, SeekOrigin.Begin) ' moves to the address you want
+        Dim Value1member = fs.ReadByte()
+        PartyMember1.Text = FlippedDictionary.GetValueOrDefault(Value1member)
+
+
+        fs.Seek(PartyMemberOriginal2, SeekOrigin.Begin)
+        Dim Value2member = fs.ReadByte()
+        PartyMember2.Text = FlippedDictionary.GetValueOrDefault(Value2member)
+
+        fs.Seek(PartyMemberOriginal3, SeekOrigin.Begin)
+        Dim Value3member = fs.ReadByte()
+        PartyMember3.Text = FlippedDictionary.GetValueOrDefault(Value3member)
+
+        fs.Seek(PartyMemberOriginal4, SeekOrigin.Begin)
+        Dim Value4member = fs.ReadByte()
+        PartyMember4.Text = FlippedDictionary.GetValueOrDefault(Value4member)
+
+        fs.Seek(PartyMemberOriginal5, SeekOrigin.Begin)
+        Dim Value5member = fs.ReadByte()
+        PartyMember5.Text = FlippedDictionary.GetValueOrDefault(Value5member)
+
+        fs.Seek(PartyMemberOriginal6, SeekOrigin.Begin)
+        Dim Value6member = fs.ReadByte()
+        PartyMember6.Text = FlippedDictionary.GetValueOrDefault(Value6member)
+
+        Dim Dictionary As New Dictionary(Of String, String)
+
+        Dictionary.Add("material_m000", "Begrimed Claw")
+        Dictionary.Add("material_m001", "Bestail Claw")
+        Dictionary.Add("material_m002", "Gargantuan Claw")
+        Dictionary.Add("material_m003", "Hellish Tallon")
+        Dictionary.Add("material_m004", "Shattered Bone")
+        Dictionary.Add("material_m005", "Sturdy Bone")
+        Dictionary.Add("material_m006", "Otherworldly Bone")
+        Dictionary.Add("material_m007", "Ancient Bone")
+        Dictionary.Add("material_m008", "Unknown")
+        Dictionary.Add("material_m009", "Moistened Scale")
+        Dictionary.Add("material_m010", "Seapetal Scale")
+        Dictionary.Add("material_m011", "Abyssal Scale")
+        Dictionary.Add("material_m012", "Seaking's Beard")
+        Dictionary.Add("material_m013", "Segmented Carapace")
+        Dictionary.Add("material_m014", "Iron Shell")
+        Dictionary.Add("material_m015", "Armored Shell")
+        Dictionary.Add("material_m016", "Regenerating Carapace")
+        Dictionary.Add("material_m017", "Chipped Fang")
+        Dictionary.Add("material_m018", "Wicked Fang")
+        Dictionary.Add("material_m019", "Monstrous Fang")
+        Dictionary.Add("material_m020", "Sinister Fang")
+        Dictionary.Add("material_m021", "Severed Wing")
+        Dictionary.Add("material_m022", "Scaled Wing")
+        Dictionary.Add("material_m023", "Abonimable Wing")
+        Dictionary.Add("material_m024", "Menacing Wings")
+        Dictionary.Add("material_m025", "Moited Tail")
+        Dictionary.Add("material_m026", "Barbed Tail")
+        Dictionary.Add("material_m027", "Diabolical Tail")
+        Dictionary.Add("material_m028", "Entrancing Tail")
+        Dictionary.Add("material_m029", "Torn Leather")
+        Dictionary.Add("material_m030", "Thickend Hide")
+        Dictionary.Add("material_m031", "Smooth Hide")
+        Dictionary.Add("material_m032", "Supple Leather")
+        Dictionary.Add("material_m033", "Gummy Oil")
+        Dictionary.Add("material_m034", "Fragrant Oil")
+        Dictionary.Add("material_m035", "Medicanal Oil")
+        Dictionary.Add("material_m036", "Esteric Oil")
+        Dictionary.Add("material_m037", "Scraggly Wool")
+        Dictionary.Add("material_m038", "Rough Wool")
+        Dictionary.Add("material_m039", "Thick Wool")
+        Dictionary.Add("material_m040", "Fluffy Wool")
+        Dictionary.Add("material_m041", "Bomb Ashes")
+        Dictionary.Add("material_m042", "Bomb Fragment")
+        Dictionary.Add("material_m043", "Bomb Sheel")
+        Dictionary.Add("material_m044", "Bomb Core")
+        Dictionary.Add("material_m045", "Murky Ooze")
+        Dictionary.Add("material_m046", "Vibrant Ooze")
+        Dictionary.Add("material_m047", "Transperent Ooze")
+        Dictionary.Add("material_m048", "Wonder Gel")
+        Dictionary.Add("material_m049", "Fractured Horn")
+        Dictionary.Add("material_m050", "Spined Horn")
+        Dictionary.Add("material_m052", "Infernal Horn")
+        Dictionary.Add("material_m053", "Strange Fluid")
+        Dictionary.Add("material_m054", "Enigamatic Fluid")
+        Dictionary.Add("material_m055", "Mysterous Fluid")
+        Dictionary.Add("material_m056", "Ineffable Fluid")
+        Dictionary.Add("material_m057", "Cie'Th Tear")
+        Dictionary.Add("material_m058", "Tear Of Frustratoin")
+        Dictionary.Add("material_m059", "Tear Of Remorce")
+        Dictionary.Add("material_m060", "Tear Or Woe")
+        Dictionary.Add("material_m061", "Chocoblo Plume")
+        Dictionary.Add("material_m062", "Chocobo Tail Feather")
+        Dictionary.Add("material_m063", "Green Needle")
+        Dictionary.Add("material_m064", "Dawnlight Dew")
+        Dictionary.Add("material_m065", "Dusklight Dew")
+        Dictionary.Add("material_m066", "Gloom Stalk")
+        Dictionary.Add("material_m067", "Sunpetal")
+        Dictionary.Add("material_m068", "Red Mycelium")
+        Dictionary.Add("material_m069", "Blue Mycelium")
+        Dictionary.Add("material_m070", "White Mycelium")
+        Dictionary.Add("material_m071", "Black Mycelium")
+        Dictionary.Add("material_m072", "Succulent Fruit")
+        Dictionary.Add("material_m073", "Malodouros fruit")
+        Dictionary.Add("material_m074", "Moonblossom Seed")
+        Dictionary.Add("material_m075", "Sunblossom Seed")
+        Dictionary.Add("material_m076", "Perfume")
+        Dictionary.Add("material_j000", "Insulated Cabling")
+        Dictionary.Add("material_j001", "Fiber,Optic Cable")
+        Dictionary.Add("material_j002", "Liquid Crystal Lens")
+        Dictionary.Add("material_j003", "Ring Joint")
+        Dictionary.Add("material_j004", "Epicyclic Gear")
+        Dictionary.Add("material_j005", "Crankshaft")
+        Dictionary.Add("material_j006", "Electrolytic Capacitor")
+        Dictionary.Add("material_j007", "Flywheel")
+        Dictionary.Add("material_j008", "Sprocket")
+        Dictionary.Add("material_j009", "Actuator")
+        Dictionary.Add("material_j010", "Spark Plug")
+        Dictionary.Add("material_j011", "Iridium Plug")
+        Dictionary.Add("material_j012", "Needle Valve")
+        Dictionary.Add("material_j013", "Butterfly Valve")
+        Dictionary.Add("material_j014", "Analog Circet")
+        Dictionary.Add("material_j015", "Digital Circut")
+        Dictionary.Add("material_j016", "Gyroscope")
+        Dictionary.Add("material_j017", "Electrode")
+        Dictionary.Add("material_j018", "Ceramic Armor")
+        Dictionary.Add("material_j019", "Chobham Armor")
+        Dictionary.Add("material_j020", "Radial Bearing")
+        Dictionary.Add("material_j021", "Thrust Bearing")
+        Dictionary.Add("material_j022", "Solenoid")
+        Dictionary.Add("material_j023", "Mobius Coil")
+        Dictionary.Add("material_j024", "Tungesten Tube")
+        Dictionary.Add("material_j025", "Titanium Tube")
+        Dictionary.Add("material_j026", "Passive Detector")
+        Dictionary.Add("material_j027", "Active Detector")
+        Dictionary.Add("material_j028", "Transformer")
+        Dictionary.Add("material_j029", "Amplifer")
+        Dictionary.Add("material_j030", "Carburetor")
+        Dictionary.Add("material_j031", "Supercharger")
+        Dictionary.Add("material_j032", "Piezoelectric Element")
+        Dictionary.Add("material_j033", "Cystal Oscillator")
+        Dictionary.Add("material_j034", "Paraffin Oil")
+        Dictionary.Add("material_j035", "Silicone Oil")
+        Dictionary.Add("material_j036", "Synthetic Muscle")
+        Dictionary.Add("material_j037", "Turboprop")
+        Dictionary.Add("material_j038", "Turbo Jet")
+        Dictionary.Add("material_j039", "Tesla Turbine")
+        Dictionary.Add("material_j040", "Polymer Emulsion")
+        Dictionary.Add("material_j041", "Ferroelectric Film")
+        Dictionary.Add("material_j042", "Super Conductor")
+        Dictionary.Add("material_j043", "Perfect Conductor")
+        Dictionary.Add("material_j044", "Particle Accelerator")
+        Dictionary.Add("material_j045", "Ulracompact Reactor")
+        Dictionary.Add("material_j046", "Credit Chip")
+        Dictionary.Add("material_j047", "Incentive Chip")
+        Dictionary.Add("material_j048", "Cactar Doll")
+        Dictionary.Add("material_j049", "Moogle Puppet")
+        Dictionary.Add("material_j050", "Tonberry Figure")
+        Dictionary.Add("material_j051", "Plush Chocobo")
+        Dictionary.Add("material_o000", "Millerite")
+        Dictionary.Add("material_o001", "Rhodochrosite")
+        Dictionary.Add("material_o002", "Cobaltie")
+        Dictionary.Add("material_o003", "Persovskite")
+        Dictionary.Add("material_o004", "Uraninite")
+        Dictionary.Add("material_o005", "Minar Stone")
+        Dictionary.Add("material_o006", "Scarletite")
+        Dictionary.Add("material_o007", "Adamantite")
+        Dictionary.Add("material_o008", "Dark Matter")
+        Dictionary.Add("material_o009", "Trapezohedron")
+        Dictionary.Add("material_o010", "Gold Dust")
+        Dictionary.Add("material_o011", "Gold Nugget")
+        Dictionary.Add("material_o012", "Platinum Ingot")
+
+
+        Dim MyAddress As Long = &H3A83C ' Sets Offset Address 
+
+        Dim ItemAmountOffset As Long = 239693
+
+        fs.Seek(ItemAmountOffset, SeekOrigin.Begin)
+
+
+
+
+
+
+
+
+
+        Dim x = 0
+        Dim y = 0
+
+        While x < 240
+            fs.Seek(ItemAmountOffset, SeekOrigin.Begin)
+
+            Dim arraySize = 2
+
+            Dim Buffer() As Byte = New Byte(arraySize) {}
+
+            ItemAmountOffset = ItemAmountOffset + 20
+
+            fs.Read(Buffer, 0, Buffer.Length)
+
+            Dim ItemAmount = Convert.ToHexString(Buffer)
+            Dim ItemAmountString As Integer = Convert.ToInt32(ItemAmount, 16)
+
+
+            If ItemAmountString > 0 Then
+                ListBox2.Items.Add(ItemAmountString & Environment.NewLine)
+            End If
+
+            x = x + 1
+
+        End While
+
+
+
+
+        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin)
+
+        '''
+        '''
+        ''' Inventory Name Display - Pulls out the name of any items in the inventory.
+        '''
+        '''
+
+        While y < 240
+
+            Dim nameArraySize = 12
+            Dim nameArray() As Byte = New Byte(nameArraySize) {}
+
+            fs.Read(nameArray, 0, nameArray.Length)
+
+
+            Dim testText = Convert.ToHexString(nameArray)
+            Dim testTextConvert = HexToString(testText)
+
+            ' TextBox2.AppendText(testTextConvert & Environment.NewLine)
+
+            Dim CurrentPos = fs.Position()
+            Dim NewOffset = CurrentPos + 7
+
+            br.BaseStream.Seek(NewOffset, SeekOrigin.Begin)
+
+            ' TextBox3.AppendText(testText & Environment.NewLine)
+
+            If testText <> "00000000000000000000000000" Then
+                testTextConvert = HexToString(testText)
+                'ListBox1.Items.Add(testTextConvert & Environment.NewLine)
+
+                ListBox1.Items.Add(Dictionary.Item(testTextConvert))
+
+
+            End If
+
+
+
+
+
+
+            y = y + 1
+
+        End While
+
+
+
+
+
+        fs.Close() : fs.Dispose()
+
 
     End Sub
 
@@ -1432,264 +1782,11 @@ Public Class Form1
         fs.Write(bytes, 0, bytes.Length) ' Writes to file
         fs.Close() : fs.Dispose()
     End Sub
-
     ''' 
     ''' 
-    ''' 
-    ''' Inventory Editor
-    ''' 
-    ''' Contains  
+    ''' Relates to Inventory Editing - Populating listboxes for data retrieval + adding. And simultanious scrolling of the two boxes to track Item name : amount.
     ''' 
     ''' 
-    ''' 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-
-        Dim Dictionary As New Dictionary(Of String, String)
-
-        Dictionary.Add("material_m000", "Begrimed Claw")
-        Dictionary.Add("material_m001", "Bestail Claw")
-        Dictionary.Add("material_m002", "Gargantuan Claw")
-        Dictionary.Add("material_m003", "Hellish Tallon")
-        Dictionary.Add("material_m004", "Shattered Bone")
-        Dictionary.Add("material_m005", "Sturdy Bone")
-        Dictionary.Add("material_m006", "Otherworldly Bone")
-        Dictionary.Add("material_m007", "Ancient Bone")
-        Dictionary.Add("material_m008", "Unknown")
-        Dictionary.Add("material_m009", "Moistened Scale")
-        Dictionary.Add("material_m010", "Seapetal Scale")
-        Dictionary.Add("material_m011", "Abyssal Scale")
-        Dictionary.Add("material_m012", "Seaking's Beard")
-        Dictionary.Add("material_m013", "Segmented Carapace")
-        Dictionary.Add("material_m014", "Iron Shell")
-        Dictionary.Add("material_m015", "Armored Shell")
-        Dictionary.Add("material_m016", "Regenerating Carapace")
-        Dictionary.Add("material_m017", "Chipped Fang")
-        Dictionary.Add("material_m018", "Wicked Fang")
-        Dictionary.Add("material_m019", "Monstrous Fang")
-        Dictionary.Add("material_m020", "Sinister Fang")
-        Dictionary.Add("material_m021", "Severed Wing")
-        Dictionary.Add("material_m022", "Scaled Wing")
-        Dictionary.Add("material_m023", "Abonimable Wing")
-        Dictionary.Add("material_m024", "Menacing Wings")
-        Dictionary.Add("material_m025", "Moited Tail")
-        Dictionary.Add("material_m026", "Barbed Tail")
-        Dictionary.Add("material_m027", "Diabolical Tail")
-        Dictionary.Add("material_m028", "Entrancing Tail")
-        Dictionary.Add("material_m029", "Torn Leather")
-        Dictionary.Add("material_m030", "Thickend Hide")
-        Dictionary.Add("material_m031", "Smooth Hide")
-        Dictionary.Add("material_m032", "Supple Leather")
-        Dictionary.Add("material_m033", "Gummy Oil")
-        Dictionary.Add("material_m034", "Fragrant Oil")
-        Dictionary.Add("material_m035", "Medicanal Oil")
-        Dictionary.Add("material_m036", "Esteric Oil")
-        Dictionary.Add("material_m037", "Scraggly Wool")
-        Dictionary.Add("material_m038", "Rough Wool")
-        Dictionary.Add("material_m039", "Thick Wool")
-        Dictionary.Add("material_m040", "Fluffy Wool")
-        Dictionary.Add("material_m041", "Bomb Ashes")
-        Dictionary.Add("material_m042", "Bomb Fragment")
-        Dictionary.Add("material_m043", "Bomb Sheel")
-        Dictionary.Add("material_m044", "Bomb Core")
-        Dictionary.Add("material_m045", "Murky Ooze")
-        Dictionary.Add("material_m046", "Vibrant Ooze")
-        Dictionary.Add("material_m047", "Transperent Ooze")
-        Dictionary.Add("material_m048", "Wonder Gel")
-        Dictionary.Add("material_m049", "Fractured Horn")
-        Dictionary.Add("material_m050", "Spined Horn")
-        Dictionary.Add("material_m052", "Infernal Horn")
-        Dictionary.Add("material_m053", "Strange Fluid")
-        Dictionary.Add("material_m054", "Enigamatic Fluid")
-        Dictionary.Add("material_m055", "Mysterous Fluid")
-        Dictionary.Add("material_m056", "Ineffable Fluid")
-        Dictionary.Add("material_m057", "Cie'Th Tear")
-        Dictionary.Add("material_m058", "Tear Of Frustratoin")
-        Dictionary.Add("material_m059", "Tear Of Remorce")
-        Dictionary.Add("material_m060", "Tear Or Woe")
-        Dictionary.Add("material_m061", "Chocoblo Plume")
-        Dictionary.Add("material_m062", "Chocobo Tail Feather")
-        Dictionary.Add("material_m063", "Green Needle")
-        Dictionary.Add("material_m064", "Dawnlight Dew")
-        Dictionary.Add("material_m065", "Dusklight Dew")
-        Dictionary.Add("material_m066", "Gloom Stalk")
-        Dictionary.Add("material_m067", "Sunpetal")
-        Dictionary.Add("material_m068", "Red Mycelium")
-        Dictionary.Add("material_m069", "Blue Mycelium")
-        Dictionary.Add("material_m070", "White Mycelium")
-        Dictionary.Add("material_m071", "Black Mycelium")
-        Dictionary.Add("material_m072", "Succulent Fruit")
-        Dictionary.Add("material_m073", "Malodouros fruit")
-        Dictionary.Add("material_m074", "Moonblossom Seed")
-        Dictionary.Add("material_m075", "Sunblossom Seed")
-        Dictionary.Add("material_m076", "Perfume")
-        Dictionary.Add("material_j000", "Insulated Cabling")
-        Dictionary.Add("material_j001", "Fiber,Optic Cable")
-        Dictionary.Add("material_j002", "Liquid Crystal Lens")
-        Dictionary.Add("material_j003", "Ring Joint")
-        Dictionary.Add("material_j004", "Epicyclic Gear")
-        Dictionary.Add("material_j005", "Crankshaft")
-        Dictionary.Add("material_j006", "Electrolytic Capacitor")
-        Dictionary.Add("material_j007", "Flywheel")
-        Dictionary.Add("material_j008", "Sprocket")
-        Dictionary.Add("material_j009", "Actuator")
-        Dictionary.Add("material_j010", "Spark Plug")
-        Dictionary.Add("material_j011", "Iridium Plug")
-        Dictionary.Add("material_j012", "Needle Valve")
-        Dictionary.Add("material_j013", "Butterfly Valve")
-        Dictionary.Add("material_j014", "Analog Circet")
-        Dictionary.Add("material_j015", "Digital Circut")
-        Dictionary.Add("material_j016", "Gyroscope")
-        Dictionary.Add("material_j017", "Electrode")
-        Dictionary.Add("material_j018", "Ceramic Armor")
-        Dictionary.Add("material_j019", "Chobham Armor")
-        Dictionary.Add("material_j020", "Radial Bearing")
-        Dictionary.Add("material_j021", "Thrust Bearing")
-        Dictionary.Add("material_j022", "Solenoid")
-        Dictionary.Add("material_j023", "Mobius Coil")
-        Dictionary.Add("material_j024", "Tungesten Tube")
-        Dictionary.Add("material_j025", "Titanium Tube")
-        Dictionary.Add("material_j026", "Passive Detector")
-        Dictionary.Add("material_j027", "Active Detector")
-        Dictionary.Add("material_j028", "Transformer")
-        Dictionary.Add("material_j029", "Amplifer")
-        Dictionary.Add("material_j030", "Carburetor")
-        Dictionary.Add("material_j031", "Supercharger")
-        Dictionary.Add("material_j032", "Piezoelectric Element")
-        Dictionary.Add("material_j033", "Cystal Oscillator")
-        Dictionary.Add("material_j034", "Paraffin Oil")
-        Dictionary.Add("material_j035", "Silicone Oil")
-        Dictionary.Add("material_j036", "Synthetic Muscle")
-        Dictionary.Add("material_j037", "Turboprop")
-        Dictionary.Add("material_j038", "Turbo Jet")
-        Dictionary.Add("material_j039", "Tesla Turbine")
-        Dictionary.Add("material_j040", "Polymer Emulsion")
-        Dictionary.Add("material_j041", "Ferroelectric Film")
-        Dictionary.Add("material_j042", "Super Conductor")
-        Dictionary.Add("material_j043", "Perfect Conductor")
-        Dictionary.Add("material_j044", "Particle Accelerator")
-        Dictionary.Add("material_j045", "Ulracompact Reactor")
-        Dictionary.Add("material_j046", "Credit Chip")
-        Dictionary.Add("material_j047", "Incentive Chip")
-        Dictionary.Add("material_j048", "Cactar Doll")
-        Dictionary.Add("material_j049", "Moogle Puppet")
-        Dictionary.Add("material_j050", "Tonberry Figure")
-        Dictionary.Add("material_j051", "Plush Chocobo")
-        Dictionary.Add("material_o000", "Millerite")
-        Dictionary.Add("material_o001", "Rhodochrosite")
-        Dictionary.Add("material_o002", "Cobaltie")
-        Dictionary.Add("material_o003", "Persovskite")
-        Dictionary.Add("material_o004", "Uraninite")
-        Dictionary.Add("material_o005", "Minar Stone")
-        Dictionary.Add("material_o006", "Scarletite")
-        Dictionary.Add("material_o007", "Adamantite")
-        Dictionary.Add("material_o008", "Dark Matter")
-        Dictionary.Add("material_o009", "Trapezohedron")
-        Dictionary.Add("material_o010", "Gold Dust")
-        Dictionary.Add("material_o011", "Gold Nugget")
-        Dictionary.Add("material_o012", "Platinum Ingot")
-
-
-        Dim MyAddress As Long = &H3A83C ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        Dim ItemAmountOffset As Long = 239693
-
-        fs.Seek(ItemAmountOffset, SeekOrigin.Begin)
-
-
-
-
-
-
-
-
-
-        Dim x = 0
-        Dim y = 0
-
-        While x < 240
-            fs.Seek(ItemAmountOffset, SeekOrigin.Begin)
-
-            Dim arraySize = 2
-
-            Dim Buffer() As Byte = New Byte(arraySize) {}
-
-            ItemAmountOffset = ItemAmountOffset + 20
-
-            fs.Read(Buffer, 0, Buffer.Length)
-
-            Dim ItemAmount = Convert.ToHexString(Buffer)
-            Dim ItemAmountString As Integer = Convert.ToInt32(ItemAmount, 16)
-
-
-            If ItemAmountString > 0 Then
-                ListBox2.Items.Add(ItemAmountString & Environment.NewLine)
-            End If
-
-            x = x + 1
-
-        End While
-
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin)
-
-        '''
-        '''
-        ''' Inventory Name Display - Pulls out the name of any items in the inventory.
-        '''
-        '''
-
-        While y < 240
-
-            Dim nameArraySize = 12
-            Dim nameArray() As Byte = New Byte(nameArraySize) {}
-
-            fs.Read(nameArray, 0, nameArray.Length)
-
-
-            Dim testText = Convert.ToHexString(nameArray)
-            Dim testTextConvert = HexToString(testText)
-
-            ' TextBox2.AppendText(testTextConvert & Environment.NewLine)
-
-            Dim CurrentPos = fs.Position()
-            Dim NewOffset = CurrentPos + 7
-
-            br.BaseStream.Seek(NewOffset, SeekOrigin.Begin)
-
-            ' TextBox3.AppendText(testText & Environment.NewLine)
-
-            If testText <> "00000000000000000000000000" Then
-                testTextConvert = HexToString(testText)
-                'ListBox1.Items.Add(testTextConvert & Environment.NewLine)
-
-                ListBox1.Items.Add(Dictionary.Item(testTextConvert))
-
-
-            End If
-
-
-
-
-
-
-            y = y + 1
-
-        End While
-
-
-
-
-        fs.Close() : fs.Dispose()
-    End Sub
-
 
     Private Sub ListBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBox2.SelectedIndexChanged
         If ListBox1.TopIndex <> ListBox2.TopIndex Then
@@ -1714,6 +1811,9 @@ Public Class Form1
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         ListBox1.Items.Add(ComboBox1.Text)
         ListBox2.Items.Add(NumericUpDown1.Value)
+
+
+
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -1862,7 +1962,8 @@ Public Class Form1
         Dictionary.Add("Platinum Ingot", "material_o012")
 
 
-        Dim MyAddress As Long = &H3A83C ' Sets Offset Address 
+        ' Dim MyAddress As Long = &H3A83B ' Sets Offset Address 
+        Dim MyAddress As Long = &H3A83C
 
         Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
 
@@ -1870,20 +1971,33 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim ItemAmountOffset As Long = 239693
+        Dim ItemAmountOffset As Long = &H3A84E
 
-        fs.Seek(ItemAmountOffset, SeekOrigin.Begin)
+        Dim Bytes As Byte()
+
+        fs.Seek(MyAddress, SeekOrigin.Begin)
+
 
         Dim y = 0
 
+
+        '' Currently Displays Items as Hex into text box, and numbers as hex into text box.
+
         While y < ListBox2.Items.Count
 
-            Dim d As String = ListBox2.Items.Item(y).ToString
-            Dim dHexString = StringToHex(d)
+            Dim d As String = Hex(ListBox2.Items.Item(y))
 
-            ListBox4.Items.Add(dHexString)
+            ListBox4.Items.Add(d)
+
+
+
             y = y + 1
+
+
+
         End While
+
+
 
 
         Dim x = 0
@@ -1903,6 +2017,95 @@ Public Class Form1
 
         End While
 
+        Dim zx = 0
+
+        While zx < ListBox3.Items.Count
+
+            Dim hexstring As String = ListBox3.Items.Item(zx)
+            Dim Length As Integer = hexstring.Length
+            Dim upperBound As Integer = Length \ 2
+            If Length Mod 2 = 0 Then
+                upperBound -= 1
+            Else
+                hexstring = "0" & hexstring
+
+            End If
+
+            ReDim Bytes(upperBound)
+            For i As Integer = 0 To upperBound
+                Bytes(i) = Convert.ToByte(hexstring.Substring(i * 2, 2), 16)
+            Next
+
+            fs.Write(Bytes, 0, Bytes.Length)
+
+            Dim CurrentPos = fs.Position
+            Dim newPos = CurrentPos + 7
+
+            fs.Seek(newPos, SeekOrigin.Begin)
+
+            zx += 1
+        End While
+
+        Dim xz = 0
+
+        fs.Seek(ItemAmountOffset, SeekOrigin.Begin)
+
+        While xz < ListBox2.Items.Count
+            Dim numberValue = Hex(ListBox2.Items.Item(xz))
+
+            While numberValue.Length < 4
+                numberValue = "0" + numberValue
+            End While
+
+            If numberValue.Length Mod 2 <> 0 Then numberValue = numberValue.Insert(0, "0")
+
+            ReDim Bytes((numberValue.Length \ 2) - 1)
+
+            Dim a As Integer = 0
+
+            For i As Integer = 0 To numberValue.Length - 1 Step 2
+                Bytes(a) = Convert.ToByte(numberValue.Substring(i, 2), 16)
+                a += 1
+            Next
+
+            fs.Write(Bytes, 0, Bytes.Length)
+
+            Dim CurrentPos = fs.Position
+            Dim newPos = CurrentPos + 18
+            fs.Seek(newPos, SeekOrigin.Begin)
+
+            xz += 1
+
+        End While
+
+        While zx And xz < 240
+
+            Dim hexstring = "00000000000000000000"
+            Dim Length As Integer = hexstring.Length
+            Dim upperBound As Integer = Length \ 2
+            If Length Mod 2 = 0 Then
+                upperBound -= 1
+            Else
+                hexstring = "0" & hexstring
+
+            End If
+
+            ReDim Bytes(upperBound)
+            For i As Integer = 0 To upperBound
+                Bytes(i) = Convert.ToByte(hexstring.Substring(i * 2, 2), 16)
+            Next
+
+            fs.Write(Bytes, 0, Bytes.Length)
+
+            zx += 1
+            xz += 1
+
+
+        End While
+
+        fs.Close() : fs.Dispose()
+
+        Button4.Enabled = False
 
 
 
@@ -1913,6 +2116,187 @@ Public Class Form1
 
 
 
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+
+        Dim PartyMember1A As Long = &H1C029 ' Sets Offset Address 
+        Dim PartyMember2A As Long = &H1C02D
+        Dim PartyMember3A As Long = &H1C031
+        Dim PartyMember4A As Long = &H1C035
+        Dim PartyMember5A As Long = &H1C039
+        Dim PartyMember6A As Long = &H1C03D
+        Dim BattleMember1A As Long = &H1C041
+        Dim BattleMember2A As Long = &H1C045
+        Dim BattleMember3A As Long = &H1C049
+        Dim PartyLeaderA As Long = &H1C04D
+
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        Dim Bytes As Byte()
+
+
+        '''
+        '''
+        ''' Party Member 1
+        '''
+        '''
+
+        fs.Seek(PartyMember1A, SeekOrigin.Begin)
+
+        Dim partymember1value = Hex(PartyMember1.SelectedValue)
+
+        If partymember1value.Length Mod 2 <> 0 Then partymember1value = partymember1value.Insert(0, "0")
+
+        ReDim Bytes((partymember1value.Length \ 2) - 1)
+
+        Dim a As Integer = 0
+
+        For i As Integer = 0 To partymember1value.Length - 1 Step 2
+            Bytes(a) = Convert.ToByte(partymember1value.Substring(i, 2), 16)
+            a += 1
+        Next
+
+        fs.Write(Bytes, 0, Bytes.Length)
+
+        fs.Seek(BattleMember1A, SeekOrigin.Begin)
+        fs.Write(Bytes, 0, Bytes.Length)
+        fs.Seek(PartyLeaderA, SeekOrigin.Begin)
+        fs.Write(Bytes, 0, Bytes.Length)
+
+
+
+        '''
+        '''
+        ''' Party Member 2
+        '''
+        '''
+
+
+        fs.Seek(PartyMember2A, SeekOrigin.Begin)
+
+        Dim partymember2value = Hex(PartyMember2.SelectedValue)
+
+        If partymember2value.Length Mod 2 <> 0 Then partymember2value = partymember2value.Insert(0, "0")
+
+        ReDim Bytes((partymember2value.Length \ 2) - 1)
+
+        Dim b As Integer = 0
+
+        For i As Integer = 0 To partymember2value.Length - 1 Step 2
+            Bytes(b) = Convert.ToByte(partymember2value, 16)
+            b += 1
+        Next
+
+        fs.Write(Bytes, 0, Bytes.Length)
+        fs.Seek(BattleMember2A, SeekOrigin.Begin)
+        fs.Write(Bytes, 0, Bytes.Length)
+
+
+
+        '''
+        '''
+        ''' Party Member 3
+        '''
+        '''
+
+        fs.Seek(PartyMember3A, SeekOrigin.Begin)
+
+        Dim Partymember3value = Hex(PartyMember3.SelectedValue)
+
+        If Partymember3value.Length Mod 2 <> 0 Then Partymember3value = Partymember3value.Insert(0, "0")
+
+        ReDim Bytes((Partymember3value.Length \ 2) - 1)
+
+        Dim c As Integer = 0
+
+        For i As Integer = 0 To Partymember3value.Length - 1 Step 2
+            Bytes(c) = Convert.ToByte(Partymember3value, 16)
+        Next
+
+        fs.Write(Bytes, 0, Bytes.Length)
+        fs.Seek(BattleMember3A, SeekOrigin.Begin)
+        fs.Write(Bytes, 0, Bytes.Length)
+
+
+
+
+
+
+        '''
+        '''
+        ''' Party Member 4
+        '''
+        '''
+
+        fs.Seek(PartyMember4A, SeekOrigin.Begin)
+
+        Dim Partymember4value = Hex(PartyMember4.SelectedValue)
+
+        If Partymember4value.Length Mod 2 <> 0 Then Partymember4value = Partymember4value.Insert(0, "0")
+
+        ReDim Bytes((Partymember4value.Length \ 2) - 1)
+
+        Dim d As Integer = 0
+
+        For i As Integer = 0 To Partymember4value.Length - 1 Step 2
+            Bytes(d) = Convert.ToByte(Partymember4value, 16)
+        Next
+
+        fs.Write(Bytes, 0, Bytes.Length)
+
+
+        '''
+        '''
+        ''' Party Member 5
+        '''
+        '''
+
+
+        fs.Seek(PartyMember5A, SeekOrigin.Begin)
+
+        Dim Partymember5value = Hex(PartyMember5.SelectedValue)
+
+        If Partymember5value.Length Mod 2 <> 0 Then Partymember5value = Partymember5value.Insert(0, "0")
+
+        ReDim Bytes((Partymember5value.Length \ 2) - 1)
+
+        Dim z As Integer = 0
+
+        For i As Integer = 0 To Partymember5value.Length - 1 Step 2
+            Bytes(z) = Convert.ToByte(Partymember5value, 16)
+        Next
+
+        fs.Write(Bytes, 0, Bytes.Length)
+
+        '''
+        '''
+        ''' Party Member 6
+        '''
+        '''
+
+
+        fs.Seek(PartyMember6A, SeekOrigin.Begin)
+
+        Dim Partymember6value = Hex(PartyMember6.SelectedValue)
+
+        If Partymember6value.Length Mod 2 <> 0 Then Partymember6value = Partymember6value.Insert(0, "0")
+
+        ReDim Bytes((Partymember6value.Length \ 2) - 1)
+
+        Dim f As Integer = 0
+
+        For i As Integer = 0 To Partymember6value.Length - 1 Step 2
+            Bytes(f) = Convert.ToByte(Partymember6value, 16)
+        Next
+
+        fs.Write(Bytes, 0, Bytes.Length)
+
+        fs.Close() : fs.Dispose()
 
     End Sub
 End Class

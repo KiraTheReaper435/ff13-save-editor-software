@@ -1,0 +1,16 @@
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\bin\Debug\net6.0-windows\ff13 save editor.exe
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\bin\Debug\net6.0-windows\ff13 save editor.deps.json
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\bin\Debug\net6.0-windows\ff13 save editor.runtimeconfig.json
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\bin\Debug\net6.0-windows\ff13 save editor.dll
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\bin\Debug\net6.0-windows\ff13 save editor.pdb
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ff13_save_editor.Form1.resources
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.vbproj.GenerateResource.cache
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.AssemblyInfoInputs.cache
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.AssemblyInfo.vb
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.vbproj.CoreCompileInputs.cache
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.dll
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\refint\ff13 save editor.dll
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.pdb
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.genruntimeconfig.cache
+C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ref\ff13 save editor.dll
