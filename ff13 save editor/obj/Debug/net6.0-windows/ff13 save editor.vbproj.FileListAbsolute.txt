@@ -14,3 +14,20 @@ C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\
 C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.pdb
 C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.genruntimeconfig.cache
 C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\obj\Debug\net6.0-windows\ref\ff13 save editor.dll
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\bin\Debug\net6.0-windows\ff13 save editor.exe
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\bin\Debug\net6.0-windows\ff13 save editor.deps.json
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\bin\Debug\net6.0-windows\ff13 save editor.runtimeconfig.json
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\bin\Debug\net6.0-windows\ff13 save editor.dll
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\bin\Debug\net6.0-windows\ff13 save editor.pdb
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\ff13_save_editor.Form1.resources
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.vbproj.GenerateResource.cache
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.AssemblyInfoInputs.cache
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.AssemblyInfo.vb
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.vbproj.CoreCompileInputs.cache
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.sourcelink.json
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.dll
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\refint\ff13 save editor.dll
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.pdb
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\ff13 save editor.genruntimeconfig.cache
+C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\obj\Debug\net6.0-windows\ref\ff13 save editor.dll

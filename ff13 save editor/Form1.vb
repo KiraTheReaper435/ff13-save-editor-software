@@ -1,9 +1,11 @@
 ﻿Imports System.Diagnostics.Eventing.Reader
+Imports System.Diagnostics.Tracing
 Imports System.IO
 Imports System.Reflection.Metadata.Ecma335
 Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports Microsoft.VisualBasic.Devices
 
 Public Class Form1
 
@@ -50,6 +52,7 @@ Public Class Form1
 
             Dim NameOfSave As String = fileInfo.Name
 
+
             Me.Text = (Me.Text + " - " + NameOfSave)
 
             TabControl1.Visible = True
@@ -57,7 +60,9 @@ Public Class Form1
 
         Else
             MsgBox("Select a Save")
+            Me.OpenSave.PerformClick()
         End If
+
 
 
         '' Area for preloading Party Editor config + Setting the defaults for it so when user clicks the tab its preloaded automatically and shows current party configuration.
@@ -72,6 +77,7 @@ Public Class Form1
         Dictionary1.Add("Vanille", 17)
         Dictionary1.Add("Hope", 11)
         Dictionary1.Add("Snow", 16)
+        Dictionary1.Add("Slot Empty", 255)
 
         Dim FlippedDictionary As New Dictionary(Of Int64, String)
 
@@ -82,6 +88,7 @@ Public Class Form1
         FlippedDictionary.Add(17, "Vanille")
         FlippedDictionary.Add(11, "Hope")
         FlippedDictionary.Add(16, "Snow")
+        FlippedDictionary.Add(255, "Slot Empty")
 
 
 
@@ -145,7 +152,6 @@ Public Class Form1
         Dim Value1member = fs.ReadByte()
         PartyMember1.Text = FlippedDictionary.GetValueOrDefault(Value1member)
 
-
         fs.Seek(PartyMemberOriginal2, SeekOrigin.Begin)
         Dim Value2member = fs.ReadByte()
         PartyMember2.Text = FlippedDictionary.GetValueOrDefault(Value2member)
@@ -166,6 +172,10 @@ Public Class Form1
         Dim Value6member = fs.ReadByte()
         PartyMember6.Text = FlippedDictionary.GetValueOrDefault(Value6member)
 
+
+
+
+
         Dim Dictionary As New Dictionary(Of String, String)
 
         Dictionary.Add("material_m000", "Begrimed Claw")
@@ -180,7 +190,7 @@ Public Class Form1
         Dictionary.Add("material_m009", "Moistened Scale")
         Dictionary.Add("material_m010", "Seapetal Scale")
         Dictionary.Add("material_m011", "Abyssal Scale")
-        Dictionary.Add("material_m012", "Seaking's Beard")
+        Dictionary.Add("material_m012", "Seaking'S Beard")
         Dictionary.Add("material_m013", "Segmented Carapace")
         Dictionary.Add("material_m014", "Iron Shell")
         Dictionary.Add("material_m015", "Armored Shell")
@@ -1831,7 +1841,7 @@ Public Class Form1
         Dictionary.Add("Moistened Scale", "material_m009")
         Dictionary.Add("Seapetal Scale", "material_m010")
         Dictionary.Add("Abyssal Scale", "material_m011")
-        Dictionary.Add("Seaking's Beard", "material_m012")
+        Dictionary.Add("Seaking'S Beard", "material_m012")
         Dictionary.Add("Segmented Carapace", "material_m013")
         Dictionary.Add("Iron Shell", "material_m014")
         Dictionary.Add("Armored Shell", "material_m015")
@@ -1870,6 +1880,7 @@ Public Class Form1
         Dictionary.Add("Wonder Gel", "material_m048")
         Dictionary.Add("Fractured Horn", "material_m049")
         Dictionary.Add("Spined Horn", "material_m050")
+        Dictionary.Add("Fiendish Horn", "material_m051")
         Dictionary.Add("Infernal Horn", "material_m052")
         Dictionary.Add("Strange Fluid", "material_m053")
         Dictionary.Add("Enigamatic Fluid", "material_m054")
@@ -2299,4 +2310,6 @@ Public Class Form1
         fs.Close() : fs.Dispose()
 
     End Sub
+
+
 End Class

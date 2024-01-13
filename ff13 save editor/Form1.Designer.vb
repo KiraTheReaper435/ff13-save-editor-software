@@ -40,6 +40,20 @@ Partial Class Form1
         CrystariumLevelButton = New Button()
         CrystariumComboBox = New ComboBox()
         CrystariumLevelMessage = New Label()
+        TabPage10 = New TabPage()
+        Button5 = New Button()
+        Label39 = New Label()
+        Label38 = New Label()
+        Label37 = New Label()
+        Label34 = New Label()
+        Label33 = New Label()
+        Label31 = New Label()
+        PartyMember6 = New ComboBox()
+        PartyMember5 = New ComboBox()
+        PartyMember4 = New ComboBox()
+        PartyMember3 = New ComboBox()
+        PartyMember2 = New ComboBox()
+        PartyMember1 = New ComboBox()
         TabPage3 = New TabPage()
         LightStr = New TextBox()
         LightATBButton = New Button()
@@ -149,24 +163,10 @@ Partial Class Form1
         Label36 = New Label()
         Label35 = New Label()
         ListBox1 = New ListBox()
-        TabPage10 = New TabPage()
-        TextBox1 = New TextBox()
-        Button5 = New Button()
-        Label39 = New Label()
-        Label38 = New Label()
-        Label37 = New Label()
-        Label34 = New Label()
-        Label33 = New Label()
-        Label31 = New Label()
-        PartyMember6 = New ComboBox()
-        PartyMember5 = New ComboBox()
-        PartyMember4 = New ComboBox()
-        PartyMember3 = New ComboBox()
-        PartyMember2 = New ComboBox()
-        PartyMember1 = New ComboBox()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         TabPage2.SuspendLayout()
+        TabPage10.SuspendLayout()
         TabPage3.SuspendLayout()
         TabPage4.SuspendLayout()
         TabPage5.SuspendLayout()
@@ -176,7 +176,6 @@ Partial Class Form1
         TabPage9.SuspendLayout()
         TabPage11.SuspendLayout()
         CType(NumericUpDown1, ComponentModel.ISupportInitialize).BeginInit()
-        TabPage10.SuspendLayout()
         SuspendLayout()
         ' 
         ' OpenFileDialog1
@@ -367,6 +366,140 @@ Partial Class Form1
         CrystariumLevelMessage.Size = New Size(95, 15)
         CrystariumLevelMessage.TabIndex = 0
         CrystariumLevelMessage.Text = "Crystarium Level"
+        ' 
+        ' TabPage10
+        ' 
+        TabPage10.Controls.Add(Button5)
+        TabPage10.Controls.Add(Label39)
+        TabPage10.Controls.Add(Label38)
+        TabPage10.Controls.Add(Label37)
+        TabPage10.Controls.Add(Label34)
+        TabPage10.Controls.Add(Label33)
+        TabPage10.Controls.Add(Label31)
+        TabPage10.Controls.Add(PartyMember6)
+        TabPage10.Controls.Add(PartyMember5)
+        TabPage10.Controls.Add(PartyMember4)
+        TabPage10.Controls.Add(PartyMember3)
+        TabPage10.Controls.Add(PartyMember2)
+        TabPage10.Controls.Add(PartyMember1)
+        TabPage10.Location = New Point(4, 24)
+        TabPage10.Name = "TabPage10"
+        TabPage10.Padding = New Padding(3)
+        TabPage10.Size = New Size(768, 336)
+        TabPage10.TabIndex = 11
+        TabPage10.Text = "Party Editor"
+        TabPage10.UseVisualStyleBackColor = True
+        ' 
+        ' Button5
+        ' 
+        Button5.Location = New Point(321, 207)
+        Button5.Name = "Button5"
+        Button5.Size = New Size(106, 42)
+        Button5.TabIndex = 13
+        Button5.Text = "Save"
+        Button5.UseVisualStyleBackColor = True
+        ' 
+        ' Label39
+        ' 
+        Label39.AutoSize = True
+        Label39.Location = New Point(655, 73)
+        Label39.Name = "Label39"
+        Label39.Size = New Size(91, 15)
+        Label39.TabIndex = 11
+        Label39.Text = "Party Member 6"
+        ' 
+        ' Label38
+        ' 
+        Label38.AutoSize = True
+        Label38.Location = New Point(529, 73)
+        Label38.Name = "Label38"
+        Label38.Size = New Size(91, 15)
+        Label38.TabIndex = 10
+        Label38.Text = "Party Member 5"
+        ' 
+        ' Label37
+        ' 
+        Label37.AutoSize = True
+        Label37.Location = New Point(399, 73)
+        Label37.Name = "Label37"
+        Label37.Size = New Size(91, 15)
+        Label37.TabIndex = 9
+        Label37.Text = "Party Member 4"
+        ' 
+        ' Label34
+        ' 
+        Label34.AutoSize = True
+        Label34.Location = New Point(274, 73)
+        Label34.Name = "Label34"
+        Label34.Size = New Size(91, 15)
+        Label34.TabIndex = 8
+        Label34.Text = "Party Member 3"
+        ' 
+        ' Label33
+        ' 
+        Label33.AutoSize = True
+        Label33.Location = New Point(143, 73)
+        Label33.Name = "Label33"
+        Label33.Size = New Size(91, 15)
+        Label33.TabIndex = 7
+        Label33.Text = "Party Member 2"
+        ' 
+        ' Label31
+        ' 
+        Label31.AutoSize = True
+        Label31.Location = New Point(14, 73)
+        Label31.Name = "Label31"
+        Label31.Size = New Size(91, 15)
+        Label31.TabIndex = 6
+        Label31.Text = "Party Member 1"
+        ' 
+        ' PartyMember6
+        ' 
+        PartyMember6.FormattingEnabled = True
+        PartyMember6.Location = New Point(641, 100)
+        PartyMember6.Name = "PartyMember6"
+        PartyMember6.Size = New Size(121, 23)
+        PartyMember6.TabIndex = 5
+        ' 
+        ' PartyMember5
+        ' 
+        PartyMember5.FormattingEnabled = True
+        PartyMember5.Location = New Point(514, 100)
+        PartyMember5.Name = "PartyMember5"
+        PartyMember5.Size = New Size(121, 23)
+        PartyMember5.TabIndex = 4
+        ' 
+        ' PartyMember4
+        ' 
+        PartyMember4.FormattingEnabled = True
+        PartyMember4.Location = New Point(387, 100)
+        PartyMember4.Name = "PartyMember4"
+        PartyMember4.Size = New Size(121, 23)
+        PartyMember4.TabIndex = 3
+        ' 
+        ' PartyMember3
+        ' 
+        PartyMember3.FormattingEnabled = True
+        PartyMember3.Location = New Point(260, 100)
+        PartyMember3.Name = "PartyMember3"
+        PartyMember3.Size = New Size(121, 23)
+        PartyMember3.TabIndex = 2
+        ' 
+        ' PartyMember2
+        ' 
+        PartyMember2.FormattingEnabled = True
+        PartyMember2.Location = New Point(133, 100)
+        PartyMember2.Name = "PartyMember2"
+        PartyMember2.Size = New Size(121, 23)
+        PartyMember2.TabIndex = 1
+        ' 
+        ' PartyMember1
+        ' 
+        PartyMember1.FormattingEnabled = True
+        PartyMember1.Location = New Point(6, 100)
+        PartyMember1.Name = "PartyMember1"
+        PartyMember1.Size = New Size(121, 23)
+        PartyMember1.TabIndex = 0
         ' 
         ' TabPage3
         ' 
@@ -1434,149 +1567,6 @@ Partial Class Form1
         ListBox1.Size = New Size(172, 274)
         ListBox1.TabIndex = 19
         ' 
-        ' TabPage10
-        ' 
-        TabPage10.Controls.Add(TextBox1)
-        TabPage10.Controls.Add(Button5)
-        TabPage10.Controls.Add(Label39)
-        TabPage10.Controls.Add(Label38)
-        TabPage10.Controls.Add(Label37)
-        TabPage10.Controls.Add(Label34)
-        TabPage10.Controls.Add(Label33)
-        TabPage10.Controls.Add(Label31)
-        TabPage10.Controls.Add(PartyMember6)
-        TabPage10.Controls.Add(PartyMember5)
-        TabPage10.Controls.Add(PartyMember4)
-        TabPage10.Controls.Add(PartyMember3)
-        TabPage10.Controls.Add(PartyMember2)
-        TabPage10.Controls.Add(PartyMember1)
-        TabPage10.Location = New Point(4, 24)
-        TabPage10.Name = "TabPage10"
-        TabPage10.Padding = New Padding(3)
-        TabPage10.Size = New Size(768, 336)
-        TabPage10.TabIndex = 11
-        TabPage10.Text = "Party Editor"
-        TabPage10.UseVisualStyleBackColor = True
-        ' 
-        ' TextBox1
-        ' 
-        TextBox1.Location = New Point(527, 200)
-        TextBox1.Multiline = True
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(175, 104)
-        TextBox1.TabIndex = 14
-        ' 
-        ' Button5
-        ' 
-        Button5.Location = New Point(321, 207)
-        Button5.Name = "Button5"
-        Button5.Size = New Size(106, 42)
-        Button5.TabIndex = 13
-        Button5.Text = "Save"
-        Button5.UseVisualStyleBackColor = True
-        ' 
-        ' Label39
-        ' 
-        Label39.AutoSize = True
-        Label39.Location = New Point(655, 73)
-        Label39.Name = "Label39"
-        Label39.Size = New Size(91, 15)
-        Label39.TabIndex = 11
-        Label39.Text = "Party Member 6"
-        ' 
-        ' Label38
-        ' 
-        Label38.AutoSize = True
-        Label38.Location = New Point(529, 73)
-        Label38.Name = "Label38"
-        Label38.Size = New Size(91, 15)
-        Label38.TabIndex = 10
-        Label38.Text = "Party Member 5"
-        ' 
-        ' Label37
-        ' 
-        Label37.AutoSize = True
-        Label37.Location = New Point(399, 73)
-        Label37.Name = "Label37"
-        Label37.Size = New Size(91, 15)
-        Label37.TabIndex = 9
-        Label37.Text = "Party Member 4"
-        ' 
-        ' Label34
-        ' 
-        Label34.AutoSize = True
-        Label34.Location = New Point(274, 73)
-        Label34.Name = "Label34"
-        Label34.Size = New Size(91, 15)
-        Label34.TabIndex = 8
-        Label34.Text = "Party Member 3"
-        ' 
-        ' Label33
-        ' 
-        Label33.AutoSize = True
-        Label33.Location = New Point(143, 73)
-        Label33.Name = "Label33"
-        Label33.Size = New Size(91, 15)
-        Label33.TabIndex = 7
-        Label33.Text = "Party Member 2"
-        ' 
-        ' Label31
-        ' 
-        Label31.AutoSize = True
-        Label31.Location = New Point(14, 73)
-        Label31.Name = "Label31"
-        Label31.Size = New Size(91, 15)
-        Label31.TabIndex = 6
-        Label31.Text = "Party Member 1"
-        ' 
-        ' PartyMember6
-        ' 
-        PartyMember6.FormattingEnabled = True
-        PartyMember6.Location = New Point(641, 100)
-        PartyMember6.Name = "PartyMember6"
-        PartyMember6.Size = New Size(121, 23)
-        PartyMember6.TabIndex = 5
-        ' 
-        ' PartyMember5
-        ' 
-        PartyMember5.FormattingEnabled = True
-        PartyMember5.Location = New Point(514, 100)
-        PartyMember5.Name = "PartyMember5"
-        PartyMember5.Size = New Size(121, 23)
-        PartyMember5.TabIndex = 4
-        ' 
-        ' PartyMember4
-        ' 
-        PartyMember4.FormattingEnabled = True
-        PartyMember4.Location = New Point(387, 100)
-        PartyMember4.Name = "PartyMember4"
-        PartyMember4.Size = New Size(121, 23)
-        PartyMember4.TabIndex = 3
-        ' 
-        ' PartyMember3
-        ' 
-        PartyMember3.FormattingEnabled = True
-        PartyMember3.Location = New Point(260, 100)
-        PartyMember3.Name = "PartyMember3"
-        PartyMember3.Size = New Size(121, 23)
-        PartyMember3.TabIndex = 2
-        ' 
-        ' PartyMember2
-        ' 
-        PartyMember2.FormattingEnabled = True
-        PartyMember2.Location = New Point(133, 100)
-        PartyMember2.Name = "PartyMember2"
-        PartyMember2.Size = New Size(121, 23)
-        PartyMember2.TabIndex = 1
-        ' 
-        ' PartyMember1
-        ' 
-        PartyMember1.FormattingEnabled = True
-        PartyMember1.Location = New Point(6, 100)
-        PartyMember1.Name = "PartyMember1"
-        PartyMember1.Size = New Size(121, 23)
-        PartyMember1.TabIndex = 0
-        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -1591,6 +1581,8 @@ Partial Class Form1
         TabPage1.PerformLayout()
         TabPage2.ResumeLayout(False)
         TabPage2.PerformLayout()
+        TabPage10.ResumeLayout(False)
+        TabPage10.PerformLayout()
         TabPage3.ResumeLayout(False)
         TabPage3.PerformLayout()
         TabPage4.ResumeLayout(False)
@@ -1608,8 +1600,6 @@ Partial Class Form1
         TabPage11.ResumeLayout(False)
         TabPage11.PerformLayout()
         CType(NumericUpDown1, ComponentModel.ISupportInitialize).EndInit()
-        TabPage10.ResumeLayout(False)
-        TabPage10.PerformLayout()
         ResumeLayout(False)
     End Sub
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
@@ -1757,5 +1747,4 @@ Partial Class Form1
     Friend WithEvents Label31 As Label
     Friend WithEvents PartyMember6 As ComboBox
     Friend WithEvents Button5 As Button
-    Friend WithEvents TextBox1 As TextBox
 End Class

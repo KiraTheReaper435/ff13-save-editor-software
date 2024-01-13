@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\kdevine\\.nuget\\packages\\": {}
+    "C:\\Users\\Kira\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kdevine\\Desktop\\code\\ff13-save-editor-software-master\\ff13 save editor\\ff13 save editor.vbproj",
+      "projectUniqueName": "C:\\Users\\Kira\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
       "projectName": "ff13 save editor",
-      "projectPath": "C:\\Users\\kdevine\\Desktop\\code\\ff13-save-editor-software-master\\ff13 save editor\\ff13 save editor.vbproj",
-      "packagesPath": "C:\\Users\\kdevine\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kdevine\\Desktop\\code\\ff13-save-editor-software-master\\ff13 save editor\\obj\\",
+      "projectPath": "C:\\Users\\Kira\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
+      "packagesPath": "C:\\Users\\Kira\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Kira\\Source\\Repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kdevine\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Kira\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

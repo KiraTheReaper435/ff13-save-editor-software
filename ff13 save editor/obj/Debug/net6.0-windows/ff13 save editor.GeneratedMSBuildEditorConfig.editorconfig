@@ -14,4 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ff13_save_editor
-build_property.ProjectDir = C:\Users\kdevine\Desktop\code\ff13-save-editor-software-master\ff13 save editor\
+build_property.ProjectDir = C:\Users\Kira\source\repos\KiraTheReaper435\ff13-save-editor-software\ff13 save editor\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
