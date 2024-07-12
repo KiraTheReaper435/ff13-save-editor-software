@@ -1605,7 +1605,7 @@ Partial Class Form1
         ' 
         ListBox5.FormattingEnabled = True
         ListBox5.ItemHeight = 15
-        ListBox5.Location = New Point(621, 276)
+        ListBox5.Location = New Point(624, 287)
         ListBox5.Name = "ListBox5"
         ListBox5.Size = New Size(72, 49)
         ListBox5.TabIndex = 40
@@ -1615,7 +1615,7 @@ Partial Class Form1
         ' 
         ListBox6.FormattingEnabled = True
         ListBox6.ItemHeight = 15
-        ListBox6.Location = New Point(699, 276)
+        ListBox6.Location = New Point(702, 287)
         ListBox6.Name = "ListBox6"
         ListBox6.Size = New Size(66, 49)
         ListBox6.TabIndex = 39
@@ -1623,7 +1623,7 @@ Partial Class Form1
         ' 
         ' ItemsSaveButton
         ' 
-        ItemsSaveButton.Location = New Point(426, 122)
+        ItemsSaveButton.Location = New Point(429, 133)
         ItemsSaveButton.Name = "ItemsSaveButton"
         ItemsSaveButton.Size = New Size(157, 55)
         ItemsSaveButton.TabIndex = 38
@@ -1632,7 +1632,7 @@ Partial Class Form1
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(642, 33)
+        Button2.Location = New Point(645, 44)
         Button2.Name = "Button2"
         Button2.Size = New Size(92, 23)
         Button2.TabIndex = 37
@@ -1641,7 +1641,7 @@ Partial Class Form1
         ' 
         ' NumericUpDown2
         ' 
-        NumericUpDown2.Location = New Point(503, 33)
+        NumericUpDown2.Location = New Point(506, 44)
         NumericUpDown2.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
         NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         NumericUpDown2.Name = "NumericUpDown2"
@@ -1654,7 +1654,7 @@ Partial Class Form1
         ' 
         ComboBox2.FormattingEnabled = True
         ComboBox2.Items.AddRange(New Object() {"Potion", "Pheonix Down", "Fortisol", "Aegisol", "Deceptisol", "Ethersol", "Librascope", "Antidote", "Holy Water", "Foul Liquid", "Mallet", "Painkiller", "Wax"})
-        ComboBox2.Location = New Point(360, 33)
+        ComboBox2.Location = New Point(363, 44)
         ComboBox2.Name = "ComboBox2"
         ComboBox2.Size = New Size(121, 23)
         ComboBox2.TabIndex = 35
@@ -1663,7 +1663,7 @@ Partial Class Form1
         ' 
         ListBox7.FormattingEnabled = True
         ListBox7.ItemHeight = 15
-        ListBox7.Location = New Point(181, 33)
+        ListBox7.Location = New Point(184, 44)
         ListBox7.Name = "ListBox7"
         ListBox7.Size = New Size(89, 274)
         ListBox7.TabIndex = 34
@@ -1671,7 +1671,7 @@ Partial Class Form1
         ' Label40
         ' 
         Label40.AutoSize = True
-        Label40.Location = New Point(181, 11)
+        Label40.Location = New Point(184, 22)
         Label40.Name = "Label40"
         Label40.Size = New Size(78, 15)
         Label40.TabIndex = 33
@@ -1680,7 +1680,7 @@ Partial Class Form1
         ' Label41
         ' 
         Label41.AutoSize = True
-        Label41.Location = New Point(4, 11)
+        Label41.Location = New Point(7, 22)
         Label41.Name = "Label41"
         Label41.Size = New Size(79, 15)
         Label41.TabIndex = 32
@@ -1690,7 +1690,7 @@ Partial Class Form1
         ' 
         ListBox8.FormattingEnabled = True
         ListBox8.ItemHeight = 15
-        ListBox8.Location = New Point(3, 33)
+        ListBox8.Location = New Point(6, 44)
         ListBox8.Name = "ListBox8"
         ListBox8.Size = New Size(172, 274)
         ListBox8.TabIndex = 31

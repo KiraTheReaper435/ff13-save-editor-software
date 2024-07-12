@@ -401,17 +401,97 @@ Public Class Form1
 
             End If
 
-
-
-
-
-
             y = y + 1
 
         End While
 
+        '''
+        '''
+        '''   Item Inventory Code - Pulls Item names and amounts and displays them.
+        '''
+        '''
 
 
+        Dim ItemDictionary As New Dictionary(Of String, String)
+
+        ItemDictionary.Add("it_potion", "Potion")
+        ItemDictionary.Add("it_phenxtal", "Pheonix Down")
+        ItemDictionary.Add("it_powersmoke", "Fortisol")
+        ItemDictionary.Add("it_barsmoke", "Aegisol")
+        ItemDictionary.Add("it_sneaksmoke", "Deceptisol")
+        ItemDictionary.Add("it_tpsmoke", "Ethersol")
+        ItemDictionary.Add("it_libra", "Librascope")
+        ItemDictionary.Add("it_antidote", "Antidote")
+        ItemDictionary.Add("it_holywater", "Holy Water")
+        ItemDictionary.Add("it_stinkwater", “Foul Liquid”)
+        ItemDictionary.Add(“it_tonkati”, “Mallet”)
+        ItemDictionary.Add(“it_sedative”, “Painkiller”)
+        ItemDictionary.Add(“it_wax”, “Wax”)
+
+
+        Dim ItemListOffset As Long = &H374A0
+        Dim ItemListAmount As Long = &H374B1
+
+
+
+        br.BaseStream.Seek(ItemListOffset, SeekOrigin.Begin)
+
+        Dim a = 0
+        Dim b = 0
+
+
+        While a < 60
+
+            Dim ItemListArraySize = 12
+            Dim ItemListNameArray() As Byte = New Byte(ItemListArraySize) {}
+
+            fs.Read(ItemListNameArray, 0, ItemListNameArray.Length)
+
+            Dim text = Convert.ToHexString(ItemListNameArray)
+            Dim Convertedtext = HexToString(text)
+
+
+            Dim CurrentPos = fs.Position()
+            Dim Newoffset = CurrentPos + 7
+
+            br.BaseStream.Seek(Newoffset, SeekOrigin.Begin)
+
+            If text <> "00000000000000000000000000" Then
+                Convertedtext = HexToString(text)
+                Convertedtext = Convertedtext.Trim(vbNullChar)
+
+                ListBox8.Items.Add(ItemDictionary.Item(Convertedtext))
+            End If
+
+            a = a + 1
+        End While
+
+
+
+
+        While b < 60
+
+            fs.Seek(ItemListAmount, SeekOrigin.Begin)
+
+            Dim arraySize = 2
+
+            Dim Buffer() As Byte = New Byte(arraySize) {}
+
+            ItemListAmount = ItemListAmount + 20
+
+            fs.Read(Buffer, 0, Buffer.Length)
+
+            Dim ItemAmount = Convert.ToHexString(Buffer)
+            Dim ItemAmountString As Integer = Convert.ToInt32(ItemAmount, 16)
+
+
+            If ItemAmountString > 0 Then
+                ListBox7.Items.Add(ItemAmountString & Environment.NewLine)
+            End If
+
+            b = b + 1
+
+        End While
 
 
         fs.Close() : fs.Dispose()
