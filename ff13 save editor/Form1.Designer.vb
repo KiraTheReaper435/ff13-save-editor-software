@@ -163,6 +163,17 @@ Partial Class Form1
         Label36 = New Label()
         Label35 = New Label()
         ListBox1 = New ListBox()
+        TabPage12 = New TabPage()
+        ListBox5 = New ListBox()
+        ListBox6 = New ListBox()
+        ItemsSaveButton = New Button()
+        Button2 = New Button()
+        NumericUpDown2 = New NumericUpDown()
+        ComboBox2 = New ComboBox()
+        ListBox7 = New ListBox()
+        Label40 = New Label()
+        Label41 = New Label()
+        ListBox8 = New ListBox()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         TabPage2.SuspendLayout()
@@ -176,6 +187,8 @@ Partial Class Form1
         TabPage9.SuspendLayout()
         TabPage11.SuspendLayout()
         CType(NumericUpDown1, ComponentModel.ISupportInitialize).BeginInit()
+        TabPage12.SuspendLayout()
+        CType(NumericUpDown2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' OpenFileDialog1
@@ -242,6 +255,7 @@ Partial Class Form1
         TabControl1.Controls.Add(TabPage8)
         TabControl1.Controls.Add(TabPage9)
         TabControl1.Controls.Add(TabPage11)
+        TabControl1.Controls.Add(TabPage12)
         TabControl1.Location = New Point(12, 58)
         TabControl1.Name = "TabControl1"
         TabControl1.SelectedIndex = 0
@@ -1470,7 +1484,7 @@ Partial Class Form1
         TabPage11.Padding = New Padding(3)
         TabPage11.Size = New Size(768, 336)
         TabPage11.TabIndex = 10
-        TabPage11.Text = "Inventory Editing"
+        TabPage11.Text = "Material Editing"
         TabPage11.UseVisualStyleBackColor = True
         ' 
         ' ListBox4
@@ -1567,6 +1581,120 @@ Partial Class Form1
         ListBox1.Size = New Size(172, 274)
         ListBox1.TabIndex = 19
         ' 
+        ' TabPage12
+        ' 
+        TabPage12.Controls.Add(ListBox5)
+        TabPage12.Controls.Add(ListBox6)
+        TabPage12.Controls.Add(ItemsSaveButton)
+        TabPage12.Controls.Add(Button2)
+        TabPage12.Controls.Add(NumericUpDown2)
+        TabPage12.Controls.Add(ComboBox2)
+        TabPage12.Controls.Add(ListBox7)
+        TabPage12.Controls.Add(Label40)
+        TabPage12.Controls.Add(Label41)
+        TabPage12.Controls.Add(ListBox8)
+        TabPage12.Location = New Point(4, 24)
+        TabPage12.Name = "TabPage12"
+        TabPage12.Padding = New Padding(3)
+        TabPage12.Size = New Size(768, 336)
+        TabPage12.TabIndex = 12
+        TabPage12.Text = "Item Editing"
+        TabPage12.UseVisualStyleBackColor = True
+        ' 
+        ' ListBox5
+        ' 
+        ListBox5.FormattingEnabled = True
+        ListBox5.ItemHeight = 15
+        ListBox5.Location = New Point(621, 276)
+        ListBox5.Name = "ListBox5"
+        ListBox5.Size = New Size(72, 49)
+        ListBox5.TabIndex = 40
+        ListBox5.Visible = False
+        ' 
+        ' ListBox6
+        ' 
+        ListBox6.FormattingEnabled = True
+        ListBox6.ItemHeight = 15
+        ListBox6.Location = New Point(699, 276)
+        ListBox6.Name = "ListBox6"
+        ListBox6.Size = New Size(66, 49)
+        ListBox6.TabIndex = 39
+        ListBox6.Visible = False
+        ' 
+        ' ItemsSaveButton
+        ' 
+        ItemsSaveButton.Location = New Point(426, 122)
+        ItemsSaveButton.Name = "ItemsSaveButton"
+        ItemsSaveButton.Size = New Size(157, 55)
+        ItemsSaveButton.TabIndex = 38
+        ItemsSaveButton.Text = "Save"
+        ItemsSaveButton.UseVisualStyleBackColor = True
+        ' 
+        ' Button2
+        ' 
+        Button2.Location = New Point(642, 33)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(92, 23)
+        Button2.TabIndex = 37
+        Button2.Text = "Add Item"
+        Button2.UseVisualStyleBackColor = True
+        ' 
+        ' NumericUpDown2
+        ' 
+        NumericUpDown2.Location = New Point(503, 33)
+        NumericUpDown2.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
+        NumericUpDown2.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        NumericUpDown2.Name = "NumericUpDown2"
+        NumericUpDown2.Size = New Size(120, 23)
+        NumericUpDown2.TabIndex = 36
+        NumericUpDown2.ThousandsSeparator = True
+        NumericUpDown2.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        ' 
+        ' ComboBox2
+        ' 
+        ComboBox2.FormattingEnabled = True
+        ComboBox2.Items.AddRange(New Object() {"Potion", "Pheonix Down", "Fortisol", "Aegisol", "Deceptisol", "Ethersol", "Librascope", "Antidote", "Holy Water", "Foul Liquid", "Mallet", "Painkiller", "Wax"})
+        ComboBox2.Location = New Point(360, 33)
+        ComboBox2.Name = "ComboBox2"
+        ComboBox2.Size = New Size(121, 23)
+        ComboBox2.TabIndex = 35
+        ' 
+        ' ListBox7
+        ' 
+        ListBox7.FormattingEnabled = True
+        ListBox7.ItemHeight = 15
+        ListBox7.Location = New Point(181, 33)
+        ListBox7.Name = "ListBox7"
+        ListBox7.Size = New Size(89, 274)
+        ListBox7.TabIndex = 34
+        ' 
+        ' Label40
+        ' 
+        Label40.AutoSize = True
+        Label40.Location = New Point(181, 11)
+        Label40.Name = "Label40"
+        Label40.Size = New Size(78, 15)
+        Label40.TabIndex = 33
+        Label40.Text = "Item Amount"
+        ' 
+        ' Label41
+        ' 
+        Label41.AutoSize = True
+        Label41.Location = New Point(4, 11)
+        Label41.Name = "Label41"
+        Label41.Size = New Size(79, 15)
+        Label41.TabIndex = 32
+        Label41.Text = "Current Items"
+        ' 
+        ' ListBox8
+        ' 
+        ListBox8.FormattingEnabled = True
+        ListBox8.ItemHeight = 15
+        ListBox8.Location = New Point(3, 33)
+        ListBox8.Name = "ListBox8"
+        ListBox8.Size = New Size(172, 274)
+        ListBox8.TabIndex = 31
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -1600,6 +1728,9 @@ Partial Class Form1
         TabPage11.ResumeLayout(False)
         TabPage11.PerformLayout()
         CType(NumericUpDown1, ComponentModel.ISupportInitialize).EndInit()
+        TabPage12.ResumeLayout(False)
+        TabPage12.PerformLayout()
+        CType(NumericUpDown2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
@@ -1747,4 +1878,15 @@ Partial Class Form1
     Friend WithEvents Label31 As Label
     Friend WithEvents PartyMember6 As ComboBox
     Friend WithEvents Button5 As Button
+    Friend WithEvents TabPage12 As TabPage
+    Friend WithEvents ListBox5 As ListBox
+    Friend WithEvents ListBox6 As ListBox
+    Friend WithEvents ItemsSaveButton As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents NumericUpDown2 As NumericUpDown
+    Friend WithEvents ComboBox2 As ComboBox
+    Friend WithEvents ListBox7 As ListBox
+    Friend WithEvents Label40 As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents ListBox8 As ListBox
 End Class

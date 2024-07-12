@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "To/gnznK2Hff1eIL8dQGK5AQrstzMovZU34L5DxS4fMQ9+53UBbnFgz4X8leGpzuIWor3RwE8b94NBcyL61kOA==",
+  "dgSpecHash": "bB7nlB9aZ8zuAXejO/48XMI9YKJnpwCLz7UGEfXpa8tzwlFuw0jn75+cBX1K+ydB8X2uBw3WM1WeLtaQqEntpA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kira\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\kirar\\source\\repos\\ff13saveeditor\\ff13 save editor\\ff13 save editor.vbproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kirar\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.29\\microsoft.windowsdesktop.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\kirar\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.29\\microsoft.netcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\kirar\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
+    "C:\\Users\\kirar\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
+  ],
   "logs": []
 }

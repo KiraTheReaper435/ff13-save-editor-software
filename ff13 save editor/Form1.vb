@@ -1798,7 +1798,7 @@ Public Class Form1
     ''' 
     ''' 
 
-    Private Sub ListBox2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBox2.SelectedIndexChanged
+    Private Sub ListBox2_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ListBox2.SelectedIndexChanged
         If ListBox1.TopIndex <> ListBox2.TopIndex Then
             ListBox1.TopIndex = ListBox2.TopIndex
         End If
@@ -1808,7 +1808,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub ListBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBox1.SelectedIndexChanged
+    Private Sub ListBox1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles ListBox1.SelectedIndexChanged
         If ListBox2.TopIndex <> ListBox1.TopIndex Then
             ListBox2.TopIndex = ListBox1.TopIndex
         End If
@@ -2308,6 +2308,186 @@ Public Class Form1
         fs.Write(Bytes, 0, Bytes.Length)
 
         fs.Close() : fs.Dispose()
+
+    End Sub
+
+    Private Sub ItemsSaveButton_Click(sender As Object, e As EventArgs) Handles ItemsSaveButton.Click
+        Dim FlippedItemDictionary As New Dictionary(Of String, String)
+
+        FlippedItemDictionary.Add("Potion", "it_potion")
+        FlippedItemDictionary.Add("Pheonix Down", "it_phenxtal")
+        FlippedItemDictionary.Add("Fortisol", "it_powersmoke")
+        FlippedItemDictionary.Add("Aegisol", "it_barsmoke")
+        FlippedItemDictionary.Add("Deceptisol", "it_sneaksmoke")
+        FlippedItemDictionary.Add("Ethersol", "it_tpsmoke")
+        FlippedItemDictionary.Add("Librascope", "it_libra")
+        FlippedItemDictionary.Add("Antidote", "it_antidote")
+        FlippedItemDictionary.Add("Holy Water", "it_holywater")
+        FlippedItemDictionary.Add("Foul Liquid", "it_stinkwater")
+        FlippedItemDictionary.Add("Mallet", "it_tonkati")
+        FlippedItemDictionary.Add("Painkiller", "it_sedative")
+        FlippedItemDictionary.Add("Wax", "it_wax")
+
+        Dim MyAddress As Long = &H374A0
+
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        Dim ItemAmountOffset As Long = &H374B2
+
+        Dim Bytes As Byte()
+
+        fs.Seek(MyAddress, SeekOrigin.Begin)
+
+
+        Dim y = 0
+
+
+        '' Currently Displays Items as Hex into text box, and numbers as hex into text box.
+
+        While y < ListBox7.Items.Count
+
+            Dim d As String = Hex(ListBox7.Items.Item(y))
+
+            ListBox5.Items.Add(d)
+
+
+
+            y = y + 1
+
+
+
+        End While
+
+
+
+
+        Dim x = 0
+
+        While x < ListBox8.Items.Count
+
+            Dim s As String = ListBox8.Items.Item(x).ToString
+            Dim sDict = FlippedItemDictionary.Item(s)
+            Dim sHexString = StringToHex(sDict)
+
+            While sHexString.Length < 26
+                sHexString = sHexString + "0"
+            End While
+
+
+            ListBox6.Items.Add(sHexString)
+
+
+
+
+            x = x + 1
+
+        End While
+
+        Dim zx = 0
+
+        While zx < ListBox6.Items.Count
+
+            Dim hexstring As String = ListBox6.Items.Item(zx)
+            Dim Length As Integer = hexstring.Length
+            Dim upperBound As Integer = Length \ 2
+            If Length Mod 2 = 0 Then
+                upperBound -= 1
+            Else
+                hexstring = "0" & hexstring
+
+            End If
+
+
+
+
+            ReDim Bytes(upperBound)
+            For i As Integer = 0 To upperBound
+                Bytes(i) = Convert.ToByte(hexstring.Substring(i * 2, 2), 16)
+            Next
+
+            fs.Write(Bytes, 0, Bytes.Length)
+
+            Dim CurrentPos = fs.Position
+            Dim newPos = CurrentPos + 7
+
+            fs.Seek(newPos, SeekOrigin.Begin)
+
+            zx += 1
+        End While
+
+        Dim xz = 0
+
+        fs.Seek(ItemAmountOffset, SeekOrigin.Begin)
+
+        While xz < ListBox7.Items.Count
+            Dim numberValue = Hex(ListBox7.Items.Item(xz))
+
+            While numberValue.Length < 4
+                numberValue = "0" + numberValue
+            End While
+
+            If numberValue.Length Mod 2 <> 0 Then numberValue = numberValue.Insert(0, "0")
+
+            ReDim Bytes((numberValue.Length \ 2) - 1)
+
+            Dim a As Integer = 0
+
+            For i As Integer = 0 To numberValue.Length - 1 Step 2
+                Bytes(a) = Convert.ToByte(numberValue.Substring(i, 2), 16)
+                a += 1
+            Next
+
+            fs.Write(Bytes, 0, Bytes.Length)
+
+            Dim CurrentPos = fs.Position
+            Dim newPos = CurrentPos + 18
+            fs.Seek(newPos, SeekOrigin.Begin)
+
+            xz += 1
+
+        End While
+
+        While zx And xz < 60
+
+            Dim hexstring = "00000000000000000000"
+            Dim Length As Integer = hexstring.Length
+            Dim upperBound As Integer = Length \ 2
+            If Length Mod 2 = 0 Then
+                upperBound -= 1
+            Else
+                hexstring = "0" & hexstring
+
+            End If
+
+            ReDim Bytes(upperBound)
+            For i As Integer = 0 To upperBound
+                Bytes(i) = Convert.ToByte(hexstring.Substring(i * 2, 2), 16)
+            Next
+
+            fs.Write(Bytes, 0, Bytes.Length)
+
+            zx += 1
+            xz += 1
+
+
+        End While
+
+        fs.Close() : fs.Dispose()
+
+        Button2.Enabled = False
+
+
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        ListBox8.Items.Add(ComboBox2.Text)
+        ListBox7.Items.Add(NumericUpDown2.Value)
 
     End Sub
 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kira\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj": {}
+    "C:\\Users\\kirar\\source\\repos\\ff13saveeditor\\ff13 save editor\\ff13 save editor.vbproj": {}
   },
   "projects": {
-    "C:\\Users\\Kira\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj": {
+    "C:\\Users\\kirar\\source\\repos\\ff13saveeditor\\ff13 save editor\\ff13 save editor.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kira\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
+        "projectUniqueName": "C:\\Users\\kirar\\source\\repos\\ff13saveeditor\\ff13 save editor\\ff13 save editor.vbproj",
         "projectName": "ff13 save editor",
-        "projectPath": "C:\\Users\\Kira\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
-        "packagesPath": "C:\\Users\\Kira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kira\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\obj\\",
+        "projectPath": "C:\\Users\\kirar\\source\\repos\\ff13saveeditor\\ff13 save editor\\ff13 save editor.vbproj",
+        "packagesPath": "C:\\Users\\kirar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\kirar\\source\\repos\\ff13saveeditor\\ff13 save editor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Kira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kirar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -50,6 +55,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.29, 6.0.29]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -58,7 +81,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }
