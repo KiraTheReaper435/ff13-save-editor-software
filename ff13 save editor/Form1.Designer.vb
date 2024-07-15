@@ -24,23 +24,15 @@ Partial Class Form1
     Private Sub InitializeComponent()
         OpenFileDialog1 = New OpenFileDialog()
         OpenSave = New Button()
-        GilInstructionsMessage = New Label()
-        GilSucessMessage = New Label()
-        GilButton = New Button()
-        GilTextBox = New TextBox()
         TabControl1 = New TabControl()
-        TabPage1 = New TabPage()
         TabPage2 = New TabPage()
-        CheckBox1 = New CheckBox()
-        TpSuccessMessage = New Label()
-        CrystariumSuccessMessage = New Label()
-        TPValueBox = New TextBox()
-        TPButton = New Button()
-        TPMessage = New Label()
-        CrystariumLevelButton = New Button()
-        CrystariumComboBox = New ComboBox()
-        CrystariumLevelMessage = New Label()
-        TabPage10 = New TabPage()
+        GilTextBox = New TextBox()
+        GilInstructionsMessage = New Label()
+        GilButton = New Button()
+        GilSucessMessage = New Label()
+        Label44 = New Label()
+        Label43 = New Label()
+        Label42 = New Label()
         Button5 = New Button()
         Label39 = New Label()
         Label38 = New Label()
@@ -54,6 +46,15 @@ Partial Class Form1
         PartyMember3 = New ComboBox()
         PartyMember2 = New ComboBox()
         PartyMember1 = New ComboBox()
+        CheckBox1 = New CheckBox()
+        TpSuccessMessage = New Label()
+        CrystariumSuccessMessage = New Label()
+        TPValueBox = New TextBox()
+        TPButton = New Button()
+        TPMessage = New Label()
+        CrystariumLevelButton = New Button()
+        CrystariumComboBox = New ComboBox()
+        CrystariumLevelMessage = New Label()
         TabPage3 = New TabPage()
         LightStr = New TextBox()
         LightATBButton = New Button()
@@ -175,9 +176,7 @@ Partial Class Form1
         Label41 = New Label()
         ListBox8 = New ListBox()
         TabControl1.SuspendLayout()
-        TabPage1.SuspendLayout()
         TabPage2.SuspendLayout()
-        TabPage10.SuspendLayout()
         TabPage3.SuspendLayout()
         TabPage4.SuspendLayout()
         TabPage5.SuspendLayout()
@@ -204,49 +203,9 @@ Partial Class Form1
         OpenSave.Text = "Open File"
         OpenSave.UseVisualStyleBackColor = True
         ' 
-        ' GilInstructionsMessage
-        ' 
-        GilInstructionsMessage.AutoSize = True
-        GilInstructionsMessage.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        GilInstructionsMessage.Location = New Point(189, 86)
-        GilInstructionsMessage.Name = "GilInstructionsMessage"
-        GilInstructionsMessage.Size = New Size(360, 15)
-        GilInstructionsMessage.TabIndex = 21
-        GilInstructionsMessage.Text = "Type the amount of gil you wish to have and then press the button!"
-        ' 
-        ' GilSucessMessage
-        ' 
-        GilSucessMessage.AutoSize = True
-        GilSucessMessage.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        GilSucessMessage.Location = New Point(293, 230)
-        GilSucessMessage.Name = "GilSucessMessage"
-        GilSucessMessage.Size = New Size(165, 21)
-        GilSucessMessage.TabIndex = 22
-        GilSucessMessage.Text = "Gil Has been changed!"
-        GilSucessMessage.Visible = False
-        ' 
-        ' GilButton
-        ' 
-        GilButton.Location = New Point(339, 181)
-        GilButton.Name = "GilButton"
-        GilButton.Size = New Size(75, 23)
-        GilButton.TabIndex = 20
-        GilButton.Text = "Edit Gil!"
-        GilButton.UseVisualStyleBackColor = True
-        ' 
-        ' GilTextBox
-        ' 
-        GilTextBox.Location = New Point(304, 129)
-        GilTextBox.MaxLength = 9
-        GilTextBox.Name = "GilTextBox"
-        GilTextBox.Size = New Size(144, 23)
-        GilTextBox.TabIndex = 19
-        ' 
         ' TabControl1
         ' 
-        TabControl1.Controls.Add(TabPage1)
         TabControl1.Controls.Add(TabPage2)
-        TabControl1.Controls.Add(TabPage10)
         TabControl1.Controls.Add(TabPage3)
         TabControl1.Controls.Add(TabPage4)
         TabControl1.Controls.Add(TabPage5)
@@ -263,22 +222,28 @@ Partial Class Form1
         TabControl1.TabIndex = 23
         TabControl1.Visible = False
         ' 
-        ' TabPage1
-        ' 
-        TabPage1.Controls.Add(GilTextBox)
-        TabPage1.Controls.Add(GilInstructionsMessage)
-        TabPage1.Controls.Add(GilButton)
-        TabPage1.Controls.Add(GilSucessMessage)
-        TabPage1.Location = New Point(4, 24)
-        TabPage1.Name = "TabPage1"
-        TabPage1.Padding = New Padding(3)
-        TabPage1.Size = New Size(768, 336)
-        TabPage1.TabIndex = 0
-        TabPage1.Text = "Gil"
-        TabPage1.UseVisualStyleBackColor = True
-        ' 
         ' TabPage2
         ' 
+        TabPage2.Controls.Add(GilTextBox)
+        TabPage2.Controls.Add(GilInstructionsMessage)
+        TabPage2.Controls.Add(GilButton)
+        TabPage2.Controls.Add(GilSucessMessage)
+        TabPage2.Controls.Add(Label44)
+        TabPage2.Controls.Add(Label43)
+        TabPage2.Controls.Add(Label42)
+        TabPage2.Controls.Add(Button5)
+        TabPage2.Controls.Add(Label39)
+        TabPage2.Controls.Add(Label38)
+        TabPage2.Controls.Add(Label37)
+        TabPage2.Controls.Add(Label34)
+        TabPage2.Controls.Add(Label33)
+        TabPage2.Controls.Add(Label31)
+        TabPage2.Controls.Add(PartyMember6)
+        TabPage2.Controls.Add(PartyMember5)
+        TabPage2.Controls.Add(PartyMember4)
+        TabPage2.Controls.Add(PartyMember3)
+        TabPage2.Controls.Add(PartyMember2)
+        TabPage2.Controls.Add(PartyMember1)
         TabPage2.Controls.Add(CheckBox1)
         TabPage2.Controls.Add(TpSuccessMessage)
         TabPage2.Controls.Add(CrystariumSuccessMessage)
@@ -296,11 +261,190 @@ Partial Class Form1
         TabPage2.Text = "Party Menu"
         TabPage2.UseVisualStyleBackColor = True
         ' 
+        ' GilTextBox
+        ' 
+        GilTextBox.Location = New Point(385, 242)
+        GilTextBox.MaxLength = 9
+        GilTextBox.Name = "GilTextBox"
+        GilTextBox.Size = New Size(144, 23)
+        GilTextBox.TabIndex = 28
+        ' 
+        ' GilInstructionsMessage
+        ' 
+        GilInstructionsMessage.AutoSize = True
+        GilInstructionsMessage.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        GilInstructionsMessage.Location = New Point(416, 224)
+        GilInstructionsMessage.Name = "GilInstructionsMessage"
+        GilInstructionsMessage.Size = New Size(68, 15)
+        GilInstructionsMessage.TabIndex = 30
+        GilInstructionsMessage.Text = "Gil Amount"
+        ' 
+        ' GilButton
+        ' 
+        GilButton.Location = New Point(418, 271)
+        GilButton.Name = "GilButton"
+        GilButton.Size = New Size(75, 23)
+        GilButton.TabIndex = 29
+        GilButton.Text = "Edit Gil!"
+        GilButton.UseVisualStyleBackColor = True
+        ' 
+        ' GilSucessMessage
+        ' 
+        GilSucessMessage.AutoSize = True
+        GilSucessMessage.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        GilSucessMessage.Location = New Point(412, 309)
+        GilSucessMessage.Name = "GilSucessMessage"
+        GilSucessMessage.Size = New Size(72, 15)
+        GilSucessMessage.TabIndex = 31
+        GilSucessMessage.Text = "Gil Updated!"
+        GilSucessMessage.Visible = False
+        ' 
+        ' Label44
+        ' 
+        Label44.AutoSize = True
+        Label44.Location = New Point(584, 309)
+        Label44.Name = "Label44"
+        Label44.Size = New Size(112, 15)
+        Label44.TabIndex = 27
+        Label44.Text = "Omni-Kit Unlocked!"
+        Label44.Visible = False
+        ' 
+        ' Label43
+        ' 
+        Label43.AutoSize = True
+        Label43.Location = New Point(302, 167)
+        Label43.Name = "Label43"
+        Label43.Size = New Size(162, 15)
+        Label43.TabIndex = 26
+        Label43.Text = "Party Configuration Updated!"
+        Label43.Visible = False
+        ' 
+        ' Label42
+        ' 
+        Label42.AutoSize = True
+        Label42.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label42.Location = New Point(330, 3)
+        Label42.Name = "Label42"
+        Label42.Size = New Size(119, 30)
+        Label42.TabIndex = 25
+        Label42.Text = "Party Editor"
+        ' 
+        ' Button5
+        ' 
+        Button5.Location = New Point(330, 122)
+        Button5.Name = "Button5"
+        Button5.Size = New Size(106, 42)
+        Button5.TabIndex = 24
+        Button5.Text = "Save"
+        Button5.UseVisualStyleBackColor = True
+        ' 
+        ' Label39
+        ' 
+        Label39.AutoSize = True
+        Label39.Location = New Point(661, 44)
+        Label39.Name = "Label39"
+        Label39.Size = New Size(91, 15)
+        Label39.TabIndex = 23
+        Label39.Text = "Party Member 6"
+        ' 
+        ' Label38
+        ' 
+        Label38.AutoSize = True
+        Label38.Location = New Point(535, 44)
+        Label38.Name = "Label38"
+        Label38.Size = New Size(91, 15)
+        Label38.TabIndex = 22
+        Label38.Text = "Party Member 5"
+        ' 
+        ' Label37
+        ' 
+        Label37.AutoSize = True
+        Label37.Location = New Point(405, 44)
+        Label37.Name = "Label37"
+        Label37.Size = New Size(91, 15)
+        Label37.TabIndex = 21
+        Label37.Text = "Party Member 4"
+        ' 
+        ' Label34
+        ' 
+        Label34.AutoSize = True
+        Label34.Location = New Point(280, 44)
+        Label34.Name = "Label34"
+        Label34.Size = New Size(91, 15)
+        Label34.TabIndex = 20
+        Label34.Text = "Party Member 3"
+        ' 
+        ' Label33
+        ' 
+        Label33.AutoSize = True
+        Label33.Location = New Point(149, 44)
+        Label33.Name = "Label33"
+        Label33.Size = New Size(91, 15)
+        Label33.TabIndex = 19
+        Label33.Text = "Party Member 2"
+        ' 
+        ' Label31
+        ' 
+        Label31.AutoSize = True
+        Label31.Location = New Point(20, 44)
+        Label31.Name = "Label31"
+        Label31.Size = New Size(91, 15)
+        Label31.TabIndex = 18
+        Label31.Text = "Party Member 1"
+        ' 
+        ' PartyMember6
+        ' 
+        PartyMember6.FormattingEnabled = True
+        PartyMember6.Location = New Point(647, 71)
+        PartyMember6.Name = "PartyMember6"
+        PartyMember6.Size = New Size(121, 23)
+        PartyMember6.TabIndex = 17
+        ' 
+        ' PartyMember5
+        ' 
+        PartyMember5.FormattingEnabled = True
+        PartyMember5.Location = New Point(520, 71)
+        PartyMember5.Name = "PartyMember5"
+        PartyMember5.Size = New Size(121, 23)
+        PartyMember5.TabIndex = 16
+        ' 
+        ' PartyMember4
+        ' 
+        PartyMember4.FormattingEnabled = True
+        PartyMember4.Location = New Point(393, 71)
+        PartyMember4.Name = "PartyMember4"
+        PartyMember4.Size = New Size(121, 23)
+        PartyMember4.TabIndex = 15
+        ' 
+        ' PartyMember3
+        ' 
+        PartyMember3.FormattingEnabled = True
+        PartyMember3.Location = New Point(266, 71)
+        PartyMember3.Name = "PartyMember3"
+        PartyMember3.Size = New Size(121, 23)
+        PartyMember3.TabIndex = 14
+        ' 
+        ' PartyMember2
+        ' 
+        PartyMember2.FormattingEnabled = True
+        PartyMember2.Location = New Point(139, 71)
+        PartyMember2.Name = "PartyMember2"
+        PartyMember2.Size = New Size(121, 23)
+        PartyMember2.TabIndex = 13
+        ' 
+        ' PartyMember1
+        ' 
+        PartyMember1.FormattingEnabled = True
+        PartyMember1.Location = New Point(12, 71)
+        PartyMember1.Name = "PartyMember1"
+        PartyMember1.Size = New Size(121, 23)
+        PartyMember1.TabIndex = 12
+        ' 
         ' CheckBox1
         ' 
         CheckBox1.AutoSize = True
         CheckBox1.CheckAlign = ContentAlignment.BottomCenter
-        CheckBox1.Location = New Point(320, 219)
+        CheckBox1.Location = New Point(584, 223)
         CheckBox1.Name = "CheckBox1"
         CheckBox1.Size = New Size(103, 33)
         CheckBox1.TabIndex = 8
@@ -311,26 +455,26 @@ Partial Class Form1
         ' TpSuccessMessage
         ' 
         TpSuccessMessage.AutoSize = True
-        TpSuccessMessage.Location = New Point(467, 123)
+        TpSuccessMessage.Location = New Point(228, 309)
         TpSuccessMessage.Name = "TpSuccessMessage"
-        TpSuccessMessage.Size = New Size(104, 15)
+        TpSuccessMessage.Size = New Size(102, 15)
         TpSuccessMessage.TabIndex = 7
-        TpSuccessMessage.Text = "TP Edit Successful!"
+        TpSuccessMessage.Text = "TP Value Updated!"
         TpSuccessMessage.Visible = False
         ' 
         ' CrystariumSuccessMessage
         ' 
         CrystariumSuccessMessage.AutoSize = True
-        CrystariumSuccessMessage.Location = New Point(156, 123)
+        CrystariumSuccessMessage.Location = New Point(14, 309)
         CrystariumSuccessMessage.Name = "CrystariumSuccessMessage"
-        CrystariumSuccessMessage.Size = New Size(198, 15)
+        CrystariumSuccessMessage.Size = New Size(146, 15)
         CrystariumSuccessMessage.TabIndex = 6
-        CrystariumSuccessMessage.Text = "Crystarium Level Edited Successfully"
+        CrystariumSuccessMessage.Text = "Crystarium Level Updated!"
         CrystariumSuccessMessage.Visible = False
         ' 
         ' TPValueBox
         ' 
-        TPValueBox.Location = New Point(467, 58)
+        TPValueBox.Location = New Point(228, 242)
         TPValueBox.MaxLength = 4
         TPValueBox.Name = "TPValueBox"
         TPValueBox.Size = New Size(100, 23)
@@ -338,7 +482,7 @@ Partial Class Form1
         ' 
         ' TPButton
         ' 
-        TPButton.Location = New Point(479, 87)
+        TPButton.Location = New Point(240, 271)
         TPButton.Name = "TPButton"
         TPButton.Size = New Size(75, 23)
         TPButton.TabIndex = 4
@@ -348,7 +492,7 @@ Partial Class Form1
         ' TPMessage
         ' 
         TPMessage.AutoSize = True
-        TPMessage.Location = New Point(464, 40)
+        TPMessage.Location = New Point(225, 224)
         TPMessage.Name = "TPMessage"
         TPMessage.Size = New Size(103, 15)
         TPMessage.TabIndex = 3
@@ -356,7 +500,7 @@ Partial Class Form1
         ' 
         ' CrystariumLevelButton
         ' 
-        CrystariumLevelButton.Location = New Point(183, 87)
+        CrystariumLevelButton.Location = New Point(14, 271)
         CrystariumLevelButton.Name = "CrystariumLevelButton"
         CrystariumLevelButton.Size = New Size(145, 23)
         CrystariumLevelButton.TabIndex = 2
@@ -367,7 +511,7 @@ Partial Class Form1
         ' 
         CrystariumComboBox.FormattingEnabled = True
         CrystariumComboBox.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
-        CrystariumComboBox.Location = New Point(183, 58)
+        CrystariumComboBox.Location = New Point(14, 242)
         CrystariumComboBox.Name = "CrystariumComboBox"
         CrystariumComboBox.Size = New Size(145, 23)
         CrystariumComboBox.TabIndex = 1
@@ -375,145 +519,11 @@ Partial Class Form1
         ' CrystariumLevelMessage
         ' 
         CrystariumLevelMessage.AutoSize = True
-        CrystariumLevelMessage.Location = New Point(183, 40)
+        CrystariumLevelMessage.Location = New Point(14, 224)
         CrystariumLevelMessage.Name = "CrystariumLevelMessage"
         CrystariumLevelMessage.Size = New Size(95, 15)
         CrystariumLevelMessage.TabIndex = 0
         CrystariumLevelMessage.Text = "Crystarium Level"
-        ' 
-        ' TabPage10
-        ' 
-        TabPage10.Controls.Add(Button5)
-        TabPage10.Controls.Add(Label39)
-        TabPage10.Controls.Add(Label38)
-        TabPage10.Controls.Add(Label37)
-        TabPage10.Controls.Add(Label34)
-        TabPage10.Controls.Add(Label33)
-        TabPage10.Controls.Add(Label31)
-        TabPage10.Controls.Add(PartyMember6)
-        TabPage10.Controls.Add(PartyMember5)
-        TabPage10.Controls.Add(PartyMember4)
-        TabPage10.Controls.Add(PartyMember3)
-        TabPage10.Controls.Add(PartyMember2)
-        TabPage10.Controls.Add(PartyMember1)
-        TabPage10.Location = New Point(4, 24)
-        TabPage10.Name = "TabPage10"
-        TabPage10.Padding = New Padding(3)
-        TabPage10.Size = New Size(768, 336)
-        TabPage10.TabIndex = 11
-        TabPage10.Text = "Party Editor"
-        TabPage10.UseVisualStyleBackColor = True
-        ' 
-        ' Button5
-        ' 
-        Button5.Location = New Point(321, 207)
-        Button5.Name = "Button5"
-        Button5.Size = New Size(106, 42)
-        Button5.TabIndex = 13
-        Button5.Text = "Save"
-        Button5.UseVisualStyleBackColor = True
-        ' 
-        ' Label39
-        ' 
-        Label39.AutoSize = True
-        Label39.Location = New Point(655, 73)
-        Label39.Name = "Label39"
-        Label39.Size = New Size(91, 15)
-        Label39.TabIndex = 11
-        Label39.Text = "Party Member 6"
-        ' 
-        ' Label38
-        ' 
-        Label38.AutoSize = True
-        Label38.Location = New Point(529, 73)
-        Label38.Name = "Label38"
-        Label38.Size = New Size(91, 15)
-        Label38.TabIndex = 10
-        Label38.Text = "Party Member 5"
-        ' 
-        ' Label37
-        ' 
-        Label37.AutoSize = True
-        Label37.Location = New Point(399, 73)
-        Label37.Name = "Label37"
-        Label37.Size = New Size(91, 15)
-        Label37.TabIndex = 9
-        Label37.Text = "Party Member 4"
-        ' 
-        ' Label34
-        ' 
-        Label34.AutoSize = True
-        Label34.Location = New Point(274, 73)
-        Label34.Name = "Label34"
-        Label34.Size = New Size(91, 15)
-        Label34.TabIndex = 8
-        Label34.Text = "Party Member 3"
-        ' 
-        ' Label33
-        ' 
-        Label33.AutoSize = True
-        Label33.Location = New Point(143, 73)
-        Label33.Name = "Label33"
-        Label33.Size = New Size(91, 15)
-        Label33.TabIndex = 7
-        Label33.Text = "Party Member 2"
-        ' 
-        ' Label31
-        ' 
-        Label31.AutoSize = True
-        Label31.Location = New Point(14, 73)
-        Label31.Name = "Label31"
-        Label31.Size = New Size(91, 15)
-        Label31.TabIndex = 6
-        Label31.Text = "Party Member 1"
-        ' 
-        ' PartyMember6
-        ' 
-        PartyMember6.FormattingEnabled = True
-        PartyMember6.Location = New Point(641, 100)
-        PartyMember6.Name = "PartyMember6"
-        PartyMember6.Size = New Size(121, 23)
-        PartyMember6.TabIndex = 5
-        ' 
-        ' PartyMember5
-        ' 
-        PartyMember5.FormattingEnabled = True
-        PartyMember5.Location = New Point(514, 100)
-        PartyMember5.Name = "PartyMember5"
-        PartyMember5.Size = New Size(121, 23)
-        PartyMember5.TabIndex = 4
-        ' 
-        ' PartyMember4
-        ' 
-        PartyMember4.FormattingEnabled = True
-        PartyMember4.Location = New Point(387, 100)
-        PartyMember4.Name = "PartyMember4"
-        PartyMember4.Size = New Size(121, 23)
-        PartyMember4.TabIndex = 3
-        ' 
-        ' PartyMember3
-        ' 
-        PartyMember3.FormattingEnabled = True
-        PartyMember3.Location = New Point(260, 100)
-        PartyMember3.Name = "PartyMember3"
-        PartyMember3.Size = New Size(121, 23)
-        PartyMember3.TabIndex = 2
-        ' 
-        ' PartyMember2
-        ' 
-        PartyMember2.FormattingEnabled = True
-        PartyMember2.Location = New Point(133, 100)
-        PartyMember2.Name = "PartyMember2"
-        PartyMember2.Size = New Size(121, 23)
-        PartyMember2.TabIndex = 1
-        ' 
-        ' PartyMember1
-        ' 
-        PartyMember1.FormattingEnabled = True
-        PartyMember1.Location = New Point(6, 100)
-        PartyMember1.Name = "PartyMember1"
-        PartyMember1.Size = New Size(121, 23)
-        PartyMember1.TabIndex = 0
         ' 
         ' TabPage3
         ' 
@@ -1705,12 +1715,8 @@ Partial Class Form1
         Name = "Form1"
         Text = "Final Fantasy XIII Save Editor"
         TabControl1.ResumeLayout(False)
-        TabPage1.ResumeLayout(False)
-        TabPage1.PerformLayout()
         TabPage2.ResumeLayout(False)
         TabPage2.PerformLayout()
-        TabPage10.ResumeLayout(False)
-        TabPage10.PerformLayout()
         TabPage3.ResumeLayout(False)
         TabPage3.PerformLayout()
         TabPage4.ResumeLayout(False)
@@ -1735,12 +1741,7 @@ Partial Class Form1
     End Sub
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents OpenSave As Button
-    Friend WithEvents GilInstructionsMessage As Label
-    Friend WithEvents GilSucessMessage As Label
-    Friend WithEvents GilButton As Button
-    Friend WithEvents GilTextBox As TextBox
     Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents CrystariumLevelButton As Button
     Friend WithEvents CrystariumComboBox As ComboBox
@@ -1864,20 +1865,6 @@ Partial Class Form1
     Friend WithEvents Button4 As Button
     Friend WithEvents Label32 As Label
     Friend WithEvents ListBox4 As ListBox
-    Friend WithEvents TabPage10 As TabPage
-    Friend WithEvents PartyMember5 As ComboBox
-    Friend WithEvents PartyMember4 As ComboBox
-    Friend WithEvents PartyMember3 As ComboBox
-    Friend WithEvents PartyMember2 As ComboBox
-    Friend WithEvents PartyMember1 As ComboBox
-    Friend WithEvents Label39 As Label
-    Friend WithEvents Label38 As Label
-    Friend WithEvents Label37 As Label
-    Friend WithEvents Label34 As Label
-    Friend WithEvents Label33 As Label
-    Friend WithEvents Label31 As Label
-    Friend WithEvents PartyMember6 As ComboBox
-    Friend WithEvents Button5 As Button
     Friend WithEvents TabPage12 As TabPage
     Friend WithEvents ListBox5 As ListBox
     Friend WithEvents ListBox6 As ListBox
@@ -1889,4 +1876,26 @@ Partial Class Form1
     Friend WithEvents Label40 As Label
     Friend WithEvents Label41 As Label
     Friend WithEvents ListBox8 As ListBox
+    Friend WithEvents Label42 As Label
+    Friend WithEvents Button5 As Button
+    Friend WithEvents Label39 As Label
+    Friend WithEvents Label38 As Label
+    Friend WithEvents Label37 As Label
+    Friend WithEvents Label34 As Label
+    Friend WithEvents Label33 As Label
+    Friend WithEvents Label31 As Label
+    Friend WithEvents PartyMember6 As ComboBox
+    Friend WithEvents PartyMember5 As ComboBox
+    Friend WithEvents PartyMember4 As ComboBox
+    Friend WithEvents PartyMember3 As ComboBox
+    Friend WithEvents PartyMember2 As ComboBox
+    Friend WithEvents PartyMember1 As ComboBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents Label43 As Label
+    Friend WithEvents GilTextBox As TextBox
+    Friend WithEvents GilInstructionsMessage As Label
+    Friend WithEvents GilButton As Button
+    Friend WithEvents GilSucessMessage As Label
+    Friend WithEvents LightHPNumeric As NumericUpDown
+    Friend WithEvents Button1 As Button
 End Class

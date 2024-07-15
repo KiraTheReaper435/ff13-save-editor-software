@@ -66,7 +66,7 @@ Public Class Form1
 
 
         '' Area for preloading Party Editor config + Setting the defaults for it so when user clicks the tab its preloaded automatically and shows current party configuration.
-        TabPage10.Show()
+        TabPage2.Show()
 
         Dim Dictionary1 As New Dictionary(Of String, Int64)
 
@@ -662,6 +662,7 @@ Public Class Form1
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
 
         If CheckBox1.Checked Then
+            Label44.Visible = True
 
             Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
             Dim hex As String = "FF" ' Declares a string as hex (in this case the value FF)
@@ -2211,6 +2212,7 @@ Public Class Form1
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
 
+
         Dim PartyMember1A As Long = &H1C029 ' Sets Offset Address 
         Dim PartyMember2A As Long = &H1C02D
         Dim PartyMember3A As Long = &H1C031
@@ -2388,7 +2390,7 @@ Public Class Form1
         fs.Write(Bytes, 0, Bytes.Length)
 
         fs.Close() : fs.Dispose()
-
+        Label43.Visible = True
     End Sub
 
     Private Sub ItemsSaveButton_Click(sender As Object, e As EventArgs) Handles ItemsSaveButton.Click
@@ -2570,6 +2572,5 @@ Public Class Form1
         ListBox7.Items.Add(NumericUpDown2.Value)
 
     End Sub
-
 
 End Class
