@@ -56,6 +56,17 @@ Partial Class Form1
         CrystariumComboBox = New ComboBox()
         CrystariumLevelMessage = New Label()
         TabPage3 = New TabPage()
+        Button1 = New Button()
+        Label6 = New Label()
+        Label7 = New Label()
+        Label8 = New Label()
+        Label9 = New Label()
+        Label10 = New Label()
+        LightATBValue = New NumericUpDown()
+        LightMagValue = New NumericUpDown()
+        LightStrValue = New NumericUpDown()
+        LightCPValue = New NumericUpDown()
+        LightHPValue = New NumericUpDown()
         LightStr = New TextBox()
         LightATBButton = New Button()
         LightMagButton = New Button()
@@ -66,11 +77,6 @@ Partial Class Form1
         LightMag = New TextBox()
         LightCP = New TextBox()
         LightHP = New TextBox()
-        Label6 = New Label()
-        Label7 = New Label()
-        Label8 = New Label()
-        Label9 = New Label()
-        Label10 = New Label()
         TabPage4 = New TabPage()
         SazhATBButton = New Button()
         SazhMagButton = New Button()
@@ -175,9 +181,15 @@ Partial Class Form1
         Label40 = New Label()
         Label41 = New Label()
         ListBox8 = New ListBox()
+        Button6 = New Button()
         TabControl1.SuspendLayout()
         TabPage2.SuspendLayout()
         TabPage3.SuspendLayout()
+        CType(LightATBValue, ComponentModel.ISupportInitialize).BeginInit()
+        CType(LightMagValue, ComponentModel.ISupportInitialize).BeginInit()
+        CType(LightStrValue, ComponentModel.ISupportInitialize).BeginInit()
+        CType(LightCPValue, ComponentModel.ISupportInitialize).BeginInit()
+        CType(LightHPValue, ComponentModel.ISupportInitialize).BeginInit()
         TabPage4.SuspendLayout()
         TabPage5.SuspendLayout()
         TabPage6.SuspendLayout()
@@ -527,6 +539,18 @@ Partial Class Form1
         ' 
         ' TabPage3
         ' 
+        TabPage3.Controls.Add(Button6)
+        TabPage3.Controls.Add(Button1)
+        TabPage3.Controls.Add(Label6)
+        TabPage3.Controls.Add(Label7)
+        TabPage3.Controls.Add(Label8)
+        TabPage3.Controls.Add(Label9)
+        TabPage3.Controls.Add(Label10)
+        TabPage3.Controls.Add(LightATBValue)
+        TabPage3.Controls.Add(LightMagValue)
+        TabPage3.Controls.Add(LightStrValue)
+        TabPage3.Controls.Add(LightCPValue)
+        TabPage3.Controls.Add(LightHPValue)
         TabPage3.Controls.Add(LightStr)
         TabPage3.Controls.Add(LightATBButton)
         TabPage3.Controls.Add(LightMagButton)
@@ -537,11 +561,6 @@ Partial Class Form1
         TabPage3.Controls.Add(LightMag)
         TabPage3.Controls.Add(LightCP)
         TabPage3.Controls.Add(LightHP)
-        TabPage3.Controls.Add(Label6)
-        TabPage3.Controls.Add(Label7)
-        TabPage3.Controls.Add(Label8)
-        TabPage3.Controls.Add(Label9)
-        TabPage3.Controls.Add(Label10)
         TabPage3.Location = New Point(4, 24)
         TabPage3.Name = "TabPage3"
         TabPage3.Padding = New Padding(3)
@@ -550,9 +569,118 @@ Partial Class Form1
         TabPage3.Text = "Lightning"
         TabPage3.UseVisualStyleBackColor = True
         ' 
+        ' Button1
+        ' 
+        Button1.Location = New Point(280, 193)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(165, 77)
+        Button1.TabIndex = 36
+        Button1.Text = "SAVE"
+        Button1.UseVisualStyleBackColor = True
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Location = New Point(651, 11)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(27, 15)
+        Label6.TabIndex = 35
+        Label6.Text = "ATB"
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Location = New Point(507, 11)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(31, 15)
+        Label7.TabIndex = 34
+        Label7.Text = "Mag"
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Location = New Point(366, 11)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(21, 15)
+        Label8.TabIndex = 33
+        Label8.Text = "Str"
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Location = New Point(223, 11)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(22, 15)
+        Label9.TabIndex = 32
+        Label9.Text = "CP"
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Location = New Point(92, 11)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(23, 15)
+        Label10.TabIndex = 31
+        Label10.Text = "HP"
+        ' 
+        ' LightATBValue
+        ' 
+        LightATBValue.Location = New Point(626, 29)
+        LightATBValue.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
+        LightATBValue.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        LightATBValue.Name = "LightATBValue"
+        LightATBValue.Size = New Size(75, 23)
+        LightATBValue.TabIndex = 30
+        LightATBValue.ThousandsSeparator = True
+        LightATBValue.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        ' 
+        ' LightMagValue
+        ' 
+        LightMagValue.Location = New Point(487, 29)
+        LightMagValue.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
+        LightMagValue.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        LightMagValue.Name = "LightMagValue"
+        LightMagValue.Size = New Size(75, 23)
+        LightMagValue.TabIndex = 29
+        LightMagValue.ThousandsSeparator = True
+        LightMagValue.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        ' 
+        ' LightStrValue
+        ' 
+        LightStrValue.Location = New Point(338, 29)
+        LightStrValue.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
+        LightStrValue.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        LightStrValue.Name = "LightStrValue"
+        LightStrValue.Size = New Size(75, 23)
+        LightStrValue.TabIndex = 28
+        LightStrValue.ThousandsSeparator = True
+        LightStrValue.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        ' 
+        ' LightCPValue
+        ' 
+        LightCPValue.Location = New Point(197, 29)
+        LightCPValue.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
+        LightCPValue.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        LightCPValue.Name = "LightCPValue"
+        LightCPValue.Size = New Size(75, 23)
+        LightCPValue.TabIndex = 27
+        LightCPValue.ThousandsSeparator = True
+        LightCPValue.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        ' 
+        ' LightHPValue
+        ' 
+        LightHPValue.Location = New Point(66, 29)
+        LightHPValue.Maximum = New Decimal(New Integer() {99999, 0, 0, 0})
+        LightHPValue.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        LightHPValue.Name = "LightHPValue"
+        LightHPValue.Size = New Size(75, 23)
+        LightHPValue.TabIndex = 26
+        LightHPValue.ThousandsSeparator = True
+        LightHPValue.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        ' 
         ' LightStr
         ' 
-        LightStr.Location = New Point(338, 29)
+        LightStr.Location = New Point(693, 247)
         LightStr.MaxLength = 6
         LightStr.Name = "LightStr"
         LightStr.Size = New Size(75, 23)
@@ -564,7 +692,7 @@ Partial Class Form1
         LightATBButton.Name = "LightATBButton"
         LightATBButton.Size = New Size(75, 23)
         LightATBButton.TabIndex = 24
-        LightATBButton.Text = "Update ATB"
+        LightATBButton.Text = "Update"
         LightATBButton.UseVisualStyleBackColor = True
         ' 
         ' LightMagButton
@@ -573,7 +701,7 @@ Partial Class Form1
         LightMagButton.Name = "LightMagButton"
         LightMagButton.Size = New Size(75, 23)
         LightMagButton.TabIndex = 23
-        LightMagButton.Text = "Update Mag"
+        LightMagButton.Text = "Update"
         LightMagButton.UseVisualStyleBackColor = True
         ' 
         ' LightStrButton
@@ -582,7 +710,7 @@ Partial Class Form1
         LightStrButton.Name = "LightStrButton"
         LightStrButton.Size = New Size(75, 23)
         LightStrButton.TabIndex = 22
-        LightStrButton.Text = "Update Str"
+        LightStrButton.Text = "Update"
         LightStrButton.UseVisualStyleBackColor = True
         ' 
         ' LightCPButton
@@ -591,21 +719,21 @@ Partial Class Form1
         LightCPButton.Name = "LightCPButton"
         LightCPButton.Size = New Size(75, 23)
         LightCPButton.TabIndex = 21
-        LightCPButton.Text = "Update CP"
+        LightCPButton.Text = "Update"
         LightCPButton.UseVisualStyleBackColor = True
         ' 
         ' LightHPButton
         ' 
-        LightHPButton.Location = New Point(67, 70)
+        LightHPButton.Location = New Point(66, 70)
         LightHPButton.Name = "LightHPButton"
         LightHPButton.Size = New Size(75, 23)
         LightHPButton.TabIndex = 20
-        LightHPButton.Text = "Update HP"
+        LightHPButton.Text = "Update"
         LightHPButton.UseVisualStyleBackColor = True
         ' 
         ' LightATB
         ' 
-        LightATB.Location = New Point(626, 29)
+        LightATB.Location = New Point(693, 305)
         LightATB.MaxLength = 1
         LightATB.Name = "LightATB"
         LightATB.Size = New Size(75, 23)
@@ -613,7 +741,7 @@ Partial Class Form1
         ' 
         ' LightMag
         ' 
-        LightMag.Location = New Point(488, 29)
+        LightMag.Location = New Point(693, 276)
         LightMag.MaxLength = 6
         LightMag.Name = "LightMag"
         LightMag.Size = New Size(75, 23)
@@ -621,7 +749,7 @@ Partial Class Form1
         ' 
         ' LightCP
         ' 
-        LightCP.Location = New Point(197, 29)
+        LightCP.Location = New Point(693, 218)
         LightCP.MaxLength = 6
         LightCP.Name = "LightCP"
         LightCP.Size = New Size(75, 23)
@@ -629,56 +757,11 @@ Partial Class Form1
         ' 
         ' LightHP
         ' 
-        LightHP.Location = New Point(67, 29)
+        LightHP.Location = New Point(693, 189)
         LightHP.MaxLength = 6
         LightHP.Name = "LightHP"
         LightHP.Size = New Size(75, 23)
         LightHP.TabIndex = 15
-        ' 
-        ' Label6
-        ' 
-        Label6.AutoSize = True
-        Label6.Location = New Point(651, 11)
-        Label6.Name = "Label6"
-        Label6.Size = New Size(27, 15)
-        Label6.TabIndex = 14
-        Label6.Text = "ATB"
-        ' 
-        ' Label7
-        ' 
-        Label7.AutoSize = True
-        Label7.Location = New Point(507, 11)
-        Label7.Name = "Label7"
-        Label7.Size = New Size(31, 15)
-        Label7.TabIndex = 13
-        Label7.Text = "Mag"
-        ' 
-        ' Label8
-        ' 
-        Label8.AutoSize = True
-        Label8.Location = New Point(366, 11)
-        Label8.Name = "Label8"
-        Label8.Size = New Size(21, 15)
-        Label8.TabIndex = 12
-        Label8.Text = "Str"
-        ' 
-        ' Label9
-        ' 
-        Label9.AutoSize = True
-        Label9.Location = New Point(223, 11)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(22, 15)
-        Label9.TabIndex = 11
-        Label9.Text = "CP"
-        ' 
-        ' Label10
-        ' 
-        Label10.AutoSize = True
-        Label10.Location = New Point(92, 11)
-        Label10.Name = "Label10"
-        Label10.Size = New Size(23, 15)
-        Label10.TabIndex = 10
-        Label10.Text = "HP"
         ' 
         ' TabPage4
         ' 
@@ -1705,6 +1788,15 @@ Partial Class Form1
         ListBox8.Size = New Size(172, 274)
         ListBox8.TabIndex = 31
         ' 
+        ' Button6
+        ' 
+        Button6.Location = New Point(66, 220)
+        Button6.Name = "Button6"
+        Button6.Size = New Size(75, 23)
+        Button6.TabIndex = 37
+        Button6.Text = "Test"
+        Button6.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -1719,6 +1811,11 @@ Partial Class Form1
         TabPage2.PerformLayout()
         TabPage3.ResumeLayout(False)
         TabPage3.PerformLayout()
+        CType(LightATBValue, ComponentModel.ISupportInitialize).EndInit()
+        CType(LightMagValue, ComponentModel.ISupportInitialize).EndInit()
+        CType(LightStrValue, ComponentModel.ISupportInitialize).EndInit()
+        CType(LightCPValue, ComponentModel.ISupportInitialize).EndInit()
+        CType(LightHPValue, ComponentModel.ISupportInitialize).EndInit()
         TabPage4.ResumeLayout(False)
         TabPage4.PerformLayout()
         TabPage5.ResumeLayout(False)
@@ -1771,11 +1868,6 @@ Partial Class Form1
     Friend WithEvents LightMag As TextBox
     Friend WithEvents LightCP As TextBox
     Friend WithEvents LightHP As TextBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label10 As Label
     Friend WithEvents SazhATB As TextBox
     Friend WithEvents SazhMag As TextBox
     Friend WithEvents SazhStr As TextBox
@@ -1841,7 +1933,6 @@ Partial Class Form1
     Friend WithEvents SnowStrButton As Button
     Friend WithEvents SnowCPButton As Button
     Friend WithEvents SnowHPButton As Button
-    Friend WithEvents LightStr As TextBox
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
     Friend WithEvents Label18 As Label
@@ -1897,5 +1988,17 @@ Partial Class Form1
     Friend WithEvents GilButton As Button
     Friend WithEvents GilSucessMessage As Label
     Friend WithEvents LightHPNumeric As NumericUpDown
+    Friend WithEvents LightStr As TextBox
+    Friend WithEvents LightHPValue As NumericUpDown
+    Friend WithEvents LightATBValue As NumericUpDown
+    Friend WithEvents LightMagValue As NumericUpDown
+    Friend WithEvents LightStrValue As NumericUpDown
+    Friend WithEvents LightCPValue As NumericUpDown
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button6 As Button
 End Class

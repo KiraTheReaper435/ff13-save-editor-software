@@ -1,6 +1,7 @@
 ﻿Imports System.Diagnostics.Eventing.Reader
 Imports System.Diagnostics.Tracing
 Imports System.IO
+Imports System.Net
 Imports System.Reflection.Metadata.Ecma335
 Imports System.Security.Cryptography
 Imports System.Text
@@ -30,6 +31,72 @@ Public Class Form1
             text.Append(Chr(Convert.ToByte(hex.Substring(i, 2), 16)))
         Next
         Return text.ToString
+    End Function
+
+    Function CharStats(Address As Long, Text As String) As Byte ' Function for Character Stats - Takes inputted value and writes to file
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        br.BaseStream.Seek(Address, SeekOrigin.Begin) ' moves to the address you want
+
+        Text = Hex(Text) 'Converts textbox input to hex
+
+        While Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work
+            Text = "0" + Text
+        End While
+
+        Dim Bytes As Byte()
+
+        If Text.Length Mod 2 <> 0 Then Text = Text.Insert(0, "0")
+
+        ReDim Bytes((Text.Length \ 2) - 1)
+
+        Dim n As Integer = 0
+
+        For i As Integer = 0 To Text.Length - 1 Step 2
+            Bytes(n) = Convert.ToByte(Text.Substring(i, 2), 16)
+            n += 1
+        Next
+
+        fs.Write(Bytes, 0, Bytes.Length)
+        fs.Close() : fs.Dispose()
+
+    End Function
+
+    Function CharATB(Address As Long, Text As String) As Byte ' Function for Character ATB Gague. Takes value inputted, *10 and then writes to file as ATB is written in 10s
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        br.BaseStream.Seek(Address, SeekOrigin.Begin) ' moves to the address you want
+
+
+
+        Text = (Text * 10)
+        Text = Hex(Text) 'Converts textbox input to hex
+
+
+
+        Dim bytes As Byte()
+
+        If Text.Length Mod 2 <> 0 Then Text = Text.Insert(0, "0")
+
+        ReDim bytes((Text.Length \ 2) - 1)
+
+        Dim n As Integer = 0
+
+        For i As Integer = 0 To Text.Length - 1 Step 2
+            bytes(n) = Convert.ToByte(Text.Substring(i, 2), 16)
+            n += 1
+        Next
+
+        fs.Write(bytes, 0, bytes.Length) ' Writes to file
+        fs.Close() : fs.Dispose()
     End Function
 
 
@@ -145,8 +212,6 @@ Public Class Form1
         Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        Dim sz As Integer = fs.Length ' you don't neccessarily need this, I use this in my app. toset the size an Array.
 
         br.BaseStream.Seek(PartyMemberOriginal1, SeekOrigin.Begin) ' moves to the address you want
         Dim Value1member = fs.ReadByte()
@@ -528,8 +593,6 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' you don't neccessarily need this, I use this in my app. toset the size an Array.
-
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
         GilTextBox.Text = Hex(GilTextBox.Text) 'Converts textbox input to hex
@@ -576,8 +639,6 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' you don't neccessarily need this, I use this in my app. toset the size an Array.
-
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
         CrystariumComboBox.Text = Hex(CrystariumComboBox.Text) 'Converts textbox input to hex
@@ -623,8 +684,6 @@ Public Class Form1
         Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        Dim sz As Integer = fs.Length ' you don't neccessarily need this, I use this in my app. toset the size an Array.
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -706,8 +765,6 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' you don't neccessarily need this, I use this in my app. toset the size an Array.
-
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
         FangHP.Text = Hex(FangHP.Text) 'Converts textbox input to hex
@@ -745,8 +802,6 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' you don't neccessarily need this, I use this in my app. toset the size an Array.
-
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
         FangCP.Text = Hex(FangCP.Text) 'Converts textbox input to hex
@@ -781,8 +836,6 @@ Public Class Form1
         Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -819,8 +872,6 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
-
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
         FangMag.Text = Hex(FangMag.Text) 'Converts textbox input to hex
@@ -855,8 +906,6 @@ Public Class Form1
         Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -905,9 +954,9 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' you don't neccessarily need this, I use this in my app. toset the size an Array.
-
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
+
+        LightHP.Text = LightHPValue.Value
 
         LightHP.Text = Hex(LightHP.Text) 'Converts textbox input to hex
 
@@ -943,9 +992,9 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' you don't neccessarily need this, I use this in my app. toset the size an Array.
-
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
+
+        LightCP.Text = LightCPValue.Value
 
         LightCP.Text = Hex(LightCP.Text) 'Converts textbox input to hex
 
@@ -982,9 +1031,9 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
-
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
+
+        LightStr.Text = LightStrValue.Value
 
         LightStr.Text = Hex(LightStr.Text) 'Converts textbox input to hex
 
@@ -1019,9 +1068,9 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
-
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
+
+        LightMag.Text = LightMagValue.Value
 
         LightMag.Text = Hex(LightMag.Text) 'Converts textbox input to hex
 
@@ -1056,9 +1105,9 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
-
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
+
+        LightATB.Text = LightATBValue.Value
 
         LightATB.Text = (LightATB.Text * 10)
         LightATB.Text = Hex(LightATB.Text) 'Converts textbox input to hex
@@ -1105,7 +1154,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1143,7 +1192,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1182,7 +1231,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1219,7 +1268,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1256,7 +1305,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1305,7 +1354,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1342,7 +1391,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1379,7 +1428,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1416,7 +1465,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1453,7 +1502,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1502,7 +1551,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1539,7 +1588,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1576,7 +1625,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1613,7 +1662,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1650,7 +1699,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1699,7 +1748,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1736,7 +1785,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1773,7 +1822,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1810,7 +1859,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -1847,7 +1896,7 @@ Public Class Form1
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        Dim sz As Integer = fs.Length ' Used for sizing an array if required
+
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
 
@@ -2573,4 +2622,169 @@ Public Class Form1
 
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+
+        Dim LightHPAddress As Long = &H27ED6
+        Dim LightCPAddress As Long = &H27EE6
+        Dim LightStrAddress As Long = &H27EE6
+        Dim LightMagAddress As Long = &H27EEA
+        Dim LightATBAddress As Long = &H27EE0
+
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        br.BaseStream.Seek(LightHPAddress, SeekOrigin.Begin) ' moves to the address you want
+
+        LightHP.Text = LightHPValue.Value
+
+        LightHP.Text = Hex(LightHP.Text) 'Converts textbox input to hex
+
+        While LightHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
+            LightHP.Text = "0" + LightHP.Text
+        End While
+
+        Dim HPBytes As Byte()
+
+
+        If LightHP.Text.Length Mod 2 <> 0 Then LightHP.Text = LightHP.Text.Insert(0, "0")
+
+        ReDim HPBytes((LightHP.Text.Length \ 2) - 1)
+
+        Dim a As Integer = 0
+
+        For i As Integer = 0 To LightHP.Text.Length - 1 Step 2
+            HPBytes(a) = Convert.ToByte(LightHP.Text.Substring(i, 2), 16)
+            a += 1
+        Next
+
+        LightHP.Text = "" ' Blanks text box to prevent it showing hex
+        fs.Write(HPBytes, 0, HPBytes.Length) ' Writes to file
+
+        '''
+        '''
+        ''' Lightning CP Segment
+        '''
+        '''
+
+        br.BaseStream.Seek(LightCPAddress, SeekOrigin.Begin) ' moves to the address you want
+
+        LightCP.Text = LightCPValue.Value
+
+        LightCP.Text = Hex(LightCP.Text) 'Converts textbox input to hex
+
+
+        While LightCP.Text.Length < 8
+            LightCP.Text = "0" + LightCP.Text
+        End While
+
+
+        Dim CPBytes As Byte()
+
+        If LightCP.Text.Length Mod 2 <> 0 Then LightCP.Text = LightCP.Text.Insert(0, "0")
+
+        ReDim CPBytes((LightCP.Text.Length \ 2) - 1)
+
+        Dim b As Integer = 0
+
+        For i As Integer = 0 To LightCP.Text.Length - 1 Step 2
+            CPBytes(b) = Convert.ToByte(LightCP.Text.Substring(i, 2), 16)
+            b += 1
+        Next
+
+        LightCP.Text = "" ' Blanks text box to prevent it showing hex
+        fs.Write(CPBytes, 0, CPBytes.Length) ' Writes to file
+
+        '''
+        '''
+        ''' Lightning Strength Segment
+        '''
+        '''
+
+
+        br.BaseStream.Seek(LightStrAddress, SeekOrigin.Begin) ' moves to the address you want
+
+        LightStr.Text = LightStrValue.Value
+
+        LightStr.Text = Hex(LightStr.Text) 'Converts textbox input to hex
+
+        While LightStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
+            LightStr.Text = "0" + LightStr.Text
+        End While
+
+        Dim StrBytes As Byte()
+
+        If LightStr.Text.Length Mod 2 <> 0 Then LightStr.Text = LightStr.Text.Insert(0, "0")
+
+        ReDim StrBytes((LightStr.Text.Length \ 2) - 1)
+
+        Dim c As Integer = 0
+
+        For i As Integer = 0 To LightStr.Text.Length - 1 Step 2
+            StrBytes(c) = Convert.ToByte(LightStr.Text.Substring(i, 2), 16)
+            c += 1
+        Next
+
+        LightStr.Text = "" ' Blanks text box to prevent it showing hex
+        fs.Write(StrBytes, 0, StrBytes.Length) ' Writes to file
+
+
+        '''
+        '''
+        ''' Lightning Magic Segment
+        '''
+        '''
+
+
+        br.BaseStream.Seek(LightMagaddress, SeekOrigin.Begin) ' moves to the address you want
+
+        LightMag.Text = LightMagValue.Value
+
+        LightMag.Text = Hex(LightMag.Text) 'Converts textbox input to hex
+
+        While LightMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
+            LightMag.Text = "0" + LightMag.Text
+        End While
+
+        Dim MagBytes As Byte()
+
+        If LightMag.Text.Length Mod 2 <> 0 Then LightMag.Text = LightMag.Text.Insert(0, "0")
+
+        ReDim MagBytes((LightMag.Text.Length \ 2) - 1)
+
+        Dim n As Integer = 0
+
+        For i As Integer = 0 To LightMag.Text.Length - 1 Step 2
+            MagBytes(n) = Convert.ToByte(LightMag.Text.Substring(i, 2), 16)
+            n += 1
+        Next
+
+        LightMag.Text = "" ' Blanks text box to prevent it showing hex
+        fs.Write(MagBytes, 0, MagBytes.Length) ' Writes to file
+
+        '''
+        '''
+        ''' Lightning ATB Segment
+        '''
+        '''
+
+
+        fs.Close() : fs.Dispose()
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+
+        Dim HPAddress As Long = &H27ED6
+        LightHP.Text = LightHPValue.Value
+
+        Dim ATBAddress As Long = &H27EE0
+        LightATB.Text = LightATBValue.Value
+
+        CharStats(HPAddress, LightHP.Text)
+        CharATB(ATBAddress, LightATB.Text)
+
+    End Sub
 End Class
