@@ -1314,8 +1314,6 @@ Public Class Form1
         End While
 
 
-
-
         Dim x = 0
 
         While x < ListBox1.Items.Count
@@ -1423,15 +1421,6 @@ Public Class Form1
 
         Button4.Enabled = False
 
-
-
-
-
-
-
-
-
-
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
@@ -1455,7 +1444,6 @@ Public Class Form1
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
         Dim Bytes As Byte()
-
 
         '''
         '''
@@ -1485,14 +1473,11 @@ Public Class Form1
         fs.Seek(PartyLeaderA, SeekOrigin.Begin)
         fs.Write(Bytes, 0, Bytes.Length)
 
-
-
         '''
         '''
         ''' Party Member 2
         '''
         '''
-
 
         fs.Seek(PartyMember2A, SeekOrigin.Begin)
 
@@ -1512,8 +1497,6 @@ Public Class Form1
         fs.Write(Bytes, 0, Bytes.Length)
         fs.Seek(BattleMember2A, SeekOrigin.Begin)
         fs.Write(Bytes, 0, Bytes.Length)
-
-
 
         '''
         '''
@@ -1538,11 +1521,6 @@ Public Class Form1
         fs.Write(Bytes, 0, Bytes.Length)
         fs.Seek(BattleMember3A, SeekOrigin.Begin)
         fs.Write(Bytes, 0, Bytes.Length)
-
-
-
-
-
 
         '''
         '''
@@ -1669,8 +1647,6 @@ Public Class Form1
         End While
 
 
-
-
         Dim x = 0
 
         While x < ListBox8.Items.Count
@@ -1683,11 +1659,7 @@ Public Class Form1
                 sHexString = sHexString + "0"
             End While
 
-
             ListBox6.Items.Add(sHexString)
-
-
-
 
             x = x + 1
 
@@ -1706,8 +1678,6 @@ Public Class Form1
                 hexstring = "0" & hexstring
 
             End If
-
-
 
 
             ReDim Bytes(upperBound)
@@ -1786,8 +1756,6 @@ Public Class Form1
 
         Button2.Enabled = False
 
-
-
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -1796,14 +1764,5 @@ Public Class Form1
         ListBox7.Items.Add(NumericUpDown2.Value)
 
     End Sub
-
-
-
-
-
-
-
-
-
 
 End Class
