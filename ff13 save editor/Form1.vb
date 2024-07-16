@@ -15,7 +15,7 @@ Public Class Form1
     ''' 
     ''' Functions Here: 
     ''' 
-    '''  <summary>
+    ''' 
     ''' 
     Function StringToHex(ByVal text As String) As String
         Dim hex As String
@@ -99,16 +99,15 @@ Public Class Form1
         fs.Close() : fs.Dispose()
     End Function
 
-    Function NumberGrabber(Address As Long)
+    Function NumberGrabber(Address As Long, arraySize As Int16)
         Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
 
         Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
 
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        fs.Seek(Address, SeekOrigin.Begin)
 
-        Dim arraySize = 2
+        fs.Seek(Address, SeekOrigin.Begin)
 
         Dim Buffer() As Byte = New Byte(arraySize) {}
 
@@ -117,10 +116,46 @@ Public Class Form1
         Dim ItemAmount = Convert.ToHexString(Buffer)
         Dim ItemAmountString As Integer = Convert.ToInt32(ItemAmount, 16)
 
+        fs.Close() : fs.Dispose()
+
         Return ItemAmountString
+
 
     End Function
 
+    Function NumberWriter(Address As Long, text As String, Length As Int16)
+
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        br.BaseStream.Seek(Address, SeekOrigin.Begin) ' moves to the address you want
+
+        text = Hex(text) 'Converts textbox input to hex
+
+        While text.Length < Length ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
+            text = "0" + text
+        End While
+
+        Dim bytes As Byte()
+
+
+        If text.Length Mod 2 <> 0 Then text = text.Insert(0, "0")
+
+        ReDim bytes((text.Length \ 2) - 1)
+
+        Dim n As Integer = 0
+
+        For i As Integer = 0 To text.Length - 1 Step 2
+            bytes(n) = Convert.ToByte(text.Substring(i, 2), 16)
+            n += 1
+        Next
+
+        fs.Write(bytes, 0, bytes.Length) ' Writes to file
+        fs.Close() : fs.Dispose()
+    End Function
 
 
 
@@ -415,13 +450,6 @@ Public Class Form1
         fs.Seek(ItemAmountOffset, SeekOrigin.Begin)
 
 
-
-
-
-
-
-
-
         Dim x = 0
         Dim y = 0
 
@@ -580,8 +608,106 @@ Public Class Form1
 
         End While
 
+        '''
+        '''
+        ''' Automatically pulls character stats from file and displays them accordingly.
+        '''
+        '''
 
         fs.Close() : fs.Dispose()
+
+        '''
+        ''' Lightning Stats
+        '''
+        Dim LightHPAddress As Long = &H27ED6
+        Dim LightCPAddress As Long = &H27EC9
+        Dim LightStrAddress As Long = &H27EE6
+        Dim LightMagAddress As Long = &H27EEA
+        Dim LightATBAddress As Long = &H27EE0
+
+
+
+        LightHPValue.Value = NumberGrabber(LightHPAddress, 2)
+        LightCPValue.Value = NumberGrabber(LightCPAddress, 3)
+        LightStrValue.Value = NumberGrabber(LightStrAddress, 2)
+        LightMagValue.Value = NumberGrabber(LightMagAddress, 2)
+        LightATBValue.Value = NumberGrabber(LightATBAddress, 0) / 10
+
+        '''
+        ''' Sazh Stats
+        '''
+        Dim SazhHPAddress As Long = &H28C56
+        Dim SazhCPAddress As Long = &H28C49
+        Dim SazhStrAddress As Long = &H28C66
+        Dim SazhMagAddress As Long = &H28C6A
+        Dim SazhATBAddress As Long = &H28C60
+
+        SazhHPValue.Value = NumberGrabber(SazhHPAddress, 2)
+        SazhCPValue.Value = NumberGrabber(SazhCPAddress, 3)
+        SazhStrValue.Value = NumberGrabber(SazhStrAddress, 2)
+        SazhMagValue.Value = NumberGrabber(SazhMagAddress, 2)
+        SazhATBValue.Value = NumberGrabber(SazhATBAddress, 0) / 10
+
+        '''
+        ''' Vanille Stats
+        '''
+        Dim VanHPAddress As Long = &H2B4D6
+        Dim VanCPAddress As Long = &H2B4C9
+        Dim VanStrAddress As Long = &H2B4E6
+        Dim VanMagAddress As Long = &H2B4EA
+        Dim VanATBAddress As Long = &H2B4E0
+
+        VanHPValue.Value = NumberGrabber(VanHPAddress, 2)
+        VanCPValue.Value = NumberGrabber(VanCPAddress, 3)
+        VanStrValue.Value = NumberGrabber(VanStrAddress, 2)
+        VanMagValue.Value = NumberGrabber(VanMagAddress, 2)
+        VanATBValue.Value = NumberGrabber(VanATBAddress, 0) / 10
+
+        '''
+        ''' Hope Stats
+        '''
+        Dim HopeHPAddress As Long = &H263D6
+        Dim HopeCPAddress As Long = &H263C9
+        Dim HopeStrAddress As Long = &H263E6
+        Dim HopeMagAddress As Long = &H263EA
+        Dim HopeATBAddress As Long = &H263E0
+
+        HopeHPValue.Value = NumberGrabber(HopeHPAddress, 2)
+        HopeCPValue.Value = NumberGrabber(HopeCPAddress, 3)
+        HopeStrValue.Value = NumberGrabber(HopeStrAddress, 2)
+        HopeMagValue.Value = NumberGrabber(HopeMagAddress, 2)
+        HopeATBValue.Value = NumberGrabber(HopeATBAddress, 0) / 10
+
+
+        '''
+        ''' Fang Stats
+        '''
+        Dim FangHPAddress As Long = &H248D6
+        Dim FangCPAddress As Long = &H248C9
+        Dim FangStrAddress As Long = &H248E6
+        Dim FangMagAddress As Long = &H248EA
+        Dim FangATBAddress As Long = &H248E0
+
+        FangHPValue.Value = NumberGrabber(FangHPAddress, 2)
+        FangCPValue.Value = NumberGrabber(FangCPAddress, 3)
+        FangStrValue.Value = NumberGrabber(FangStrAddress, 2)
+        FangMagValue.Value = NumberGrabber(FangMagAddress, 2)
+        FangATBValue.Value = NumberGrabber(FangATBAddress, 0) / 10
+
+        '''
+        ''' Snow Stats
+        '''
+        Dim SnowHPAddress As Long = &H2A756
+        Dim SnowCPAddress As Long = &H2A749
+        Dim SnowStrAddress As Long = &H2A766
+        Dim SnowMagAddress As Long = &H2A76A
+        Dim SnowATBAddress As Long = &H2A760
+
+        SnowHPvalue.Value = NumberGrabber(SnowHPAddress, 2)
+        SnowCPValue.Value = NumberGrabber(SnowCPAddress, 3)
+        SnowStrValue.Value = NumberGrabber(SnowStrAddress, 2)
+        SnowMagValue.Value = NumberGrabber(SnowMagAddress, 2)
+        SnowATBValue.Value = NumberGrabber(SnowATBAddress, 0) / 10
 
 
     End Sub
@@ -616,6 +742,12 @@ Public Class Form1
         Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
         br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
+
+        If GilTextValue.Value > 999999999 Then
+            GilTextValue.Value = 999999999
+        End If
+
+        GilTextBox.Text = GilTextValue.Value
 
         GilTextBox.Text = Hex(GilTextBox.Text) 'Converts textbox input to hex
 
@@ -778,180 +910,26 @@ Public Class Form1
     ''' 
 
 
-    Private Sub FangHPButton_Click(sender As Object, e As EventArgs) Handles FangHPButton.Click
-        Dim MyAddress As Long = &H248D6 ' Sets Offset Address 
+    Private Sub FangSaveButton_Click(sender As Object, e As EventArgs) Handles FangSaveButton.Click
+
+        Dim FangHPAddress As Long = &H248D6
+        Dim FangCPAddress As Long = &H248C9
+        Dim FangStrAddress As Long = &H248E6
+        Dim FangMagAddress As Long = &H248EA
+        Dim FangATBAddress As Long = &H248E0
+
+        FangHP.Text = FangHPValue.Value
+        FangCP.Text = FangCPValue.Value
+        FangStr.Text = FangStrValue.Value
+        FangMag.Text = FangMagValue.Value
+        FangATB.Text = FangATBValue.Value * 10
+
+        NumberWriter(FangHPAddress, FangHP.Text, 6)
+        NumberWriter(FangCPAddress, FangCP.Text, 8)
+        NumberWriter(FangStrAddress, FangStr.Text, 6)
+        NumberWriter(FangMagAddress, FangMag.Text, 6)
+        NumberWriter(FangATBAddress, FangATB.Text, 2)
 
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        FangHP.Text = Hex(FangHP.Text) 'Converts textbox input to hex
-
-        While FangHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            FangHP.Text = "0" + FangHP.Text
-        End While
-
-
-
-        Dim bytes As Byte()
-
-        If FangHP.Text.Length Mod 2 <> 0 Then FangHP.Text = FangHP.Text.Insert(0, "0")
-
-        ReDim bytes((FangHP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To FangHP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(FangHP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        FangHP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub FangCPButton_Click(sender As Object, e As EventArgs) Handles FangCPButton.Click
-        Dim MyAddress As Long = &H248C9 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        FangCP.Text = Hex(FangCP.Text) 'Converts textbox input to hex
-
-        While FangCP.Text.Length < 8
-            FangCP.Text = "0" + FangCP.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If FangCP.Text.Length Mod 2 <> 0 Then FangCP.Text = FangCP.Text.Insert(0, "0")
-
-        ReDim bytes((FangCP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To FangCP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(FangCP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        FangCP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub FangStrButton_Click(sender As Object, e As EventArgs) Handles FangStrButton.Click
-        Dim MyAddress As Long = &H248E6 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        FangStr.Text = Hex(FangStr.Text) 'Converts textbox input to hex
-
-        While FangStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact Str value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            FangStr.Text = "0" + FangStr.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If FangStr.Text.Length Mod 2 <> 0 Then FangStr.Text = FangStr.Text.Insert(0, "0")
-
-        ReDim bytes((FangStr.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To FangStr.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(FangStr.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        FangStr.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub FangMagButton_Click(sender As Object, e As EventArgs) Handles FangMagButton.Click
-        Dim MyAddress As Long = &H248EA ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        FangMag.Text = Hex(FangMag.Text) 'Converts textbox input to hex
-
-        While FangMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact Mag value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            FangMag.Text = "0" + FangMag.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If FangMag.Text.Length Mod 2 <> 0 Then FangMag.Text = FangMag.Text.Insert(0, "0")
-
-        ReDim bytes((FangMag.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To FangMag.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(FangMag.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        FangMag.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub FangATBButton_Click(sender As Object, e As EventArgs) Handles FangATBButton.Click
-        Dim MyAddress As Long = &H248E0 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        FangATB.Text = (FangATB.Text * 10)
-        FangATB.Text = Hex(FangATB.Text) 'Converts textbox input to hex
-
-
-
-        Dim bytes As Byte()
-
-        If FangATB.Text.Length Mod 2 <> 0 Then FangATB.Text = FangATB.Text.Insert(0, "0")
-
-        ReDim bytes((FangATB.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To FangATB.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(FangATB.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        FangATB.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
     End Sub
 
 
@@ -966,194 +944,26 @@ Public Class Form1
     ''' ATB
     ''' 
 
+    Private Sub LightSaveButton_Click(sender As Object, e As EventArgs) Handles LightSaveButton.Click
 
-    Private Sub LightHPButton_Click(sender As Object, e As EventArgs) Handles LightHPButton.Click
-        Dim MyAddress As Long = &H27ED6 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
+        Dim LightHPAddress As Long = &H27ED6
+        Dim LightATBAddress As Long = &H27EE0
+        Dim LightCPAddress As Long = &H27EC9
+        Dim LightStrAddress As Long = &H27EE6
+        Dim LightMagAddress As Long = &H27EEA
 
         LightHP.Text = LightHPValue.Value
-
-        LightHP.Text = Hex(LightHP.Text) 'Converts textbox input to hex
-
-        While LightHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            LightHP.Text = "0" + LightHP.Text
-        End While
-
-        Dim bytes As Byte()
-
-
-        If LightHP.Text.Length Mod 2 <> 0 Then LightHP.Text = LightHP.Text.Insert(0, "0")
-
-        ReDim bytes((LightHP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To LightHP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(LightHP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        LightHP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub LightCPButton_Click(sender As Object, e As EventArgs) Handles LightCPButton.Click
-        Dim MyAddress As Long = &H27EC9 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
         LightCP.Text = LightCPValue.Value
-
-        LightCP.Text = Hex(LightCP.Text) 'Converts textbox input to hex
-
-
-        While LightCP.Text.Length < 8
-            LightCP.Text = "0" + LightCP.Text
-        End While
-
-
-        Dim bytes As Byte()
-
-        If LightCP.Text.Length Mod 2 <> 0 Then LightCP.Text = LightCP.Text.Insert(0, "0")
-
-        ReDim bytes((LightCP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To LightCP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(LightCP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        LightCP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub LightStrButton_Click(sender As Object, e As EventArgs) Handles LightStrButton.Click
-        Dim MyAddress As Long = &H27EE6 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
         LightStr.Text = LightStrValue.Value
-
-        LightStr.Text = Hex(LightStr.Text) 'Converts textbox input to hex
-
-        While LightStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            LightStr.Text = "0" + LightStr.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If LightStr.Text.Length Mod 2 <> 0 Then LightStr.Text = LightStr.Text.Insert(0, "0")
-
-        ReDim bytes((LightStr.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To LightStr.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(LightStr.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        LightStr.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub LightMagButton_Click(sender As Object, e As EventArgs) Handles LightMagButton.Click
-        Dim MyAddress As Long = &H27EEA ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
         LightMag.Text = LightMagValue.Value
+        LightATB.Text = LightATBValue.Value * 10
 
-        LightMag.Text = Hex(LightMag.Text) 'Converts textbox input to hex
-
-        While LightMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            LightMag.Text = "0" + LightMag.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If LightMag.Text.Length Mod 2 <> 0 Then LightMag.Text = LightMag.Text.Insert(0, "0")
-
-        ReDim bytes((LightMag.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To LightMag.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(LightMag.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        LightMag.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
+        NumberWriter(LightHPAddress, LightHP.Text, 6)
+        NumberWriter(LightCPAddress, LightCP.Text, 8)
+        NumberWriter(LightStrAddress, LightStr.Text, 6)
+        NumberWriter(LightMagAddress, LightMag.Text, 6)
+        NumberWriter(LightATBAddress, LightATB.Text, 2)
     End Sub
-
-    Private Sub LightATBButton_Click(sender As Object, e As EventArgs) Handles LightATBButton.Click
-        Dim MyAddress As Long = &H27EE0 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        LightATB.Text = LightATBValue.Value
-
-        LightATB.Text = (LightATB.Text * 10)
-        LightATB.Text = Hex(LightATB.Text) 'Converts textbox input to hex
-
-
-
-        Dim bytes As Byte()
-
-        If LightATB.Text.Length Mod 2 <> 0 Then LightATB.Text = LightATB.Text.Insert(0, "0")
-
-        ReDim bytes((LightATB.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To LightATB.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(LightATB.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        LightATB.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
 
     ''' 
     ''' 
@@ -1166,194 +976,27 @@ Public Class Form1
     ''' ATB
     ''' 
 
+    Private Sub SazhSaveButton_Click(sender As Object, e As EventArgs) Handles SazhSaveButton.Click
 
-    Private Sub SazhHPButton_Click(sender As Object, e As EventArgs) Handles SazhHPButton.Click
-        Dim MyAddress As Long = &H28C56 ' Sets Offset Address 
+        Dim SazhHPAddress As Long = &H28C56
+        Dim SazhCPAddress As Long = &H28C49
+        Dim SazhStrAddress As Long = &H28C66
+        Dim SazhMagAddress As Long = &H28C6A
+        Dim SazhATBAddress As Long = &H28C60
 
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+        SazhHP.Text = SazhHPValue.Value
+        SazhCP.Text = SazhCPValue.Value
+        SazhStr.Text = SazhStrValue.Value
+        SazhMag.Text = SazhMagValue.Value
+        SazhATB.Text = SazhATBValue.Value * 10
 
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+        NumberWriter(SazhHPAddress, SazhHP.Text, 6)
+        NumberWriter(SazhCPAddress, SazhCP.Text, 8)
+        NumberWriter(SazhStrAddress, SazhStr.Text, 6)
+        NumberWriter(SazhMagAddress, SazhMag.Text, 6)
+        NumberWriter(SazhATBAddress, SazhATB.Text, 2)
 
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        SazhHP.Text = Hex(SazhHP.Text) 'Converts textbox input to hex
-
-
-        While SazhHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SazhHP.Text = "0" + SazhHP.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If SazhHP.Text.Length Mod 2 <> 0 Then SazhHP.Text = SazhHP.Text.Insert(0, "0")
-
-        ReDim bytes((SazhHP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To SazhHP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(SazhHP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        SazhHP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
     End Sub
-
-    Private Sub SazhCPButton_Click(sender As Object, e As EventArgs) Handles SazhCPButton.Click
-        Dim MyAddress As Long = &H28C49 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        SazhCP.Text = Hex(SazhCP.Text) 'Converts textbox input to hex
-
-
-        While SazhCP.Text.Length < 8
-            SazhCP.Text = "0" + SazhCP.Text
-        End While
-
-
-        Dim bytes As Byte()
-
-        If SazhCP.Text.Length Mod 2 <> 0 Then SazhCP.Text = SazhCP.Text.Insert(0, "0")
-
-        ReDim bytes((SazhCP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To SazhCP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(SazhCP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        SazhCP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub SazhStrButton_Click(sender As Object, e As EventArgs) Handles SazhStrButton.Click
-        Dim MyAddress As Long = &H28C66 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        SazhStr.Text = Hex(SazhStr.Text) 'Converts textbox input to hex
-
-        While SazhStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SazhStr.Text = "0" + SazhStr.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If SazhStr.Text.Length Mod 2 <> 0 Then SazhStr.Text = SazhStr.Text.Insert(0, "0")
-
-        ReDim bytes((SazhStr.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To SazhStr.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(SazhStr.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        SazhStr.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub SazhMagButton_Click(sender As Object, e As EventArgs) Handles SazhMagButton.Click
-        Dim MyAddress As Long = &H28C6A ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        SazhMag.Text = Hex(SazhMag.Text) 'Converts textbox input to hex
-
-        While SazhMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SazhMag.Text = "0" + SazhMag.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If SazhMag.Text.Length Mod 2 <> 0 Then SazhMag.Text = SazhMag.Text.Insert(0, "0")
-
-        ReDim bytes((SazhMag.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To SazhMag.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(SazhMag.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        SazhMag.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub SazhATBButton_Click(sender As Object, e As EventArgs) Handles SazhATBButton.Click
-        Dim MyAddress As Long = &H28C60 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        SazhATB.Text = (SazhATB.Text * 10)
-        SazhATB.Text = Hex(SazhATB.Text) 'Converts textbox input to hex
-
-
-
-        Dim bytes As Byte()
-
-        If SazhATB.Text.Length Mod 2 <> 0 Then SazhATB.Text = SazhATB.Text.Insert(0, "0")
-
-        ReDim bytes((SazhATB.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To SazhATB.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(SazhATB.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        SazhATB.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
 
     ''' 
     ''' 
@@ -1366,191 +1009,27 @@ Public Class Form1
     ''' ATB
     ''' 
 
+    Private Sub VanSaveButton_Click(sender As Object, e As EventArgs) Handles VanSaveButton.Click
 
-    Private Sub VanHPButton_Click(sender As Object, e As EventArgs) Handles VanHPButton.Click
-        Dim MyAddress As Long = &H2B4D6 ' Sets Offset Address 
+        Dim VanHPAddress As Long = &H2B4D6
+        Dim VanCPAddress As Long = &H2B4C9
+        Dim VanStrAddress As Long = &H2B4E6
+        Dim VanMagAddress As Long = &H2B4EA
+        Dim VanATBAddress As Long = &H2B4E0
 
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+        VanHP.Text = VanHPValue.Value
+        VanCP.Text = VanCPValue.Value
+        VanStr.Text = VanStrValue.Value
+        VanMag.Text = VanMagValue.Value
+        VanATB.Text = VanATBValue.Value * 10
 
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+        NumberWriter(VanHPAddress, VanHP.Text, 6)
+        NumberWriter(VanCPAddress, VanCP.Text, 8)
+        NumberWriter(VanStrAddress, VanStr.Text, 6)
+        NumberWriter(VanMagAddress, VanMag.Text, 6)
+        NumberWriter(VanATBAddress, VanATB.Text, 2)
 
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        VanHP.Text = Hex(VanHP.Text) 'Converts textbox input to hex
-
-        While VanHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            VanHP.Text = "0" + VanHP.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If VanHP.Text.Length Mod 2 <> 0 Then VanHP.Text = VanHP.Text.Insert(0, "0")
-
-        ReDim bytes((VanHP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To VanHP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(VanHP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        VanHP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
     End Sub
-
-    Private Sub VanCPButton_Click(sender As Object, e As EventArgs) Handles VanCPButton.Click
-        Dim MyAddress As Long = &H2B4C9 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        VanCP.Text = Hex(VanCP.Text) 'Converts textbox input to hex
-
-        While VanCP.Text.Length < 8
-            VanCP.Text = "0" + VanCP.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If VanCP.Text.Length Mod 2 <> 0 Then VanCP.Text = VanCP.Text.Insert(0, "0")
-
-        ReDim bytes((VanCP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To VanCP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(VanCP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        VanCP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub VanStrButton_Click(sender As Object, e As EventArgs) Handles VanStrButton.Click
-        Dim MyAddress As Long = &H2B4E6 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        VanStr.Text = Hex(VanStr.Text) 'Converts textbox input to hex
-
-        While VanStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            VanStr.Text = "0" + VanStr.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If VanStr.Text.Length Mod 2 <> 0 Then VanStr.Text = VanStr.Text.Insert(0, "0")
-
-        ReDim bytes((VanStr.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To VanStr.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(VanStr.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        VanStr.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub VanMagButton_Click(sender As Object, e As EventArgs) Handles VanMagButton.Click
-        Dim MyAddress As Long = &H2B4EA ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        VanMag.Text = Hex(VanMag.Text) 'Converts textbox input to hex
-
-        While VanMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            VanMag.Text = "0" + VanMag.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If VanMag.Text.Length Mod 2 <> 0 Then VanMag.Text = VanMag.Text.Insert(0, "0")
-
-        ReDim bytes((VanMag.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To VanMag.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(VanMag.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        VanMag.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub VanATBButton_Click(sender As Object, e As EventArgs) Handles VanATBButton.Click
-        Dim MyAddress As Long = &H2B4E0 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        VanATB.Text = (VanATB.Text * 10)
-        VanATB.Text = Hex(VanATB.Text) 'Converts textbox input to hex
-
-
-
-        Dim bytes As Byte()
-
-        If VanATB.Text.Length Mod 2 <> 0 Then VanATB.Text = VanATB.Text.Insert(0, "0")
-
-        ReDim bytes((VanATB.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To VanATB.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(VanATB.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        VanATB.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
 
     ''' 
     ''' 
@@ -1561,193 +1040,29 @@ Public Class Form1
     ''' STR
     ''' MAG
     ''' ATB
-    ''' 
+
+    Private Sub HopeSaveButton_Click(sender As Object, e As EventArgs) Handles HopeSaveButton.Click
+
+        Dim HopeHPAddress As Long = &H263D6
+        Dim HopeCPAddress As Long = &H263C9
+        Dim HopeStrAddress As Long = &H263E6
+        Dim HopeMagAddress As Long = &H263EA
+        Dim HopeATBAddress As Long = &H263E0
+
+        HopeHP.Text = HopeHPValue.Value
+        HopeCP.Text = HopeCPValue.Value
+        HopeStr.Text = HopeStrValue.Value
+        HopeMag.Text = HopeMagValue.Value
+        HopeATB.Text = HopeATBValue.Value * 10
+
+        NumberWriter(HopeHPAddress, HopeHP.Text, 6)
+        NumberWriter(HopeCPAddress, HopeCP.Text, 8)
+        NumberWriter(HopeStrAddress, HopeStr.Text, 6)
+        NumberWriter(HopeMagAddress, HopeMag.Text, 6)
+        NumberWriter(HopeATBAddress, HopeATB.Text, 2)
 
 
-    Private Sub HopeHPButton_Click(sender As Object, e As EventArgs) Handles HopeHPButton.Click
-        Dim MyAddress As Long = &H263D6 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        HopeHP.Text = Hex(HopeHP.Text) 'Converts textbox input to hex
-
-        While HopeHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            HopeHP.Text = "0" + HopeHP.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If HopeHP.Text.Length Mod 2 <> 0 Then HopeHP.Text = HopeHP.Text.Insert(0, "0")
-
-        ReDim bytes((HopeHP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To HopeHP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(HopeHP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        HopeHP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
     End Sub
-
-    Private Sub HopeCPButton_Click(sender As Object, e As EventArgs) Handles HopeCPButton.Click
-        Dim MyAddress As Long = &H263C9 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        HopeCP.Text = Hex(HopeCP.Text) 'Converts textbox input to hex
-
-        While HopeCP.Text.Length < 8
-            HopeCP.Text = "0" + HopeCP.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If HopeCP.Text.Length Mod 2 <> 0 Then HopeCP.Text = HopeCP.Text.Insert(0, "0")
-
-        ReDim bytes((HopeCP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To HopeCP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(HopeCP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        HopeCP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub HopeStrButton_Click(sender As Object, e As EventArgs) Handles HopeStrButton.Click
-        Dim MyAddress As Long = &H263E6 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        HopeStr.Text = Hex(HopeStr.Text) 'Converts textbox input to hex
-
-        While HopeStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            HopeStr.Text = "0" + HopeStr.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If HopeStr.Text.Length Mod 2 <> 0 Then HopeStr.Text = HopeStr.Text.Insert(0, "0")
-
-        ReDim bytes((HopeStr.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To HopeStr.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(HopeStr.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        HopeStr.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub HopeMagButton_Click(sender As Object, e As EventArgs) Handles HopeMagButton.Click
-        Dim MyAddress As Long = &H263EA ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        HopeMag.Text = Hex(HopeMag.Text) 'Converts textbox input to hex
-
-        While HopeMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            HopeMag.Text = "0" + HopeMag.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If HopeMag.Text.Length Mod 2 <> 0 Then HopeMag.Text = HopeMag.Text.Insert(0, "0")
-
-        ReDim bytes((HopeMag.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To HopeMag.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(HopeMag.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        HopeMag.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub HopeATBButton_Click(sender As Object, e As EventArgs) Handles HopeATBButton.Click
-        Dim MyAddress As Long = &H263E0 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        HopeATB.Text = (HopeATB.Text * 10)
-        HopeATB.Text = Hex(HopeATB.Text) 'Converts textbox input to hex
-
-
-
-        Dim bytes As Byte()
-
-        If HopeATB.Text.Length Mod 2 <> 0 Then HopeATB.Text = HopeATB.Text.Insert(0, "0")
-
-        ReDim bytes((HopeATB.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To HopeATB.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(HopeATB.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        HopeATB.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
 
     ''' 
     ''' 
@@ -1760,190 +1075,28 @@ Public Class Form1
     ''' ATB
     ''' 
 
+    Private Sub SnowSaveButton_Click(sender As Object, e As EventArgs) Handles SnowSaveButton.Click
 
-    Private Sub SnowHPButton_Click(sender As Object, e As EventArgs) Handles SnowHPButton.Click
-        Dim MyAddress As Long = &H2A756 ' Sets Offset Address 
+        Dim SnowHPAddress As Long = &H2A756
+        Dim SnowCPAddress As Long = &H2A749
+        Dim SnowStrAddress As Long = &H2A766
+        Dim SnowMagAddress As Long = &H2A76A
+        Dim SnowATBAddress As Long = &H2A760
 
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+        SnowHP.Text = SnowHPvalue.Value
+        SnowCP.Text = SnowCPValue.Value
+        SnowStr.Text = SnowStrValue.Value
+        SnowMag.Text = SnowMagValue.Value
+        SnowATB.Text = SnowATBValue.Value * 10
 
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+        NumberWriter(SnowHPAddress, SnowHP.Text, 6)
+        NumberWriter(SnowCPAddress, SnowCP.Text, 8)
+        NumberWriter(SnowStrAddress, SnowStr.Text, 6)
+        NumberWriter(SnowMagAddress, SnowMag.Text, 6)
+        NumberWriter(SnowATBAddress, SnowATB.Text, 2)
 
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        SnowHP.Text = Hex(SnowHP.Text) 'Converts textbox input to hex
-
-        While SnowHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SnowHP.Text = "0" + SnowHP.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If SnowHP.Text.Length Mod 2 <> 0 Then SnowHP.Text = SnowHP.Text.Insert(0, "0")
-
-        ReDim bytes((SnowHP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To SnowHP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(SnowHP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        SnowHP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
     End Sub
 
-    Private Sub SnowCPButton_Click(sender As Object, e As EventArgs) Handles SnowCPButton.Click
-        Dim MyAddress As Long = &H2A749 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        SnowCP.Text = Hex(SnowCP.Text) 'Converts textbox input to hex
-
-        While SnowCP.Text.Length < 8
-            SnowCP.Text = "0" + SnowCP.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If SnowCP.Text.Length Mod 2 <> 0 Then SnowCP.Text = SnowCP.Text.Insert(0, "0")
-
-        ReDim bytes((SnowCP.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To SnowCP.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(SnowCP.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        SnowCP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub SnowStrButton_Click(sender As Object, e As EventArgs) Handles SnowStrButton.Click
-        Dim MyAddress As Long = &H2A766 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        SnowStr.Text = Hex(SnowStr.Text) 'Converts textbox input to hex
-
-        While SnowStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SnowStr.Text = "0" + SnowStr.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If SnowStr.Text.Length Mod 2 <> 0 Then SnowStr.Text = SnowStr.Text.Insert(0, "0")
-
-        ReDim bytes((SnowStr.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To SnowStr.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(SnowStr.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        SnowStr.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub SnowMagButton_Click(sender As Object, e As EventArgs) Handles SnowMagButton.Click
-        Dim MyAddress As Long = &H2A76A ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        SnowMag.Text = Hex(SnowMag.Text) 'Converts textbox input to hex
-
-        While SnowMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            SnowMag.Text = "0" + SnowMag.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If SnowMag.Text.Length Mod 2 <> 0 Then SnowMag.Text = SnowMag.Text.Insert(0, "0")
-
-        ReDim bytes((SnowMag.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To SnowMag.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(SnowMag.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        SnowMag.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub SnowATBButton_Click(sender As Object, e As EventArgs) Handles SnowATBButton.Click
-        Dim MyAddress As Long = &H2A760 ' Sets Offset Address 
-
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        SnowATB.Text = (SnowATB.Text * 10)
-        SnowATB.Text = Hex(SnowATB.Text) 'Converts textbox input to hex
-
-
-
-        Dim bytes As Byte()
-
-        If SnowATB.Text.Length Mod 2 <> 0 Then SnowATB.Text = SnowATB.Text.Insert(0, "0")
-
-        ReDim bytes((SnowATB.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To SnowATB.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(SnowATB.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        SnowATB.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Sub
     ''' 
     ''' 
     ''' Relates to Inventory Editing - Populating listboxes for data retrieval + adding. And simultanious scrolling of the two boxes to track Item name : amount.
@@ -2644,172 +1797,13 @@ Public Class Form1
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
 
-        Dim LightHPAddress As Long = &H27ED6
-        Dim LightCPAddress As Long = &H27EE6
-        Dim LightStrAddress As Long = &H27EE6
-        Dim LightMagAddress As Long = &H27EEA
-        Dim LightATBAddress As Long = &H27EE0
 
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
 
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
 
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
 
-        br.BaseStream.Seek(LightHPAddress, SeekOrigin.Begin) ' moves to the address you want
 
-        LightHP.Text = LightHPValue.Value
 
-        LightHP.Text = Hex(LightHP.Text) 'Converts textbox input to hex
 
-        While LightHP.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact HP value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            LightHP.Text = "0" + LightHP.Text
-        End While
-
-        Dim HPBytes As Byte()
-
-
-        If LightHP.Text.Length Mod 2 <> 0 Then LightHP.Text = LightHP.Text.Insert(0, "0")
-
-        ReDim HPBytes((LightHP.Text.Length \ 2) - 1)
-
-        Dim a As Integer = 0
-
-        For i As Integer = 0 To LightHP.Text.Length - 1 Step 2
-            HPBytes(a) = Convert.ToByte(LightHP.Text.Substring(i, 2), 16)
-            a += 1
-        Next
-
-        LightHP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(HPBytes, 0, HPBytes.Length) ' Writes to file
-
-        '''
-        '''
-        ''' Lightning CP Segment
-        '''
-        '''
-
-        br.BaseStream.Seek(LightCPAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        LightCP.Text = LightCPValue.Value
-
-        LightCP.Text = Hex(LightCP.Text) 'Converts textbox input to hex
-
-
-        While LightCP.Text.Length < 8
-            LightCP.Text = "0" + LightCP.Text
-        End While
-
-
-        Dim CPBytes As Byte()
-
-        If LightCP.Text.Length Mod 2 <> 0 Then LightCP.Text = LightCP.Text.Insert(0, "0")
-
-        ReDim CPBytes((LightCP.Text.Length \ 2) - 1)
-
-        Dim b As Integer = 0
-
-        For i As Integer = 0 To LightCP.Text.Length - 1 Step 2
-            CPBytes(b) = Convert.ToByte(LightCP.Text.Substring(i, 2), 16)
-            b += 1
-        Next
-
-        LightCP.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(CPBytes, 0, CPBytes.Length) ' Writes to file
-
-        '''
-        '''
-        ''' Lightning Strength Segment
-        '''
-        '''
-
-
-        br.BaseStream.Seek(LightStrAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        LightStr.Text = LightStrValue.Value
-
-        LightStr.Text = Hex(LightStr.Text) 'Converts textbox input to hex
-
-        While LightStr.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact STR value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            LightStr.Text = "0" + LightStr.Text
-        End While
-
-        Dim StrBytes As Byte()
-
-        If LightStr.Text.Length Mod 2 <> 0 Then LightStr.Text = LightStr.Text.Insert(0, "0")
-
-        ReDim StrBytes((LightStr.Text.Length \ 2) - 1)
-
-        Dim c As Integer = 0
-
-        For i As Integer = 0 To LightStr.Text.Length - 1 Step 2
-            StrBytes(c) = Convert.ToByte(LightStr.Text.Substring(i, 2), 16)
-            c += 1
-        Next
-
-        LightStr.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(StrBytes, 0, StrBytes.Length) ' Writes to file
-
-
-        '''
-        '''
-        ''' Lightning Magic Segment
-        '''
-        '''
-
-
-        br.BaseStream.Seek(LightMagaddress, SeekOrigin.Begin) ' moves to the address you want
-
-        LightMag.Text = LightMagValue.Value
-
-        LightMag.Text = Hex(LightMag.Text) 'Converts textbox input to hex
-
-        While LightMag.Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work.
-            LightMag.Text = "0" + LightMag.Text
-        End While
-
-        Dim MagBytes As Byte()
-
-        If LightMag.Text.Length Mod 2 <> 0 Then LightMag.Text = LightMag.Text.Insert(0, "0")
-
-        ReDim MagBytes((LightMag.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To LightMag.Text.Length - 1 Step 2
-            MagBytes(n) = Convert.ToByte(LightMag.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        LightMag.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(MagBytes, 0, MagBytes.Length) ' Writes to file
-
-        '''
-        '''
-        ''' Lightning ATB Segment
-        '''
-        '''
-
-
-        fs.Close() : fs.Dispose()
-    End Sub
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-
-        Dim HPAddress As Long = &H27ED6
-        LightHP.Text = LightHPValue.Value
-
-        Dim ATBAddress As Long = &H27EE0
-        LightATB.Text = LightATBValue.Value
-
-        'CharStats(HPAddress, LightHP.Text)
-        CharATB(ATBAddress, LightATB.Text)
-
-
-        LightHPValue.Value = NumberGrabber(HPAddress)
-
-    End Sub
 End Class
