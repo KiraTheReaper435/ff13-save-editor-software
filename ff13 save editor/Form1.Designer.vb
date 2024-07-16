@@ -56,6 +56,7 @@ Partial Class Form1
         CrystariumComboBox = New ComboBox()
         CrystariumLevelMessage = New Label()
         TabPage3 = New TabPage()
+        Button6 = New Button()
         Button1 = New Button()
         Label6 = New Label()
         Label7 = New Label()
@@ -181,7 +182,6 @@ Partial Class Form1
         Label40 = New Label()
         Label41 = New Label()
         ListBox8 = New ListBox()
-        Button6 = New Button()
         TabControl1.SuspendLayout()
         TabPage2.SuspendLayout()
         TabPage3.SuspendLayout()
@@ -569,6 +569,15 @@ Partial Class Form1
         TabPage3.Text = "Lightning"
         TabPage3.UseVisualStyleBackColor = True
         ' 
+        ' Button6
+        ' 
+        Button6.Location = New Point(66, 220)
+        Button6.Name = "Button6"
+        Button6.Size = New Size(75, 23)
+        Button6.TabIndex = 37
+        Button6.Text = "Test"
+        Button6.UseVisualStyleBackColor = True
+        ' 
         ' Button1
         ' 
         Button1.Location = New Point(280, 193)
@@ -685,6 +694,7 @@ Partial Class Form1
         LightStr.Name = "LightStr"
         LightStr.Size = New Size(75, 23)
         LightStr.TabIndex = 25
+        LightStr.Visible = False
         ' 
         ' LightATBButton
         ' 
@@ -738,6 +748,7 @@ Partial Class Form1
         LightATB.Name = "LightATB"
         LightATB.Size = New Size(75, 23)
         LightATB.TabIndex = 19
+        LightATB.Visible = False
         ' 
         ' LightMag
         ' 
@@ -746,6 +757,7 @@ Partial Class Form1
         LightMag.Name = "LightMag"
         LightMag.Size = New Size(75, 23)
         LightMag.TabIndex = 18
+        LightMag.Visible = False
         ' 
         ' LightCP
         ' 
@@ -754,6 +766,7 @@ Partial Class Form1
         LightCP.Name = "LightCP"
         LightCP.Size = New Size(75, 23)
         LightCP.TabIndex = 16
+        LightCP.Visible = False
         ' 
         ' LightHP
         ' 
@@ -762,6 +775,7 @@ Partial Class Form1
         LightHP.Name = "LightHP"
         LightHP.Size = New Size(75, 23)
         LightHP.TabIndex = 15
+        LightHP.Visible = False
         ' 
         ' TabPage4
         ' 
@@ -1787,15 +1801,6 @@ Partial Class Form1
         ListBox8.Name = "ListBox8"
         ListBox8.Size = New Size(172, 274)
         ListBox8.TabIndex = 31
-        ' 
-        ' Button6
-        ' 
-        Button6.Location = New Point(66, 220)
-        Button6.Name = "Button6"
-        Button6.Size = New Size(75, 23)
-        Button6.TabIndex = 37
-        Button6.Text = "Test"
-        Button6.UseVisualStyleBackColor = True
         ' 
         ' Form1
         ' 

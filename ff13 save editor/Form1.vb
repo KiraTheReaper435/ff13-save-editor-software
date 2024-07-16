@@ -99,6 +99,28 @@ Public Class Form1
         fs.Close() : fs.Dispose()
     End Function
 
+    Function NumberGrabber(Address As Long)
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        fs.Seek(Address, SeekOrigin.Begin)
+
+        Dim arraySize = 2
+
+        Dim Buffer() As Byte = New Byte(arraySize) {}
+
+        fs.Read(Buffer, 0, Buffer.Length)
+
+        Dim ItemAmount = Convert.ToHexString(Buffer)
+        Dim ItemAmountString As Integer = Convert.ToInt32(ItemAmount, 16)
+
+        Return ItemAmountString
+
+    End Function
+
 
 
 
@@ -2783,8 +2805,11 @@ Public Class Form1
         Dim ATBAddress As Long = &H27EE0
         LightATB.Text = LightATBValue.Value
 
-        CharStats(HPAddress, LightHP.Text)
+        'CharStats(HPAddress, LightHP.Text)
         CharATB(ATBAddress, LightATB.Text)
+
+
+        LightHPValue.Value = NumberGrabber(HPAddress)
 
     End Sub
 End Class
