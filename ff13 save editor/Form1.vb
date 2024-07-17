@@ -543,7 +543,7 @@ Public Class Form1
         ItemDictionary.Add(“it_tonkati”, “Mallet”)
         ItemDictionary.Add(“it_sedative”, “Painkiller”)
         ItemDictionary.Add(“it_wax”, “Wax”)
-
+        ItemDictionary.Add("it_elixir", "Elixir")
 
         Dim ItemListOffset As Long = &H374A0
         Dim ItemListAmount As Long = &H374B1
@@ -1546,6 +1546,7 @@ Public Class Form1
         FlippedItemDictionary.Add("Mallet", "it_tonkati")
         FlippedItemDictionary.Add("Painkiller", "it_sedative")
         FlippedItemDictionary.Add("Wax", "it_wax")
+        FlippedItemDictionary.Add("Elixir", "it_elixir")
 
         Dim MyAddress As Long = &H374A0
 

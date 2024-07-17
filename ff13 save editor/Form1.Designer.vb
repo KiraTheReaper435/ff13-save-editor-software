@@ -1862,7 +1862,7 @@ Partial Class Form1
         ' ComboBox2
         ' 
         ComboBox2.FormattingEnabled = True
-        ComboBox2.Items.AddRange(New Object() {"Potion", "Pheonix Down", "Fortisol", "Aegisol", "Deceptisol", "Ethersol", "Librascope", "Antidote", "Holy Water", "Foul Liquid", "Mallet", "Painkiller", "Wax"})
+        ComboBox2.Items.AddRange(New Object() {"Potion", "Pheonix Down", "Fortisol", "Aegisol", "Deceptisol", "Ethersol", "Librascope", "Antidote", "Holy Water", "Foul Liquid", "Mallet", "Painkiller", "Wax", "Elixir"})
         ComboBox2.Location = New Point(363, 44)
         ComboBox2.Name = "ComboBox2"
         ComboBox2.Size = New Size(121, 23)
