@@ -181,6 +181,7 @@ Public Class Form1
 
             TabControl1.Visible = True
 
+            OpenSave.Visible = False
 
         Else
             MsgBox("Select a Save")

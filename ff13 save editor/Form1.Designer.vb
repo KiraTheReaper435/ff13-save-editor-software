@@ -302,7 +302,7 @@ Partial Class Form1
         ' 
         ' GilTextValue
         ' 
-        GilTextValue.Location = New Point(394, 242)
+        GilTextValue.Location = New Point(423, 242)
         GilTextValue.Maximum = New Decimal(New Integer() {999999999, 0, 0, 0})
         GilTextValue.Name = "GilTextValue"
         GilTextValue.Size = New Size(120, 23)
@@ -311,7 +311,7 @@ Partial Class Form1
         ' 
         ' GilTextBox
         ' 
-        GilTextBox.Location = New Point(717, 313)
+        GilTextBox.Location = New Point(717, 0)
         GilTextBox.MaxLength = 9
         GilTextBox.Name = "GilTextBox"
         GilTextBox.Size = New Size(51, 23)
@@ -322,7 +322,7 @@ Partial Class Form1
         ' 
         GilInstructionsMessage.AutoSize = True
         GilInstructionsMessage.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        GilInstructionsMessage.Location = New Point(416, 224)
+        GilInstructionsMessage.Location = New Point(445, 224)
         GilInstructionsMessage.Name = "GilInstructionsMessage"
         GilInstructionsMessage.Size = New Size(68, 15)
         GilInstructionsMessage.TabIndex = 30
@@ -330,7 +330,7 @@ Partial Class Form1
         ' 
         ' GilButton
         ' 
-        GilButton.Location = New Point(418, 271)
+        GilButton.Location = New Point(447, 271)
         GilButton.Name = "GilButton"
         GilButton.Size = New Size(75, 23)
         GilButton.TabIndex = 29
@@ -341,7 +341,7 @@ Partial Class Form1
         ' 
         GilSucessMessage.AutoSize = True
         GilSucessMessage.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
-        GilSucessMessage.Location = New Point(412, 309)
+        GilSucessMessage.Location = New Point(441, 309)
         GilSucessMessage.Name = "GilSucessMessage"
         GilSucessMessage.Size = New Size(72, 15)
         GilSucessMessage.TabIndex = 31
@@ -351,7 +351,7 @@ Partial Class Form1
         ' Label44
         ' 
         Label44.AutoSize = True
-        Label44.Location = New Point(584, 309)
+        Label44.Location = New Point(613, 309)
         Label44.Name = "Label44"
         Label44.Size = New Size(112, 15)
         Label44.TabIndex = 27
@@ -361,7 +361,7 @@ Partial Class Form1
         ' Label43
         ' 
         Label43.AutoSize = True
-        Label43.Location = New Point(302, 167)
+        Label43.Location = New Point(302, 175)
         Label43.Name = "Label43"
         Label43.Size = New Size(162, 15)
         Label43.TabIndex = 26
@@ -371,16 +371,16 @@ Partial Class Form1
         ' Label42
         ' 
         Label42.AutoSize = True
-        Label42.Font = New Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point)
-        Label42.Location = New Point(330, 3)
+        Label42.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point)
+        Label42.Location = New Point(324, 4)
         Label42.Name = "Label42"
-        Label42.Size = New Size(119, 30)
+        Label42.Size = New Size(135, 32)
         Label42.TabIndex = 25
         Label42.Text = "Party Editor"
         ' 
         ' Button5
         ' 
-        Button5.Location = New Point(330, 122)
+        Button5.Location = New Point(330, 130)
         Button5.Name = "Button5"
         Button5.Size = New Size(106, 42)
         Button5.TabIndex = 24
@@ -390,7 +390,7 @@ Partial Class Form1
         ' Label39
         ' 
         Label39.AutoSize = True
-        Label39.Location = New Point(661, 44)
+        Label39.Location = New Point(654, 53)
         Label39.Name = "Label39"
         Label39.Size = New Size(91, 15)
         Label39.TabIndex = 23
@@ -399,7 +399,7 @@ Partial Class Form1
         ' Label38
         ' 
         Label38.AutoSize = True
-        Label38.Location = New Point(535, 44)
+        Label38.Location = New Point(528, 53)
         Label38.Name = "Label38"
         Label38.Size = New Size(91, 15)
         Label38.TabIndex = 22
@@ -408,7 +408,7 @@ Partial Class Form1
         ' Label37
         ' 
         Label37.AutoSize = True
-        Label37.Location = New Point(405, 44)
+        Label37.Location = New Point(398, 53)
         Label37.Name = "Label37"
         Label37.Size = New Size(91, 15)
         Label37.TabIndex = 21
@@ -417,7 +417,7 @@ Partial Class Form1
         ' Label34
         ' 
         Label34.AutoSize = True
-        Label34.Location = New Point(280, 44)
+        Label34.Location = New Point(273, 53)
         Label34.Name = "Label34"
         Label34.Size = New Size(91, 15)
         Label34.TabIndex = 20
@@ -426,7 +426,7 @@ Partial Class Form1
         ' Label33
         ' 
         Label33.AutoSize = True
-        Label33.Location = New Point(149, 44)
+        Label33.Location = New Point(142, 53)
         Label33.Name = "Label33"
         Label33.Size = New Size(91, 15)
         Label33.TabIndex = 19
@@ -435,7 +435,7 @@ Partial Class Form1
         ' Label31
         ' 
         Label31.AutoSize = True
-        Label31.Location = New Point(20, 44)
+        Label31.Location = New Point(13, 53)
         Label31.Name = "Label31"
         Label31.Size = New Size(91, 15)
         Label31.TabIndex = 18
@@ -444,7 +444,7 @@ Partial Class Form1
         ' PartyMember6
         ' 
         PartyMember6.FormattingEnabled = True
-        PartyMember6.Location = New Point(647, 71)
+        PartyMember6.Location = New Point(640, 80)
         PartyMember6.Name = "PartyMember6"
         PartyMember6.Size = New Size(121, 23)
         PartyMember6.TabIndex = 17
@@ -452,7 +452,7 @@ Partial Class Form1
         ' PartyMember5
         ' 
         PartyMember5.FormattingEnabled = True
-        PartyMember5.Location = New Point(520, 71)
+        PartyMember5.Location = New Point(513, 80)
         PartyMember5.Name = "PartyMember5"
         PartyMember5.Size = New Size(121, 23)
         PartyMember5.TabIndex = 16
@@ -460,7 +460,7 @@ Partial Class Form1
         ' PartyMember4
         ' 
         PartyMember4.FormattingEnabled = True
-        PartyMember4.Location = New Point(393, 71)
+        PartyMember4.Location = New Point(386, 80)
         PartyMember4.Name = "PartyMember4"
         PartyMember4.Size = New Size(121, 23)
         PartyMember4.TabIndex = 15
@@ -468,7 +468,7 @@ Partial Class Form1
         ' PartyMember3
         ' 
         PartyMember3.FormattingEnabled = True
-        PartyMember3.Location = New Point(266, 71)
+        PartyMember3.Location = New Point(259, 80)
         PartyMember3.Name = "PartyMember3"
         PartyMember3.Size = New Size(121, 23)
         PartyMember3.TabIndex = 14
@@ -476,7 +476,7 @@ Partial Class Form1
         ' PartyMember2
         ' 
         PartyMember2.FormattingEnabled = True
-        PartyMember2.Location = New Point(139, 71)
+        PartyMember2.Location = New Point(132, 80)
         PartyMember2.Name = "PartyMember2"
         PartyMember2.Size = New Size(121, 23)
         PartyMember2.TabIndex = 13
@@ -484,7 +484,7 @@ Partial Class Form1
         ' PartyMember1
         ' 
         PartyMember1.FormattingEnabled = True
-        PartyMember1.Location = New Point(12, 71)
+        PartyMember1.Location = New Point(5, 80)
         PartyMember1.Name = "PartyMember1"
         PartyMember1.Size = New Size(121, 23)
         PartyMember1.TabIndex = 12
@@ -493,7 +493,7 @@ Partial Class Form1
         ' 
         CheckBox1.AutoSize = True
         CheckBox1.CheckAlign = ContentAlignment.BottomCenter
-        CheckBox1.Location = New Point(584, 223)
+        CheckBox1.Location = New Point(613, 223)
         CheckBox1.Name = "CheckBox1"
         CheckBox1.Size = New Size(103, 33)
         CheckBox1.TabIndex = 8
@@ -504,7 +504,7 @@ Partial Class Form1
         ' TpSuccessMessage
         ' 
         TpSuccessMessage.AutoSize = True
-        TpSuccessMessage.Location = New Point(228, 309)
+        TpSuccessMessage.Location = New Point(257, 309)
         TpSuccessMessage.Name = "TpSuccessMessage"
         TpSuccessMessage.Size = New Size(102, 15)
         TpSuccessMessage.TabIndex = 7
@@ -514,7 +514,7 @@ Partial Class Form1
         ' CrystariumSuccessMessage
         ' 
         CrystariumSuccessMessage.AutoSize = True
-        CrystariumSuccessMessage.Location = New Point(14, 309)
+        CrystariumSuccessMessage.Location = New Point(43, 309)
         CrystariumSuccessMessage.Name = "CrystariumSuccessMessage"
         CrystariumSuccessMessage.Size = New Size(146, 15)
         CrystariumSuccessMessage.TabIndex = 6
@@ -523,7 +523,7 @@ Partial Class Form1
         ' 
         ' TPValueBox
         ' 
-        TPValueBox.Location = New Point(228, 242)
+        TPValueBox.Location = New Point(257, 242)
         TPValueBox.MaxLength = 4
         TPValueBox.Name = "TPValueBox"
         TPValueBox.Size = New Size(100, 23)
@@ -531,7 +531,7 @@ Partial Class Form1
         ' 
         ' TPButton
         ' 
-        TPButton.Location = New Point(240, 271)
+        TPButton.Location = New Point(269, 271)
         TPButton.Name = "TPButton"
         TPButton.Size = New Size(75, 23)
         TPButton.TabIndex = 4
@@ -541,7 +541,7 @@ Partial Class Form1
         ' TPMessage
         ' 
         TPMessage.AutoSize = True
-        TPMessage.Location = New Point(225, 224)
+        TPMessage.Location = New Point(254, 224)
         TPMessage.Name = "TPMessage"
         TPMessage.Size = New Size(103, 15)
         TPMessage.TabIndex = 3
@@ -549,7 +549,7 @@ Partial Class Form1
         ' 
         ' CrystariumLevelButton
         ' 
-        CrystariumLevelButton.Location = New Point(14, 271)
+        CrystariumLevelButton.Location = New Point(43, 271)
         CrystariumLevelButton.Name = "CrystariumLevelButton"
         CrystariumLevelButton.Size = New Size(145, 23)
         CrystariumLevelButton.TabIndex = 2
@@ -560,7 +560,7 @@ Partial Class Form1
         ' 
         CrystariumComboBox.FormattingEnabled = True
         CrystariumComboBox.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"})
-        CrystariumComboBox.Location = New Point(14, 242)
+        CrystariumComboBox.Location = New Point(43, 242)
         CrystariumComboBox.Name = "CrystariumComboBox"
         CrystariumComboBox.Size = New Size(145, 23)
         CrystariumComboBox.TabIndex = 1
@@ -568,7 +568,7 @@ Partial Class Form1
         ' CrystariumLevelMessage
         ' 
         CrystariumLevelMessage.AutoSize = True
-        CrystariumLevelMessage.Location = New Point(14, 224)
+        CrystariumLevelMessage.Location = New Point(43, 224)
         CrystariumLevelMessage.Name = "CrystariumLevelMessage"
         CrystariumLevelMessage.Size = New Size(95, 15)
         CrystariumLevelMessage.TabIndex = 0
@@ -1911,6 +1911,8 @@ Partial Class Form1
         ClientSize = New Size(800, 450)
         Controls.Add(TabControl1)
         Controls.Add(OpenSave)
+        FormBorderStyle = FormBorderStyle.FixedSingle
+        MaximizeBox = False
         Name = "Form1"
         Text = "Final Fantasy XIII Save Editor"
         TabControl1.ResumeLayout(False)
