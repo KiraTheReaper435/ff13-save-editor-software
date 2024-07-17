@@ -725,6 +725,8 @@ Public Class Form1
 
         GilTextValue.Value = NumberGrabber(GilAddress, 3)
 
+
+
     End Sub
 
 
@@ -748,44 +750,16 @@ Public Class Form1
 
     Private Sub GilButton_Click(sender As Object, e As EventArgs) Handles GilButton.Click
 
-        Dim MyAddress As Short = &H48BC ' Sets Offset Address 
+        Dim GilAddress As Short = &H48BC ' Sets Offset Address 
 
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
+       
         If GilTextValue.Value > 999999999 Then
             GilTextValue.Value = 999999999
         End If
 
         GilTextBox.Text = GilTextValue.Value
 
-        GilTextBox.Text = Hex(GilTextBox.Text) 'Converts textbox input to hex
-
-        While GilTextBox.Text.Length < 8 ' Enures any values that would be unchanged become 0 to get exact gil value E.G 50000 returns C3 50 and it requires 00 00 to be added to fill all offsets
-            GilTextBox.Text = "0" + GilTextBox.Text
-        End While
-
-        Dim bytes As Byte()
-
-        If GilTextBox.Text.Length Mod 2 <> 0 Then GilTextBox.Text = GilTextBox.Text.Insert(0, "0")
-
-        ReDim bytes((GilTextBox.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To GilTextBox.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(GilTextBox.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        GilTextBox.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
+        NumberWriter(GilAddress, GilTextBox.Text, 8)
 
         GilSucessMessage.Visible = True ' Makes message label visible saying it has been updated
 
@@ -800,36 +774,9 @@ Public Class Form1
 
 
     Private Sub CrystariumLevelButton_Click(sender As Object, e As EventArgs) Handles CrystariumLevelButton.Click
-        Dim MyAddress As Short = &H4937 ' Sets Offset Address 
+        Dim CrystariumAddress As Short = &H4937 ' Sets Offset Address 
 
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        CrystariumComboBox.Text = Hex(CrystariumComboBox.Text) 'Converts textbox input to hex
-
-
-
-        Dim bytes As Byte()
-
-        If CrystariumComboBox.Text.Length Mod 2 <> 0 Then CrystariumComboBox.Text = CrystariumComboBox.Text.Insert(0, "0")
-
-        ReDim bytes((CrystariumComboBox.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To CrystariumComboBox.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(CrystariumComboBox.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        CrystariumComboBox.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
+        NumberWriter(CrystariumAddress, CrystariumComboBox.Text, CrystariumComboBox.SelectionLength)
 
         CrystariumSuccessMessage.Visible = True
 
@@ -846,36 +793,9 @@ Public Class Form1
 
 
     Private Sub TPButton_Click(sender As Object, e As EventArgs) Handles TPButton.Click
-        Dim MyAddress As Long = &H1C059 ' Sets Offset Address 
+        Dim TPAddress As Long = &H1C059 ' Sets Offset Address 
 
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(MyAddress, SeekOrigin.Begin) ' moves to the address you want
-
-        TPValueBox.Text = Hex(TPValueBox.Text) 'Converts textbox input to hex
-
-
-
-        Dim bytes As Byte()
-
-        If TPValueBox.Text.Length Mod 2 <> 0 Then TPValueBox.Text = TPValueBox.Text.Insert(0, "0")
-
-        ReDim bytes((TPValueBox.Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To TPValueBox.Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(TPValueBox.Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        TPValueBox.Text = "" ' Blanks text box to prevent it showing hex
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
+        NumberWriter(TPAddress, TPValueBox.Text, 4)
 
         TpSuccessMessage.Visible = True
     End Sub
