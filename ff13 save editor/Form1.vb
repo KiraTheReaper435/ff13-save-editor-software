@@ -711,6 +711,20 @@ Public Class Form1
         SnowATBValue.Value = NumberGrabber(SnowATBAddress, 0) / 10
 
 
+        '''
+        '''
+        ''' Party Stats - Gil, Crystarium Level + TP (TP will be changed once borders are known)
+        '''
+        '''
+
+        Dim CrystariumLevelAddress As Long = &H4937
+
+        CrystariumComboBox.SelectedIndex = NumberGrabber(CrystariumLevelAddress, 0) - 1
+
+        Dim GilAddress As Long = &H48BC
+
+        GilTextValue.Value = NumberGrabber(GilAddress, 3)
+
     End Sub
 
 
