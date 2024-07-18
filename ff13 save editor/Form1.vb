@@ -32,73 +32,6 @@ Public Class Form1
         Next
         Return text.ToString
     End Function
-
-    Function CharStats(Address As Long, Text As String) As Byte ' Function for Character Stats - Takes inputted value and writes to file
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(Address, SeekOrigin.Begin) ' moves to the address you want
-
-        Text = Hex(Text) 'Converts textbox input to hex
-
-        While Text.Length < 6 ' Enures any values that would be unchanged become 0 to get exact MAG value E.G 999999 returns F423F and it requires 0 before 0F for 999999 to work
-            Text = "0" + Text
-        End While
-
-        Dim Bytes As Byte()
-
-        If Text.Length Mod 2 <> 0 Then Text = Text.Insert(0, "0")
-
-        ReDim Bytes((Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To Text.Length - 1 Step 2
-            Bytes(n) = Convert.ToByte(Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        fs.Write(Bytes, 0, Bytes.Length)
-        fs.Close() : fs.Dispose()
-
-    End Function
-
-    Function CharATB(Address As Long, Text As String) As Byte ' Function for Character ATB Gague. Takes value inputted, *10 and then writes to file as ATB is written in 10s
-        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
-
-        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
-
-        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-        br.BaseStream.Seek(Address, SeekOrigin.Begin) ' moves to the address you want
-
-
-
-        Text = (Text * 10)
-        Text = Hex(Text) 'Converts textbox input to hex
-
-
-
-        Dim bytes As Byte()
-
-        If Text.Length Mod 2 <> 0 Then Text = Text.Insert(0, "0")
-
-        ReDim bytes((Text.Length \ 2) - 1)
-
-        Dim n As Integer = 0
-
-        For i As Integer = 0 To Text.Length - 1 Step 2
-            bytes(n) = Convert.ToByte(Text.Substring(i, 2), 16)
-            n += 1
-        Next
-
-        fs.Write(bytes, 0, bytes.Length) ' Writes to file
-        fs.Close() : fs.Dispose()
-    End Function
-
     Function NumberGrabber(Address As Long, arraySize As Int16)
         Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
 
@@ -122,7 +55,6 @@ Public Class Form1
 
 
     End Function
-
     Function NumberWriter(Address As Long, text As String, Length As Int16)
 
         Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
@@ -155,7 +87,9 @@ Public Class Form1
 
         fs.Write(bytes, 0, bytes.Length) ' Writes to file
         fs.Close() : fs.Dispose()
+#Disable Warning BC42105 ' Function doesn't return a value on all code paths
     End Function
+#Enable Warning BC42105 ' Function doesn't return a value on all code paths
 
 
 
@@ -175,7 +109,6 @@ Public Class Form1
             fileInfo = My.Computer.FileSystem.GetFileInfo(OpenFileDialog1.FileName)
 
             Dim NameOfSave As String = fileInfo.Name
-
 
             Me.Text = (Me.Text + " - " + NameOfSave)
 
@@ -259,7 +192,7 @@ Public Class Form1
 
         '''
         '''
-        ''' automatically pulls inventory information.
+        ''' automatically pulls Party Member information.
         '''
         '''
 
@@ -1240,11 +1173,7 @@ Public Class Form1
 
             ListBox4.Items.Add(d)
 
-
-
             y = y + 1
-
-
 
         End While
 
@@ -1258,9 +1187,6 @@ Public Class Form1
             Dim sHexString = StringToHex(sDict)
 
             ListBox3.Items.Add(sHexString)
-
-
-
 
             x = x + 1
 
@@ -1574,11 +1500,7 @@ Public Class Form1
 
             ListBox5.Items.Add(d)
 
-
-
             y = y + 1
-
-
 
         End While
 
