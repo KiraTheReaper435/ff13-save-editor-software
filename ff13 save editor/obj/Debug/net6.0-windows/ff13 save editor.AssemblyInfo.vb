@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("ff13 save editor"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cff7bd15a7ba45cee79ad5735ca89fc68b029e3b"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f4e986a30f9cb744c88f25e194f04e001bbeb947"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("ff13 save editor"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("ff13 save editor"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _
