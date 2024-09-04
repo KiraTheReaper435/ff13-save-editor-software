@@ -1,6 +1,6 @@
 # Final Fantasy XIII Save Editor and Save Decryptor tools.
 
-A save editor for the Steam and Xbox App/Windows Store version of Final Fantasy XIII. This is *not* designed for the Xbox 360/PlayStation 3 version of the game, so if it works it is purely coincidential.
+A save editor for the Steam and Xbox App/Windows Store version of Final Fantasy XIII.
 
 This can only be used in combination with Final Fantasy XIII Save Decryptor, found in the Nova Crystallis Discord in #general channel. (Created by Joschka)
 
@@ -28,24 +28,24 @@ The save will have a file name `ff13-##.dat`, with ## being the save slot number
 In here you should see various files with random numbers and letters, depending on how many save slots you have used in game.
 Two of the files will be either 1 or 2kb in size. The files which are are +150kb are the saves. The only way to determine which slot is which is by checking the "Date Modified".
 
-1 – Backup
+**1. Backup**
 
 Make another copy of your save in that same folder and add `.bak` to the end of the file name. Keep this around as a backup in case the save corrupts or causes unexpected behaviour.
 
 *If using a save from the Xbox/Windows Store version, rename the save you're planning to mod to `ff13-01.dat` - the number doesn't matter in this case.*
 
-1 - Decrypt
+**2. Decrypt**
 
 Drag the `ff13-01.dat` file onto the XIIIPCSaveDecryptor.exe (or in Terminal, run `.\XIIIPCSaveDecryptor.exe ff13-01.dat`). This should create a `ff13-01.dat_decrypted` version of the save file.
 
-1 - Editing
+**3. Editing**
 
 Open `FF13-Save-Editor.exe` and open the `ff13-01.dat_decrypted` file. Edit what you want, click Save then close the editor.
 
-1 - Re-encrypt
+**4. Re-encrypt**
 
 Drag and drop the `ff13-01.dat_decrypted` file onto the `XIIIPCSaveDecryptor.exe` (or in Terminal, run `.\XIIIPCSaveDecryptor.exe ff13-01.dat_decrypted`). This will create a `ff13-01.dat_decrypted_encrypted` file.
 
-1- Use
+**5. Use**
 
 Rename the file `ff13-01.dat_decrypted_encrypted` to `ff13-##.dat` (Steam - with ## being the number it was. Xbox/Windows Store - rename this back to the random numbers/letters that it used to be). Place the save back inside of the folder you copied from in Step #1, and then load it in the game.
