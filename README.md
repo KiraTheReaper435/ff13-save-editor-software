@@ -5,6 +5,7 @@ A save editor for the Steam and Xbox App/Windows Store version of Final Fantasy 
 This can only be used in combination with Final Fantasy XIII Save Decryptor, found in the Nova Crystallis Discord in #general channel. (Created by Joschka)
 
 https://discord.gg/pc9PdpKsRc - Discord Invite
+
 https://discord.com/channels/824468795275608136/824488395937677333/941761558537723954 - Should link to XIIIPCSaveDecryptor
 
 DISCLAIMER - This is not tested fully and may not work as intended. I am not proficient at coding, so if you find any bugs, found that something broke or have any questions, please contact me on Discord @Kirathereaperuwu
@@ -12,7 +13,8 @@ DISCLAIMER - This is not tested fully and may not work as intended. I am not pro
 
 ## How to use FF13 Save Editor and XIIIDecryptor tools.
 
-1 - Make a folder on your desktop and place the `XIIIPCSaveDecryptor.exe` and  `ff13.save.editor.exe` tools in that folder. Acquire your save from one of these locations and copy them to this folder on your desktop:
+**1. Download**
+Make a folder on your desktop and place the `XIIIPCSaveDecryptor.exe` and  `ff13.save.editor.exe` tools in that folder. Acquire your save from one of these locations and copy them to this folder on your desktop:
 
 ### Steam:
 
@@ -30,7 +32,7 @@ The save will have a file name `ff13-##.dat`, with ## being the save slot number
 In here you should see various files with random numbers and letters, depending on how many save slots you have used in game.
 Two of the files will be either 1 or 2kb in size. The files which are are +150kb are the saves. The only way to determine which slot is which is by checking the "Date Modified".
 
-**1. Backup**
+**2. Backup**
 
 Make another copy of your save in that same folder and add `.bak` to the end of the file name. Keep this around as a backup in case the save corrupts or causes unexpected behaviour.
 
