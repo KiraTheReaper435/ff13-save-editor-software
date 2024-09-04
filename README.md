@@ -17,7 +17,9 @@ DISCLAIMER - This is not tested fully and may not work as intended. I am not pro
 ### Steam:
 
 `$SteamFolder\userdata\<user-id>\292120\remote\` (Cloud saves enabled are stored here)
+
 `%LOCALAPPDATA%\SquareEnix\FinalFantasyXIII\save\` (Cloud Saves disabled are stored here)
+
 Note – You must disable cloud saves in order to have the game pick up the files. You can get the saves from either location and use them with the editor.
 
 The save will have a file name `ff13-##.dat`, with ## being the save slot number. The following instructions will assume you are working with `ff13-01.dat` - ammend this according to the save slot you're choosing to use.
