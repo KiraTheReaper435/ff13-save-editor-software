@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kdevine\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj": {}
+    "C:\\Users\\kdevine\\Source\\Repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj": {}
   },
   "projects": {
-    "C:\\Users\\kdevine\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj": {
+    "C:\\Users\\kdevine\\Source\\Repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kdevine\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
+        "projectUniqueName": "C:\\Users\\kdevine\\Source\\Repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
         "projectName": "ff13 save editor",
-        "projectPath": "C:\\Users\\kdevine\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
+        "projectPath": "C:\\Users\\kdevine\\Source\\Repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
         "packagesPath": "C:\\Users\\kdevine\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kdevine\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\obj\\",
+        "outputPath": "C:\\Users\\kdevine\\Source\\Repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kdevine\\AppData\\Roaming\\NuGet\\NuGet.Config",
