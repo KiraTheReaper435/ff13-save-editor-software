@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\kdevine\\.nuget\\packages\\": {}
+    "C:\\Users\\kirar\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kdevine\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
+      "projectUniqueName": "C:\\Users\\kirar\\Source\\Repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
       "projectName": "ff13 save editor",
-      "projectPath": "C:\\Users\\kdevine\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
-      "packagesPath": "C:\\Users\\kdevine\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kdevine\\source\\repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\obj\\",
+      "projectPath": "C:\\Users\\kirar\\Source\\Repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\ff13 save editor.vbproj",
+      "packagesPath": "C:\\Users\\kirar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kirar\\Source\\Repos\\KiraTheReaper435\\ff13-save-editor-software\\ff13 save editor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kdevine\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\kirar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -40,6 +40,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -56,6 +61,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.29, 6.0.29]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.29, 6.0.29]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.29, 6.0.29]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.29, 6.0.29]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -64,7 +87,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   }

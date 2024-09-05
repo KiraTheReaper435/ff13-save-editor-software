@@ -117,16 +117,6 @@ Public Class Form1
 
             OpenSave.Visible = False
 
-            ''       Else
-            ''
-            ''          Dim Result = MsgBox("Select No to open a save", vbYesNo, "Would you like to quit the application?")
-            ''
-            ''        Select Case Result
-            ''      Case vbYes
-            ''    Application.Exit()
-            ''  Case vbNo
-            ''Me.OpenSave.PerformClick()
-            ''End Select
         End If
 
 
