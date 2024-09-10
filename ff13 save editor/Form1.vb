@@ -283,6 +283,7 @@ Public Class Form1
             Dictionary.Add("material_m048", "Wonder Gel")
             Dictionary.Add("material_m049", "Fractured Horn")
             Dictionary.Add("material_m050", "Spined Horn")
+            Dictionary.Add("material_m051", "Fiendish Horn")
             Dictionary.Add("material_m052", "Infernal Horn")
             Dictionary.Add("material_m053", "Strange Fluid")
             Dictionary.Add("material_m054", "Enigamatic Fluid")
