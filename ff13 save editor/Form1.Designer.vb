@@ -691,7 +691,6 @@ Partial Class Form1
         ' 
         LightCPValue.Location = New Point(197, 29)
         LightCPValue.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        LightCPValue.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         LightCPValue.Name = "LightCPValue"
         LightCPValue.Size = New Size(75, 23)
         LightCPValue.TabIndex = 27
@@ -826,7 +825,6 @@ Partial Class Form1
         ' 
         SazhCPValue.Location = New Point(197, 29)
         SazhCPValue.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        SazhCPValue.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         SazhCPValue.Name = "SazhCPValue"
         SazhCPValue.Size = New Size(75, 23)
         SazhCPValue.TabIndex = 32
@@ -1006,7 +1004,6 @@ Partial Class Form1
         ' 
         VanCPValue.Location = New Point(197, 29)
         VanCPValue.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        VanCPValue.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         VanCPValue.Name = "VanCPValue"
         VanCPValue.Size = New Size(75, 23)
         VanCPValue.TabIndex = 32
@@ -1186,7 +1183,6 @@ Partial Class Form1
         ' 
         HopeCPValue.Location = New Point(197, 29)
         HopeCPValue.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        HopeCPValue.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         HopeCPValue.Name = "HopeCPValue"
         HopeCPValue.Size = New Size(75, 23)
         HopeCPValue.TabIndex = 32
@@ -1367,7 +1363,6 @@ Partial Class Form1
         ' 
         FangCPValue.Location = New Point(197, 29)
         FangCPValue.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        FangCPValue.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         FangCPValue.Name = "FangCPValue"
         FangCPValue.Size = New Size(75, 23)
         FangCPValue.TabIndex = 32
@@ -1547,7 +1542,6 @@ Partial Class Form1
         ' 
         SnowCPValue.Location = New Point(197, 29)
         SnowCPValue.Maximum = New Decimal(New Integer() {999999, 0, 0, 0})
-        SnowCPValue.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         SnowCPValue.Name = "SnowCPValue"
         SnowCPValue.Size = New Size(75, 23)
         SnowCPValue.TabIndex = 32

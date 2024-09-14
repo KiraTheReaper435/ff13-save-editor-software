@@ -686,7 +686,7 @@ Public Class Form1
 
         Dim GilAddress As Short = &H48BC ' Sets Offset Address 
 
-       
+
         If GilTextValue.Value > 999999999 Then
             GilTextValue.Value = 999999999
         End If
@@ -1623,5 +1623,6 @@ Public Class Form1
         ListBox7.Items.Add(NumericUpDown2.Value)
 
     End Sub
+
 
 End Class
