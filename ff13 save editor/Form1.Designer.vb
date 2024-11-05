@@ -182,6 +182,9 @@ Partial Class Form1
         Label40 = New Label()
         Label41 = New Label()
         ListBox8 = New ListBox()
+        RawSaveName = New TextBox()
+        ConvertSaveName = New TextBox()
+        SavePointGrabber = New Button()
         TabControl1.SuspendLayout()
         TabPage2.SuspendLayout()
         CType(GilTextValue, ComponentModel.ISupportInitialize).BeginInit()
@@ -1651,6 +1654,9 @@ Partial Class Form1
         ' 
         ' TabPage9
         ' 
+        TabPage9.Controls.Add(SavePointGrabber)
+        TabPage9.Controls.Add(ConvertSaveName)
+        TabPage9.Controls.Add(RawSaveName)
         TabPage9.Controls.Add(Label32)
         TabPage9.Location = New Point(4, 24)
         TabPage9.Name = "TabPage9"
@@ -1898,6 +1904,29 @@ Partial Class Form1
         ListBox8.Size = New Size(172, 274)
         ListBox8.TabIndex = 31
         ' 
+        ' RawSaveName
+        ' 
+        RawSaveName.Location = New Point(220, 28)
+        RawSaveName.Name = "RawSaveName"
+        RawSaveName.Size = New Size(100, 23)
+        RawSaveName.TabIndex = 1
+        ' 
+        ' ConvertSaveName
+        ' 
+        ConvertSaveName.Location = New Point(341, 28)
+        ConvertSaveName.Name = "ConvertSaveName"
+        ConvertSaveName.Size = New Size(100, 23)
+        ConvertSaveName.TabIndex = 2
+        ' 
+        ' SavePointGrabber
+        ' 
+        SavePointGrabber.Location = New Point(294, 57)
+        SavePointGrabber.Name = "SavePointGrabber"
+        SavePointGrabber.Size = New Size(75, 23)
+        SavePointGrabber.TabIndex = 3
+        SavePointGrabber.Text = "Button1"
+        SavePointGrabber.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -2130,4 +2159,7 @@ Partial Class Form1
     Friend WithEvents HopeSaveButton As Button
     Friend WithEvents FangSaveButton As Button
     Friend WithEvents SnowSaveButton As Button
+    Friend WithEvents SavePointGrabber As Button
+    Friend WithEvents ConvertSaveName As TextBox
+    Friend WithEvents RawSaveName As TextBox
 End Class

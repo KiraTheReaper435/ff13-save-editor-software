@@ -90,6 +90,35 @@ Public Class Form1
         fs.Close() : fs.Dispose()
 #Disable Warning BC42105 ' Function doesn't return a value on all code paths
     End Function
+
+    Function PartyMemberPuller(Address As Long)
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        Dim FlippedCharacterDictionary As New Dictionary(Of Int64, String)
+
+        FlippedCharacterDictionary.Add(0, "None")
+        FlippedCharacterDictionary.Add(13, "Lightning")
+        FlippedCharacterDictionary.Add(14, "Sazh")
+        FlippedCharacterDictionary.Add(9, "Fang")
+        FlippedCharacterDictionary.Add(17, "Vanille")
+        FlippedCharacterDictionary.Add(11, "Hope")
+        FlippedCharacterDictionary.Add(16, "Snow")
+        FlippedCharacterDictionary.Add(255, "Slot Empty")
+
+        br.BaseStream.Seek(Address, SeekOrigin.Begin) ' moves to the address you want
+        Dim bytes = fs.ReadByte()
+        Dim endValue = FlippedCharacterDictionary.GetValueOrDefault(bytes)
+
+
+
+        fs.Close() : fs.Dispose()
+
+        Return endValue
+    End Function
 #Enable Warning BC42105 ' Function doesn't return a value on all code paths
 
 
@@ -124,56 +153,43 @@ Public Class Form1
             '' Area for preloading Party Editor config + Setting the defaults for it so when user clicks the tab its preloaded automatically and shows current party configuration.
             TabPage2.Show()
 
-            Dim Dictionary1 As New Dictionary(Of String, Int64)
+            Dim CharacterDictionary As New Dictionary(Of String, Int64)
 
-            Dictionary1.Add("None", 0)
-            Dictionary1.Add("Lightning", 13)
-            Dictionary1.Add("Sazh", 14)
-            Dictionary1.Add("Fang", 9)
-            Dictionary1.Add("Vanille", 17)
-            Dictionary1.Add("Hope", 11)
-            Dictionary1.Add("Snow", 16)
-            Dictionary1.Add("Slot Empty", 255)
+            CharacterDictionary.Add("None", 0)
+            CharacterDictionary.Add("Lightning", 13)
+            CharacterDictionary.Add("Sazh", 14)
+            CharacterDictionary.Add("Fang", 9)
+            CharacterDictionary.Add("Vanille", 17)
+            CharacterDictionary.Add("Hope", 11)
+            CharacterDictionary.Add("Snow", 16)
+            CharacterDictionary.Add("Slot Empty", 255)
 
-            Dim FlippedDictionary As New Dictionary(Of Int64, String)
-
-            FlippedDictionary.Add(0, "None")
-            FlippedDictionary.Add(13, "Lightning")
-            FlippedDictionary.Add(14, "Sazh")
-            FlippedDictionary.Add(9, "Fang")
-            FlippedDictionary.Add(17, "Vanille")
-            FlippedDictionary.Add(11, "Hope")
-            FlippedDictionary.Add(16, "Snow")
-            FlippedDictionary.Add(255, "Slot Empty")
-
-
-
-            PartyMember1.DataSource = New BindingSource(Dictionary1, Nothing)
+            PartyMember1.DataSource = New BindingSource(CharacterDictionary, Nothing)
             PartyMember1.ValueMember = "Value"
             PartyMember1.DisplayMember = "Key"
 
 
-            PartyMember2.DataSource = New BindingSource(Dictionary1, Nothing)
+            PartyMember2.DataSource = New BindingSource(CharacterDictionary, Nothing)
             PartyMember2.ValueMember = "Value"
             PartyMember2.DisplayMember = "Key"
 
 
-            PartyMember3.DataSource = New BindingSource(Dictionary1, Nothing)
+            PartyMember3.DataSource = New BindingSource(CharacterDictionary, Nothing)
             PartyMember3.ValueMember = "Value"
             PartyMember3.DisplayMember = "Key"
 
 
-            PartyMember4.DataSource = New BindingSource(Dictionary1, Nothing)
+            PartyMember4.DataSource = New BindingSource(CharacterDictionary, Nothing)
             PartyMember4.ValueMember = "Value"
             PartyMember4.DisplayMember = "Key"
 
 
-            PartyMember5.DataSource = New BindingSource(Dictionary1, Nothing)
+            PartyMember5.DataSource = New BindingSource(CharacterDictionary, Nothing)
             PartyMember5.ValueMember = "Value"
             PartyMember5.DisplayMember = "Key"
 
 
-            PartyMember6.DataSource = New BindingSource(Dictionary1, Nothing)
+            PartyMember6.DataSource = New BindingSource(CharacterDictionary, Nothing)
             PartyMember6.ValueMember = "Value"
             PartyMember6.DisplayMember = "Key"
 
@@ -188,46 +204,24 @@ Public Class Form1
             Dim PartyMemberOriginal5 As Long = &H1C039
             Dim PartyMemberOriginal6 As Long = &H1C03D
 
+            PartyMember1.Text = PartyMemberPuller(PartyMemberOriginal1)
+            PartyMember2.Text = PartyMemberPuller(PartyMemberOriginal2)
+            PartyMember3.Text = PartyMemberPuller(PartyMemberOriginal3)
+            PartyMember4.Text = PartyMemberPuller(PartyMemberOriginal4)
+            PartyMember5.Text = PartyMemberPuller(PartyMemberOriginal5)
+            PartyMember6.Text = PartyMemberPuller(PartyMemberOriginal6)
+
             '''
             '''
             ''' automatically pulls Party Member information.
             '''
             '''
 
-
-
             Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
 
             Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
 
             Dim br As New BinaryReader(fs) ' BinaryReader accesses File
-
-            br.BaseStream.Seek(PartyMemberOriginal1, SeekOrigin.Begin) ' moves to the address you want
-            Dim Value1member = fs.ReadByte()
-            PartyMember1.Text = FlippedDictionary.GetValueOrDefault(Value1member)
-
-            fs.Seek(PartyMemberOriginal2, SeekOrigin.Begin)
-            Dim Value2member = fs.ReadByte()
-            PartyMember2.Text = FlippedDictionary.GetValueOrDefault(Value2member)
-
-            fs.Seek(PartyMemberOriginal3, SeekOrigin.Begin)
-            Dim Value3member = fs.ReadByte()
-            PartyMember3.Text = FlippedDictionary.GetValueOrDefault(Value3member)
-
-            fs.Seek(PartyMemberOriginal4, SeekOrigin.Begin)
-            Dim Value4member = fs.ReadByte()
-            PartyMember4.Text = FlippedDictionary.GetValueOrDefault(Value4member)
-
-            fs.Seek(PartyMemberOriginal5, SeekOrigin.Begin)
-            Dim Value5member = fs.ReadByte()
-            PartyMember5.Text = FlippedDictionary.GetValueOrDefault(Value5member)
-
-            fs.Seek(PartyMemberOriginal6, SeekOrigin.Begin)
-            Dim Value6member = fs.ReadByte()
-            PartyMember6.Text = FlippedDictionary.GetValueOrDefault(Value6member)
-
-
-
 
 
             Dim Dictionary As New Dictionary(Of String, String)
@@ -1624,5 +1618,20 @@ Public Class Form1
 
     End Sub
 
+    Private Sub SavePointGrabber_Click(sender As Object, e As EventArgs) Handles SavePointGrabber.Click
 
+        ' This is a WIP - Code may not be functional or work correctly at this time
+        '
+        ' To Create a save teleporter the following needs to be done:
+        '
+        ' Read the bytes between offsets Ox3028 and 0x3036 - This gives the save name e.g. S_Point_xxx_01 with xxx denoting the area.
+        ' Read the value at 40B3 as this seems to be crucial to making it work. 
+        '
+        ' Use a dictionary with a list of hex save names, and their corrosponding english name such as "Grapa Whitewood - Chapter 5 "
+        ' Have a dictionary to go with the hex save name, detailing what value is found at 40B3 to allow for that value to be correct.
+        ' Have a flipped dictionary to allow reversing of the process.
+
+        ' All of this combined should allow for a functioning save teleporter where a used can select from a dropdown box, and when the button is clicked it edits the save point you spawn in at. 
+
+    End Sub
 End Class
