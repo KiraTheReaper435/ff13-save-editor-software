@@ -1636,4 +1636,63 @@ Public Class Form1
         ' All of this combined should allow for a functioning save teleporter where a used can select from a dropdown box, and when the button is clicked it edits the save point you spawn in at. 
 
     End Sub
+
+    Private Sub WepAccButton_Click(sender As Object, e As EventArgs) Handles WepAccButton.Click
+        ' Length of Weapon/Accessory Strings are 28 bytes total. Contains prefix - Wea or Acc.
+        ' Example of entry: wep_lig_001 or acc_000_001 followed by levels, exp, exp multiplier*
+        '* Not figured out order/Structure as of yet, however from testing this is in there. 
+
+
+
+        'Total Length = 14360 / 28 = ~ 512 entries of Weapons/Accessories. (+1 when moving to next entry so it starts at the next entry vs end of previous one.)
+
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        Dim MyAddress As Long = 284176 ' Sets Offset Address 
+
+        fs.Seek(MyAddress, SeekOrigin.Begin)
+
+
+        Dim TotalEntries = 0
+
+        ' While Loop that pulls all of the data per entry. - Commented out incase other 
+
+        While TotalEntries < 512
+
+            fs.Seek(MyAddress, SeekOrigin.Begin)
+
+            Dim arraySize = 27
+
+            Dim Buffer() As Byte = New Byte(arraySize) {}
+
+            fs.Read(Buffer, 0, Buffer.Length)
+
+            Dim ItemAmount = Convert.ToHexString(Buffer)
+            If ItemAmount.Contains("776561") Then
+                WepBox.Items.Add(ItemAmount)
+            ElseIf ItemAmount.Contains("616363") Then
+                AccBox.Items.Add(ItemAmount)
+            End If
+
+            MyAddress += 28
+
+            TotalEntries += 1
+            ListBox9.Items.Add(TotalEntries)
+
+        End While
+
+        ' Weapon/Accessory IDs have a length of 11. Will split the Identifier from the Weapon Information (Levels, Exp etc) and Display the name in a box, and hide the extra information.
+        ' Will create a default string that gives level 1 with 0 exp to any new added weapons until I add a level/exp changer.
+
+        ' While loop that Splits Identifier and Information.
+
+
+
+        fs.Close() : fs.Dispose()
+
+    End Sub
 End Class

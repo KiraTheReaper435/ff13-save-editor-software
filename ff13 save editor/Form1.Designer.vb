@@ -159,6 +159,9 @@ Partial Class Form1
         Label29 = New Label()
         Label30 = New Label()
         TabPage9 = New TabPage()
+        SavePointGrabber = New Button()
+        ConvertSaveName = New TextBox()
+        RawSaveName = New TextBox()
         Label32 = New Label()
         TabPage11 = New TabPage()
         ListBox4 = New ListBox()
@@ -182,9 +185,11 @@ Partial Class Form1
         Label40 = New Label()
         Label41 = New Label()
         ListBox8 = New ListBox()
-        RawSaveName = New TextBox()
-        ConvertSaveName = New TextBox()
-        SavePointGrabber = New Button()
+        TabPage1 = New TabPage()
+        ListBox9 = New ListBox()
+        AccBox = New ListBox()
+        WepBox = New ListBox()
+        WepAccButton = New Button()
         TabControl1.SuspendLayout()
         TabPage2.SuspendLayout()
         CType(GilTextValue, ComponentModel.ISupportInitialize).BeginInit()
@@ -229,6 +234,7 @@ Partial Class Form1
         CType(NumericUpDown1, ComponentModel.ISupportInitialize).BeginInit()
         TabPage12.SuspendLayout()
         CType(NumericUpDown2, ComponentModel.ISupportInitialize).BeginInit()
+        TabPage1.SuspendLayout()
         SuspendLayout()
         ' 
         ' OpenFileDialog1
@@ -256,6 +262,7 @@ Partial Class Form1
         TabControl1.Controls.Add(TabPage9)
         TabControl1.Controls.Add(TabPage11)
         TabControl1.Controls.Add(TabPage12)
+        TabControl1.Controls.Add(TabPage1)
         TabControl1.Location = New Point(12, 58)
         TabControl1.Name = "TabControl1"
         TabControl1.SelectedIndex = 0
@@ -1666,6 +1673,29 @@ Partial Class Form1
         TabPage9.Text = "Save Teleporter"
         TabPage9.UseVisualStyleBackColor = True
         ' 
+        ' SavePointGrabber
+        ' 
+        SavePointGrabber.Location = New Point(294, 57)
+        SavePointGrabber.Name = "SavePointGrabber"
+        SavePointGrabber.Size = New Size(75, 23)
+        SavePointGrabber.TabIndex = 3
+        SavePointGrabber.Text = "Button1"
+        SavePointGrabber.UseVisualStyleBackColor = True
+        ' 
+        ' ConvertSaveName
+        ' 
+        ConvertSaveName.Location = New Point(341, 28)
+        ConvertSaveName.Name = "ConvertSaveName"
+        ConvertSaveName.Size = New Size(100, 23)
+        ConvertSaveName.TabIndex = 2
+        ' 
+        ' RawSaveName
+        ' 
+        RawSaveName.Location = New Point(220, 28)
+        RawSaveName.Name = "RawSaveName"
+        RawSaveName.Size = New Size(100, 23)
+        RawSaveName.TabIndex = 1
+        ' 
         ' Label32
         ' 
         Label32.AutoSize = True
@@ -1786,6 +1816,7 @@ Partial Class Form1
         ListBox1.FormattingEnabled = True
         ListBox1.ItemHeight = 15
         ListBox1.Location = New Point(6, 44)
+        ListBox1.MultiColumn = True
         ListBox1.Name = "ListBox1"
         ListBox1.Size = New Size(172, 274)
         ListBox1.TabIndex = 19
@@ -1904,28 +1935,55 @@ Partial Class Form1
         ListBox8.Size = New Size(172, 274)
         ListBox8.TabIndex = 31
         ' 
-        ' RawSaveName
+        ' TabPage1
         ' 
-        RawSaveName.Location = New Point(220, 28)
-        RawSaveName.Name = "RawSaveName"
-        RawSaveName.Size = New Size(100, 23)
-        RawSaveName.TabIndex = 1
+        TabPage1.Controls.Add(ListBox9)
+        TabPage1.Controls.Add(AccBox)
+        TabPage1.Controls.Add(WepBox)
+        TabPage1.Controls.Add(WepAccButton)
+        TabPage1.Location = New Point(4, 24)
+        TabPage1.Name = "TabPage1"
+        TabPage1.Padding = New Padding(3)
+        TabPage1.Size = New Size(768, 336)
+        TabPage1.TabIndex = 13
+        TabPage1.Text = "Weapons & Accessories"
+        TabPage1.UseVisualStyleBackColor = True
         ' 
-        ' ConvertSaveName
+        ' ListBox9
         ' 
-        ConvertSaveName.Location = New Point(341, 28)
-        ConvertSaveName.Name = "ConvertSaveName"
-        ConvertSaveName.Size = New Size(100, 23)
-        ConvertSaveName.TabIndex = 2
+        ListBox9.FormattingEnabled = True
+        ListBox9.ItemHeight = 15
+        ListBox9.Location = New Point(663, 188)
+        ListBox9.Name = "ListBox9"
+        ListBox9.Size = New Size(99, 124)
+        ListBox9.TabIndex = 3
         ' 
-        ' SavePointGrabber
+        ' AccBox
         ' 
-        SavePointGrabber.Location = New Point(294, 57)
-        SavePointGrabber.Name = "SavePointGrabber"
-        SavePointGrabber.Size = New Size(75, 23)
-        SavePointGrabber.TabIndex = 3
-        SavePointGrabber.Text = "Button1"
-        SavePointGrabber.UseVisualStyleBackColor = True
+        AccBox.FormattingEnabled = True
+        AccBox.ItemHeight = 15
+        AccBox.Location = New Point(31, 189)
+        AccBox.Name = "AccBox"
+        AccBox.Size = New Size(594, 94)
+        AccBox.TabIndex = 2
+        ' 
+        ' WepBox
+        ' 
+        WepBox.FormattingEnabled = True
+        WepBox.ItemHeight = 15
+        WepBox.Location = New Point(40, 17)
+        WepBox.Name = "WepBox"
+        WepBox.Size = New Size(585, 94)
+        WepBox.TabIndex = 1
+        ' 
+        ' WepAccButton
+        ' 
+        WepAccButton.Location = New Point(663, 117)
+        WepAccButton.Name = "WepAccButton"
+        WepAccButton.Size = New Size(105, 31)
+        WepAccButton.TabIndex = 0
+        WepAccButton.Text = "Test Sorting"
+        WepAccButton.UseVisualStyleBackColor = True
         ' 
         ' Form1
         ' 
@@ -1992,6 +2050,7 @@ Partial Class Form1
         TabPage12.ResumeLayout(False)
         TabPage12.PerformLayout()
         CType(NumericUpDown2, ComponentModel.ISupportInitialize).EndInit()
+        TabPage1.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
@@ -2162,4 +2221,9 @@ Partial Class Form1
     Friend WithEvents SavePointGrabber As Button
     Friend WithEvents ConvertSaveName As TextBox
     Friend WithEvents RawSaveName As TextBox
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents AccBox As ListBox
+    Friend WithEvents WepBox As ListBox
+    Friend WithEvents WepAccButton As Button
+    Friend WithEvents ListBox9 As ListBox
 End Class
