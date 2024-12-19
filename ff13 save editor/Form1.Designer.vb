@@ -186,6 +186,7 @@ Partial Class Form1
         Label41 = New Label()
         ListBox8 = New ListBox()
         TabPage1 = New TabPage()
+        wepAccSave = New Button()
         addAccessory = New Button()
         addWeapon = New Button()
         accessoryComboBox = New ComboBox()
@@ -197,7 +198,7 @@ Partial Class Form1
         AccBox = New ListBox()
         WepBox = New ListBox()
         WepAccButton = New Button()
-        wepAccSave = New Button()
+        ListBox9 = New ListBox()
         TabControl1.SuspendLayout()
         TabPage2.SuspendLayout()
         CType(GilTextValue, ComponentModel.ISupportInitialize).BeginInit()
@@ -1944,6 +1945,7 @@ Partial Class Form1
         ' 
         ' TabPage1
         ' 
+        TabPage1.Controls.Add(ListBox9)
         TabPage1.Controls.Add(wepAccSave)
         TabPage1.Controls.Add(addAccessory)
         TabPage1.Controls.Add(addWeapon)
@@ -1963,6 +1965,15 @@ Partial Class Form1
         TabPage1.TabIndex = 13
         TabPage1.Text = "Weapons & Accessories"
         TabPage1.UseVisualStyleBackColor = True
+        ' 
+        ' wepAccSave
+        ' 
+        wepAccSave.Location = New Point(415, 62)
+        wepAccSave.Name = "wepAccSave"
+        wepAccSave.Size = New Size(105, 30)
+        wepAccSave.TabIndex = 12
+        wepAccSave.Text = "Save"
+        wepAccSave.UseVisualStyleBackColor = True
         ' 
         ' addAccessory
         ' 
@@ -2063,14 +2074,14 @@ Partial Class Form1
         WepAccButton.Text = "Test Sorting"
         WepAccButton.UseVisualStyleBackColor = True
         ' 
-        ' wepAccSave
+        ' ListBox9
         ' 
-        wepAccSave.Location = New Point(415, 62)
-        wepAccSave.Name = "wepAccSave"
-        wepAccSave.Size = New Size(105, 30)
-        wepAccSave.TabIndex = 12
-        wepAccSave.Text = "Save"
-        wepAccSave.UseVisualStyleBackColor = True
+        ListBox9.FormattingEnabled = True
+        ListBox9.ItemHeight = 15
+        ListBox9.Location = New Point(458, 135)
+        ListBox9.Name = "ListBox9"
+        ListBox9.Size = New Size(273, 94)
+        ListBox9.TabIndex = 13
         ' 
         ' Form1
         ' 
@@ -2321,4 +2332,5 @@ Partial Class Form1
     Friend WithEvents addAccessory As Button
     Friend WithEvents addWeapon As Button
     Friend WithEvents wepAccSave As Button
+    Friend WithEvents ListBox9 As ListBox
 End Class

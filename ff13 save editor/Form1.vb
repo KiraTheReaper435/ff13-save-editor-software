@@ -1994,136 +1994,7 @@ Public Class Form1
     End Sub
 
     Private Sub AddWeapon_Click(sender As Object, e As EventArgs) Handles addWeapon.Click
-        WepName.Items.Add(weaponComboBox.Text)
-    End Sub
 
-    Private Sub AddAccessory_Click(sender As Object, e As EventArgs) Handles addAccessory.Click
-        AccName.Items.Add(accessoryComboBox.Text)
-    End Sub
-
-    Private Sub WepAccSave_Click(sender As Object, e As EventArgs) Handles wepAccSave.Click
-
-        Dim flippedAccessoryDictionary As New Dictionary(Of String, String) From {
-            {"Iron Bangle", "acc_000_000"},
-            {"Silver Bangle", "acc_000_001"},
-            {"Tungsten Bangle", "acc_000_002"},
-            {"Titanium Bangle", "acc_000_003"},
-            {"Gold Bangle", "acc_000_004"},
-            {"Mythril Bangle", "acc_000_005"},
-            {"Platinum Bangle", "acc_000_006"},
-            {"Diamond Bangle", "acc_000_007"},
-            {"Adamant Bangle", "acc_000_008"},
-            {"Wurtzite Bangle", "acc_000_009"},
-            {"Power Wristband", "acc_000_100"},
-            {"Brawler's Wristband", "acc_000_101"},
-            {"Warrior's Wristband", "acc_000_102"},
-            {"Power Glove", "acc_000_103"},
-            {"Kaiser Knuckles", "acc_000_104"},
-            {"Magician's Mark", "acc_000_200"},
-            {"Shaman's Mark", "acc_000_201"},
-            {"Sorcerer's Mark", "acc_000_202"},
-            {"Weirding Glyph", "acc_000_203"},
-            {"Magistral Crest", "acc_000_204"},
-            {"Black Belt", "acc_000_300"},
-            {"General's Belt", "acc_000_301"},
-            {"Champion's Belt", "acc_000_302"},
-            {"Rune Bracelet", "acc_000_400"},
-            {"Witch's Bracelet", "acc_000_401"},
-            {"Magus's Bracelet", "acc_000_402"},
-            {"Royal Armlet", "acc_000_500"},
-            {"Imperial Armlet", "acc_000_501"},
-            {"Ember Ring", "acc_001_000"},
-            {"Blaze Ring", "acc_001_001"},
-            {"Salamandrine Ring", "acc_001_002"},
-            {"Frost Ring", "acc_002_000"},
-            {"Icicle Ring", "acc_002_001"},
-            {"Boreal Ring", "acc_002_002"},
-            {"Spark Ring", "acc_003_000"},
-            {"Fulmen Ring", "acc_003_001"},
-            {"Raijin Ring", "acc_003_002"},
-            {"Aqua Ring", "acc_004_000"},
-            {"Riptide Ring", "acc_004_001"},
-            {"Nereid Ring", "acc_004_002"},
-            {"Zephyr Ring", "acc_005_000"},
-            {"Gale Ring", "acc_005_001"},
-            {"Sylphid Ring", "acc_005_002"},
-            {"Clay Ring", "acc_006_000"},
-            {"Siltstone Ring", "acc_006_001"},
-            {"Gaian Ring", "acc_006_002"},
-            {"Entite Ring", "acc_007_000"},
-            {"Giant's Glove", "acc_009_000"},
-            {"Warlord's Glove", "acc_009_001"},
-            {"Glass Buckle", "acc_010_000"},
-            {"Tektite Buckle", "acc_010_001"},
-            {"Metal Armband", "acc_011_000"},
-            {"Ceramic Armband", "acc_011_001"},
-            {"Serenity Sachet", "acc_012_000"},
-            {"Safeguard Sachet", "acc_012_001"},
-            {"Glass Orb", "acc_013_000"},
-            {"Dragonfly Orb", "acc_013_001"},
-            {"Star Pendant", "acc_014_000"},
-            {"Starfall Pendant", "acc_014_001"},
-            {"Pearl Necklace", "acc_015_000"},
-            {"Gemstone Necklace", "acc_015_001"},
-            {"Warding Talisman", "acc_016_000"},
-            {"Hexbane Talisman", "acc_016_001"},
-            {"Pain Dampener", "acc_017_000"},
-            {"Pain Deflector", "acc_017_001"},
-            {"White Cape", "acc_018_000"},
-            {"Effulgent Cape", "acc_018_001"},
-            {"Rainbow Anklet", "acc_019_000"},
-            {"Moonbow Anklet", "acc_019_001"},
-            {"Cherub's Crown", "acc_020_000"},
-            {"Seraph's Crown", "acc_020_001"},
-            {"Ribbon", "acc_023_000"},
-            {"Supper Ribbon", "acc_023_001"},
-            {"Guardian Amulet", "acc_025_000"},
-            {"Shield Talisman", "acc_025_001"},
-            {"Auric Amulet", "acc_026_000"},
-            {"Soulfont Talisman", "acc_026_001"},
-            {"Watchman's Amulet", "acc_027_000"},
-            {"Shrouding Talisman", "acc_027_001"},
-            {"Hero's Amulet", "acc_028_000"},
-            {"Morale Talisman", "acc_028_001"},
-            {"Saint's Amulet", "acc_029_000"},
-            {"Blessed Talisman", "acc_029_001"},
-            {"Hermes Sandals", "acc_030_000"},
-            {"Sprint Shoes", "acc_030_001"},
-            {"Flamebane Brooch", "acc_031_000"},
-            {"Flameshield Talisman", "acc_031_001"},
-            {"Frostbane Brooch", "acc_032_000"},
-            {"Frostshield Talisman", "acc_032_001"},
-            {"Sparkbane Brooch", "acc_033_000"},
-            {"Sparkshield Talisman", "acc_033_001"},
-            {"Aquabane Brooch", "acc_034_000"},
-            {"Aquashield Talisman", "acc_034_001"},
-            {"Zealot's Amulet", "acc_035_000"},
-            {"Battle Talisman", "acc_035_001"},
-            {"Tetradic Crown", "acc_036_000"},
-            {"Tetradic Tiara", "acc_036_001"},
-            {"Whistlewind Scarf", "acc_037_000"},
-            {"Aurora Scarf", "acc_037_001"},
-            {"Nimbletoe Boots", "acc_038_000"},
-            {"Collector Catalog", "acc_039_000"},
-            {"Connoisseur Catalog", "acc_039_001"},
-            {"Gold Watch", "acc_040_000"},
-            {"Champion's Badge", "acc_040_001"},
-            {"Survivalist Catalog", "acc_040_002"},
-            {"Hunter's Friend", "acc_041_000"},
-            {"Speed Sash", "acc_041_001"},
-            {"Energy Sash", "acc_041_002"},
-            {"Genji Glove", "acc_042_001"},
-            {"Growth Egg", "acc_045_000"},
-            {"Twenty-sided Die", "acc_046_000"},
-            {"Fire Charm", "acc_047_000"},
-            {"Ice Charm", "acc_048_000"},
-            {"Lightning Charm", "acc_049_000"},
-            {"Water Charm", "acc_050_000"},
-            {"Wind Charm", "acc_051_000"},
-            {"Earth Charm", "acc_052_000"},
-            {"Doctor's Code", "acc_053_000"},
-            {"Goddess's Favour", "acc_054_000"}
-        }
 
         Dim flippedWeaponDictionary As New Dictionary(Of String, String) From {
             {"Bladed Lance", "wea_fan_001"},
@@ -2271,6 +2142,267 @@ Public Class Form1
             {"Nirvana(Belladonna Wand)", "wea_van_023"},
             {"Nirvana(Heavenly Axis)", "wea_van_024"}
         }
+
+        WepName.Items.Add(weaponComboBox.Text)
+
+        Dim s As String
+
+        s = flippedWeaponDictionary.Item(weaponComboBox.Text)
+
+        Dim wephex = StringToHex(s)
+
+        WepBox.Items.Add(wephex)
+        WepInformation.Items.Add("0000000000000100000000000000000000")
+
+    End Sub
+
+    Private Sub AddAccessory_Click(sender As Object, e As EventArgs) Handles addAccessory.Click
+        Dim flippedAccessoryDictionary As New Dictionary(Of String, String) From {
+            {"Iron Bangle", "acc_000_000"},
+            {"Silver Bangle", "acc_000_001"},
+            {"Tungsten Bangle", "acc_000_002"},
+            {"Titanium Bangle", "acc_000_003"},
+            {"Gold Bangle", "acc_000_004"},
+            {"Mythril Bangle", "acc_000_005"},
+            {"Platinum Bangle", "acc_000_006"},
+            {"Diamond Bangle", "acc_000_007"},
+            {"Adamant Bangle", "acc_000_008"},
+            {"Wurtzite Bangle", "acc_000_009"},
+            {"Power Wristband", "acc_000_100"},
+            {"Brawler's Wristband", "acc_000_101"},
+            {"Warrior's Wristband", "acc_000_102"},
+            {"Power Glove", "acc_000_103"},
+            {"Kaiser Knuckles", "acc_000_104"},
+            {"Magician's Mark", "acc_000_200"},
+            {"Shaman's Mark", "acc_000_201"},
+            {"Sorcerer's Mark", "acc_000_202"},
+            {"Weirding Glyph", "acc_000_203"},
+            {"Magistral Crest", "acc_000_204"},
+            {"Black Belt", "acc_000_300"},
+            {"General's Belt", "acc_000_301"},
+            {"Champion's Belt", "acc_000_302"},
+            {"Rune Bracelet", "acc_000_400"},
+            {"Witch's Bracelet", "acc_000_401"},
+            {"Magus's Bracelet", "acc_000_402"},
+            {"Royal Armlet", "acc_000_500"},
+            {"Imperial Armlet", "acc_000_501"},
+            {"Ember Ring", "acc_001_000"},
+            {"Blaze Ring", "acc_001_001"},
+            {"Salamandrine Ring", "acc_001_002"},
+            {"Frost Ring", "acc_002_000"},
+            {"Icicle Ring", "acc_002_001"},
+            {"Boreal Ring", "acc_002_002"},
+            {"Spark Ring", "acc_003_000"},
+            {"Fulmen Ring", "acc_003_001"},
+            {"Raijin Ring", "acc_003_002"},
+            {"Aqua Ring", "acc_004_000"},
+            {"Riptide Ring", "acc_004_001"},
+            {"Nereid Ring", "acc_004_002"},
+            {"Zephyr Ring", "acc_005_000"},
+            {"Gale Ring", "acc_005_001"},
+            {"Sylphid Ring", "acc_005_002"},
+            {"Clay Ring", "acc_006_000"},
+            {"Siltstone Ring", "acc_006_001"},
+            {"Gaian Ring", "acc_006_002"},
+            {"Entite Ring", "acc_007_000"},
+            {"Giant's Glove", "acc_009_000"},
+            {"Warlord's Glove", "acc_009_001"},
+            {"Glass Buckle", "acc_010_000"},
+            {"Tektite Buckle", "acc_010_001"},
+            {"Metal Armband", "acc_011_000"},
+            {"Ceramic Armband", "acc_011_001"},
+            {"Serenity Sachet", "acc_012_000"},
+            {"Safeguard Sachet", "acc_012_001"},
+            {"Glass Orb", "acc_013_000"},
+            {"Dragonfly Orb", "acc_013_001"},
+            {"Star Pendant", "acc_014_000"},
+            {"Starfall Pendant", "acc_014_001"},
+            {"Pearl Necklace", "acc_015_000"},
+            {"Gemstone Necklace", "acc_015_001"},
+            {"Warding Talisman", "acc_016_000"},
+            {"Hexbane Talisman", "acc_016_001"},
+            {"Pain Dampener", "acc_017_000"},
+            {"Pain Deflector", "acc_017_001"},
+            {"White Cape", "acc_018_000"},
+            {"Effulgent Cape", "acc_018_001"},
+            {"Rainbow Anklet", "acc_019_000"},
+            {"Moonbow Anklet", "acc_019_001"},
+            {"Cherub's Crown", "acc_020_000"},
+            {"Seraph's Crown", "acc_020_001"},
+            {"Ribbon", "acc_023_000"},
+            {"Supper Ribbon", "acc_023_001"},
+            {"Guardian Amulet", "acc_025_000"},
+            {"Shield Talisman", "acc_025_001"},
+            {"Auric Amulet", "acc_026_000"},
+            {"Soulfont Talisman", "acc_026_001"},
+            {"Watchman's Amulet", "acc_027_000"},
+            {"Shrouding Talisman", "acc_027_001"},
+            {"Hero's Amulet", "acc_028_000"},
+            {"Morale Talisman", "acc_028_001"},
+            {"Saint's Amulet", "acc_029_000"},
+            {"Blessed Talisman", "acc_029_001"},
+            {"Hermes Sandals", "acc_030_000"},
+            {"Sprint Shoes", "acc_030_001"},
+            {"Flamebane Brooch", "acc_031_000"},
+            {"Flameshield Talisman", "acc_031_001"},
+            {"Frostbane Brooch", "acc_032_000"},
+            {"Frostshield Talisman", "acc_032_001"},
+            {"Sparkbane Brooch", "acc_033_000"},
+            {"Sparkshield Talisman", "acc_033_001"},
+            {"Aquabane Brooch", "acc_034_000"},
+            {"Aquashield Talisman", "acc_034_001"},
+            {"Zealot's Amulet", "acc_035_000"},
+            {"Battle Talisman", "acc_035_001"},
+            {"Tetradic Crown", "acc_036_000"},
+            {"Tetradic Tiara", "acc_036_001"},
+            {"Whistlewind Scarf", "acc_037_000"},
+            {"Aurora Scarf", "acc_037_001"},
+            {"Nimbletoe Boots", "acc_038_000"},
+            {"Collector Catalog", "acc_039_000"},
+            {"Connoisseur Catalog", "acc_039_001"},
+            {"Gold Watch", "acc_040_000"},
+            {"Champion's Badge", "acc_040_001"},
+            {"Survivalist Catalog", "acc_040_002"},
+            {"Hunter's Friend", "acc_041_000"},
+            {"Speed Sash", "acc_041_001"},
+            {"Energy Sash", "acc_041_002"},
+            {"Genji Glove", "acc_042_001"},
+            {"Growth Egg", "acc_045_000"},
+            {"Twenty-sided Die", "acc_046_000"},
+            {"Fire Charm", "acc_047_000"},
+            {"Ice Charm", "acc_048_000"},
+            {"Lightning Charm", "acc_049_000"},
+            {"Water Charm", "acc_050_000"},
+            {"Wind Charm", "acc_051_000"},
+            {"Earth Charm", "acc_052_000"},
+            {"Doctor's Code", "acc_053_000"},
+            {"Goddess's Favour", "acc_054_000"}
+        }
+
+
+        AccName.Items.Add(accessoryComboBox.Text)
+
+        Dim s As String
+
+        s = flippedAccessoryDictionary.Item(accessoryComboBox.Text)
+
+        Dim accHex = StringToHex(s)
+
+        AccBox.Items.Add(accHex)
+        AccInformation.Items.Add("0000000000000100000000000000000000")
+    End Sub
+
+    Private Sub WepAccSave_Click(sender As Object, e As EventArgs) Handles wepAccSave.Click
+
+
+        Dim inventoryOffset As Long = 284176 ' Sets offset for the overall item inventory
+        Dim weaponInventoryOffset As Long = 227668 ' Sets offset where it points to weapon locations in the inventory
+        Dim accessoryInventoryOffset As Long = 232472 ' Sets offset where it points to weapon locations in the inventory
+
+        Dim filename As String = OpenFileDialog1.FileName ' Sets filename as string
+
+        Dim fs As New FileStream(filename, FileMode.Open) ' Opens the file and begins streaming
+
+        Dim br As New BinaryReader(fs) ' BinaryReader accesses File
+
+        Dim Bytes As Byte()
+
+
+
+
+
+        Dim weaponCounter = 0
+        Dim itemNumber = 0
+
+        While weaponCounter < WepBox.Items.Count
+
+            fs.Seek(inventoryOffset, SeekOrigin.Begin)
+
+
+
+            Dim weaponString = WepBox.Items.Item(weaponCounter) + WepInformation.Items.Item(weaponCounter)
+
+            Dim Length As Integer = weaponString.Length
+            Dim upperBound As Integer = Length \ 2
+            If Length Mod 2 = 0 Then
+                upperBound -= 1
+            Else
+                weaponString = "0" & weaponString
+
+            End If
+
+            ReDim Bytes(upperBound)
+            For i As Integer = 0 To upperBound
+                Bytes(i) = Convert.ToByte(weaponString.Substring(i * 2, 2), 16)
+            Next
+
+            fs.Write(Bytes, 0, Bytes.Length)
+
+            inventoryOffset += 28
+
+            '''
+            ''' CODE FOR POINTING TO WEAPONS GOES HERE
+            '''
+
+            Dim pointerString1 = "0000000_00000"
+            Dim pointerMiddle = Hex(itemNumber + 1)
+            If pointerMiddle.Length < 4 Then
+                pointerMiddle = "00" & pointerMiddle
+            End If
+            Dim pointerString2 = "000000000001"
+
+
+            Dim completePointerString As String = (StringToHex(pointerString1) & pointerMiddle & pointerString2)
+
+            weaponCounter += 1
+            itemNumber += 1
+
+        End While
+
+        Dim accessoryCounter = 0
+
+        While accessoryCounter < WepBox.Items.Count
+
+            fs.Seek(inventoryOffset, SeekOrigin.Begin)
+
+
+            Dim accessoryString = AccBox.Items.Item(accessoryCounter) + AccInformation.Items.Item(accessoryCounter)
+
+            Dim Length As Integer = accessoryString.Length
+            Dim upperBound As Integer = Length \ 2
+            If Length Mod 2 = 0 Then
+                upperBound -= 1
+            Else
+                accessoryString = "0" & accessoryString
+
+            End If
+
+            ReDim Bytes(upperBound)
+            For i As Integer = 0 To upperBound
+                Bytes(i) = Convert.ToByte(accessoryString.Substring(i * 2, 2), 16)
+            Next
+
+            fs.Write(Bytes, 0, Bytes.Length)
+
+            inventoryOffset += 28
+
+            '''
+            ''' CODE FOR POINTING TO ACCESSORIES GOES HERE
+            '''
+
+            Dim pointerString1 = "303030303030305F3030303030"
+            Dim pointerMiddle = Hex(itemNumber + 1)
+            If pointerMiddle.Length < 4 Then
+                pointerMiddle = "0" & pointerMiddle
+            End If
+            Dim pointerString2 = "0000000001"
+
+            Dim completePointerString = pointerString1 & pointerMiddle & pointerString2
+
+            accessoryCounter += 1
+            itemNumber += 1
+
+        End While
 
 
     End Sub
